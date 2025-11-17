@@ -33,6 +33,27 @@ class Abbigliamento:
     #metodo che usa la classe prodotto  
     def calcola_profitto(self):
         return self.prodotto.calcola_profitto()
+   
+class Fabbrica:
     
-
+    def __init__(self, inventario, prod):
+        self.inventario = inventario
+        self.prod = prod
         
+    def aggiungi_prodotto(self, prod, quantity):
+        self.inventario[prod.nome] = quantity
+
+    def vendi_prodotto(self, prod, quant):
+        if prod.name in self.inventario and self.inventario[prod] >= quant:
+            old_quant = self.inventario[prod]
+            self.inventario[prod] -= quant
+            gain = old_quant - self.inventario[prod]
+            return self.prod.calcola_profitto() * gain
+        else:
+            print("Quantità o tipo del prodotto non disponibile")
+    
+    def resi_prodotto(self, prod, quant):
+        if self.inventario[prod] == prod:
+            self.inventario[prod] += quant
+        else:
+            print("Prodotto non disponibile")
