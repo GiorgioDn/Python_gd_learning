@@ -72,7 +72,8 @@ def subList_withoutList (n):
             return set_ori.difference(set_new)
         case _:
             return False
-    
-x = subList(4, [9, 2, 2, 4, 5, 1, 3, 4])
 
-print(x)
+#fa eseguire la funzione in automatico quando viene importata 
+#x = subList(4, [9, 2, 2, 4, 5, 1, 3, 4])
+
+#print(x)
