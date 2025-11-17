@@ -61,7 +61,9 @@ class Ristorante:
         print("Il menù è il seguente: ")
         for k, v in self.menu.items():
             print(f"{k} : {v}")
-        
+
+'''
+#TEST METODI      
 ristorante = Ristorante("Ristoro", "pizza")
 
 ristorante.descrivi_ristorante()
@@ -87,3 +89,68 @@ ristorante.stampa_menu()
 ristorante.togli_dal_menu("marinara")
 
 ristorante.stampa_menu()
+
+'''
+
+while True:
+    
+    #dichiaro il ristorante
+    print("Digitare il nome del ristorante ed il tipo di cucina che si vuole aggiungere")
+    nome = input("Nome del ristorante: ")
+    tipo_cucina = input("Tipo di cucina: ")
+    
+    ristorante = Ristorante(nome, tipo_cucina)
+    
+    ristorante.descrivi_ristorante()
+    
+    ristorante.stato_apertura()
+    
+    #creo i piatti da aggiungere al menu
+    print("Aggiungere nel menu i tipi di piatto con i relativi prezzi")
+    while True:
+        nome_piatto = input("Nome piatto: ")
+        price = float(input("Prezzo: "))
+        
+        ristorante.aggiungi_al_menu(nome_piatto, price)
+        
+        chooice = input("Si vuole aggiungere altri piatti? ")
+        #si esce dal ciclo while
+        if chooice.lower() == "no":
+            break
+    
+    ristorante.stampa_menu()
+    
+    #scelgo uno dei metodi da usare
+    chooice = int(input("Selezionare l'operazione da fare: \n1. Aggiungere al menu \n2.Rimuovere dal menu \n3. Modificare apertura \n4. Stamapre il menu\n"))
+    
+    match chooice:
+        case 1:
+            print("Aggiungere nel menu i tipi di piatto con i relativi prezzi")
+            nome_piatto = input("Nome piatto: ")
+            price = float(input("Prezzo: "))
+        
+            ristorante.aggiungi_al_menu(nome_piatto, price)
+            
+            ristorante.stampa_menu()
+        case 2:
+            print("Rimuovere il piatto")
+            nome_piatto = input("Nome piatto: ")
+            
+            ristorante.togli_dal_menu(nome_piatto)
+            
+            ristorante.stampa_menu()
+        case 3:
+            chooice = input("Selezionare se il ristorante è aperto o chiuso")
+            if chooice.lower() == "aperto":
+                ristorante.apri_ristorante()
+            else: 
+                ristorante.chiudi_ristorante()
+        case 4:
+            ristorante.stampa_menu()
+        case _:
+            print("Operazione non disponibile")
+    
+    chooice = input("Si vuole ripetere la scelta? ")
+    #si esce dal ciclo while
+    if chooice.lower() == "no":
+        break
