@@ -43,3 +43,36 @@ print(p.nome)
 print(p.eta)
 #uso il metodo 
 p.saluta()
+
+#classe con metodo statico
+class Calcolatrice:
+    
+    #metodo statico
+    @staticmethod
+    def somma(a, b):
+        return a + b
+
+
+#Uso del metodo statico senza creare un'istanza
+risultato = Calcolatrice.somma(5, 3)
+
+print(risultato)  
+
+#classe con metodo di classe
+class Contatore: 
+    #attributo di classe
+    numero_istanze = 0
+    
+    def __init__(self):
+        Contatore.numero_istanze += 1
+
+    #metodo di classe: cls indica la classe
+    @classmethod
+    def mostra_numero_istanze(cls):
+        print(f"Sono state create {cls.numero_istanze} istanze.")
+
+#creo due istanze di classe   
+c1 = Contatore()
+c2 = Contatore()
+
+Contatore.mostra_numero_istanze()
