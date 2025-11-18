@@ -1,4 +1,4 @@
-#classe Libreria che prende come argomenti iniziali una lista di libri 
+#classe Libreria che prende come argomenti iniziali un dizionario di libri 
 class Libreria:
     def __init__(self, catalogo):
         self.catalogo = catalogo
@@ -8,22 +8,23 @@ class Libreria:
         return catalogo
     #metodo per aggiungere un libro dato come argomento del metodo 
     def aggiungi_libro(self, libro):
-        self.catalogo.append([libro.titolo, libro.autore, libro.isbn])
+        isbn = libro.isbn
+        self.catalogo[isbn] = [libro.titolo, libro.autore]
     #metodo per rimuovere un libro dato come argomento del metodo 
     def rimuovi_libro(self, libro):
         isbn = libro.isbn
-        index = 0
-        for n in self.catalogo:
-            if isbn == n[2]:
-                self.catalogo.pop(index)
-            else:
-                index +=1
+        if isbn in self.catalogo:
+            del self.catalogo[isbn]
+        else:
+            return False
     #metodo per cercare un libro dato come argomento del metodo 
-    def cerca_per_titolo(self, libro):
-        titolo = libro.titolo
+    def cerca_per_titolo(self, titolo):
         list_search = []
-        for n in self.catalogo:
-            if n[0] == libro.titolo:
-                list_search.append([libro.titolo, libro.autore, libro.isbn])
+        index = 0
+        for n in self.catalogo.values():
+            if n[0] == titolo or n[1] == titolo:
+                list_search.append(self.catalogo.items()[index])
+            else:
+                index += 1
         return list_search
     
