@@ -1,4 +1,4 @@
-import MembroSquadra
+from MembroSquadra import MembroSquadra
 
 class Giocatore(MembroSquadra):
     #ridefinisco gli attributi iniziali
@@ -11,9 +11,9 @@ class Giocatore(MembroSquadra):
     def __str__(self):
         return f"Il giocatore {self.nome} di {self.eta} anni, giocherà nel ruolo di {self.ruolo}, con il numero maglia {self.numero_maglia}"
 
-    #da errore sugli argomenti
     def gioca_partita(self, action:str):
-        match action.lower():
+        action = action.lower()
+        match action:
             case "tiro":
                 print("Il giocatore tira in porta")
             case "para":
@@ -49,8 +49,3 @@ class Assistente(MembroSquadra):
                 print(f"{self.nome} supporta la squadra assicurandosi che siano tutti in salute")
             case "analista di gioco":
                 print(f"{self.nome} supporta la squadra assicurandosi che siano tutti giochino bene")
-    
-
-giocatore = Giocatore("ciao", 10, "cia", 10)
-
-print(giocatore)
