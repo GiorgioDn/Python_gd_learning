@@ -1,15 +1,21 @@
 class Persona:
     #prende in input una stringa ed un intero
     def __init__(self, nome:str, eta:int):
-        self.__nome = self.set_nome(nome)
-        self.__eta = self.set_eta(eta)
+        self.__nome = nome
+        self.__eta = eta
     
     #con i get accedo ai corrispettivi parametri
     def get_nome(self):
-        return self.__nome
+        if len(self.__nome) > 0:
+            return self.__nome
+        else:
+            return False
     
     def get_eta(self):
-        return self.__eta
+        if self.__eta > 0:
+            return self.__eta
+        else:
+            return False
     
     #con i set modifico i parametri
     def set_nome(self, nome:str):

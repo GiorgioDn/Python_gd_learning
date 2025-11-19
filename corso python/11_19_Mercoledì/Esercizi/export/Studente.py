@@ -4,11 +4,14 @@ class Studente(Persona):
     #prende in input i valori della superclasse e una lista di interi
     def __init__(self, nome:str, eta:int, voti:list[int]):
         super().__init__(nome, eta)
-        self.__voti = self.set_voti(voti)
+        self.__voti = voti
     
     #con i get accedo ai corrispettivi parametri
     def get_voti(self):
-        return self.__voti
+        if len(self.__voti) > 0:
+            return self.__voti
+        else:
+            return False
     
     #con i set modifico i parametri
     def set_voti(self, voti:list[int]):
@@ -19,7 +22,7 @@ class Studente(Persona):
     
     #metodo per aggiungere un singolo voto
     def add_voto(self, voto:int):
-        if voto > 0:
+        if voto > 0 and voto <= 10:
             self.__voti.append(voto)
         else:
             return False
