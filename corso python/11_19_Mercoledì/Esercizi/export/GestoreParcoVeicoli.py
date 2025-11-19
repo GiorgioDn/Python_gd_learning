@@ -1,7 +1,7 @@
 from .Veicolo import Veicolo
 
 class GestoreParcoVeicoli():
-    def __init__(self, veicoli:list[Veicolo]):
+    def __init__(self, veicoli:list[Veicolo] = []):
         self.__veicoli = veicoli
         
     def lista_veicoli(self):
@@ -14,9 +14,6 @@ class GestoreParcoVeicoli():
         self.__veicolo.append(veicolo)
     
     def rimuovi_veicolo(self, marca, modello):
-        position = 0
         for n in self.__veicoli:
-            if marca in n and modello in n:
-                self.__veicoli.pop(position)
-            else:
-                position +=1
+            if n.get_marca() == marca and n.get_modello() == modello:
+                self.__veicoli.remove(n)
