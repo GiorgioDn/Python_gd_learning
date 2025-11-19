@@ -1,4 +1,4 @@
-from UnitaMilitare import UnitaMilitare
+from .UnitaMilitare import UnitaMilitare
 
 class Fanteria(UnitaMilitare):
     #aggiunge nuovi attributi non ereditati

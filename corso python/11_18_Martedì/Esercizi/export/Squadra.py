@@ -1,4 +1,4 @@
-from MembroSquadra import MembroSquadra
+from .MembroSquadra import MembroSquadra
 
 class Giocatore(MembroSquadra):
     #ridefinisco gli attributi iniziali

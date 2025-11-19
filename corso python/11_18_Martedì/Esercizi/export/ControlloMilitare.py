@@ -1,4 +1,4 @@
-from Unita import *
+from .Unita import *
 
 class ControlloMilitare(Fanteria, Artiglieria, Cavalleria, SupportoLogistico, Ricognizione):
     #prende tutti i parametri delle classi padre più una nuova
