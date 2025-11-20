@@ -1,8 +1,19 @@
+from .export. import *
+from .export. import *
+from .export. import *
+
 while True:
     
     print("")
     
-    chooice = int(input("Selezionare: \n1. \n2. \n3. \n4. \n5. \n"))
+    print("\n ")
+    print("1. ")
+    print("2. ")
+    print("3. ")
+    print("4. ")
+    print("5. ")
+    print("6. Esci")
+    chooice = int(input("Scegli una opzione: "))
     
     match chooice:
         case 1:
@@ -15,10 +26,7 @@ while True:
             pass
         case 5:
             pass
+        case 6:
+            break
         case _:
             print("Scelta non valida")
-    
-    chooice = input("Si vuole effettuare una nuova prova?")
-    
-    if chooice.lower() == "no":
-        break
