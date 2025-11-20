@@ -1,8 +1,8 @@
 class Teatro:
-    def __init__(self, posti:list[Posto]):
+    def __init__(self, posti:list[Posto]): # type: ignore
         self.__posti = posti
         
-    def aggiungi_posto(self, posto:Posto):
+    def aggiungi_posto(self, posto:Posto): # type: ignore
         return self.__posti.append(posto)
         
     def stampa_posti_occupati(self):
