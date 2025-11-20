@@ -206,4 +206,4 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 .DS_Store
-corso python/menu_template.py
+template/
