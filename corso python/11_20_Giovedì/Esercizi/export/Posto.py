@@ -23,3 +23,11 @@ class Posto:
             return f"Il posto numero: {self.__numero} in fila: {self.__fila} è stato prenotato"
         else:
             return f"Il posto numero: {self.__numero} in fila: {self.__fila} è occupato"
+    
+    #metodo per liberare il posto e scambiare lo stato di occupato
+    def libera(self):
+        if self.__occupato == True:
+            self.__occupato = False
+            return f"Il posto numero: {self.__numero} in fila: {self.__fila} è stato liberato"
+        else:
+            return f"Il posto numero: {self.__numero} in fila: {self.__fila} è libero"
