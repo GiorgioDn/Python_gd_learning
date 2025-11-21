@@ -15,8 +15,8 @@ class VeicoloTrasporto(ABC):
 
     #controlla se è possibile aggiungere il valore int per poi aggiornare l'attributo carico_atttuale
     def carica(self, peso:int):
-        self._carico_attuale += peso
-        if self._carico_attuale <= self._peso_massimo:
+        if self._carico_attuale + peso <= self._peso_massimo:
+            self._carico_attuale += peso
             return f"È stato caricato, il carico attuale è: {self._carico_attuale} kg su {self._peso_massimo} kg massimi"
         else:
             return f"Non può essere inserito perchè supera il carico massimo di {self._peso_massimo} kg"
