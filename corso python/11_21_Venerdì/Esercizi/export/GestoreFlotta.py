@@ -26,8 +26,8 @@ class GestoreFlotta:
     def stampa_veicoli(self):
         for n in self.veicoli:
             if type(n) == Camion:
-                print(f"Veicolo: {n._targa} - Tipo: Camion - Carico attuale: {n._carico_attuale}")
+                print(f"Veicolo: {n.get_targa()} - Tipo: Camion - Carico attuale: {n.get_carico_attuale()}")
             elif type(n) == Furgone:
-                print(f"Veicolo: {n._targa} - Tipo: Furgone - Carico attuale: {n._carico_attuale}")
+                print(f"Veicolo: {n.get_targa()} - Tipo: Furgone - Carico attuale: {n.get_carico_attuale()}")
             else:
-                print(f"Veicolo: {n._targa} - Tipo: Motocarro - Carico attuale: {n._carico_attuale}")
+                print(f"Veicolo: {n.get_targa()} - Tipo: Motocarro - Carico attuale: {n.get_carico_attuale()}")

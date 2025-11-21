@@ -11,11 +11,11 @@ def main():
     
     print(camion.carica(150))
     
-    print(camion._carico_attuale)
+    print(camion.get_carico_attuale())
     
     camion.scarica()
     
-    print(camion._carico_attuale)
+    print(camion.get_carico_attuale())
     
     gestore.aggiungi_veicolo(camion)
     
@@ -24,11 +24,11 @@ def main():
     
     print(furgone.carica(50))
     
-    print(furgone._carico_attuale)
+    print(furgone.get_carico_attuale())
     
     furgone.scarica()
     
-    print(furgone._carico_attuale)
+    print(furgone.get_carico_attuale())
     
     gestore.aggiungi_veicolo(furgone)
     
@@ -37,11 +37,11 @@ def main():
     
     print(motocarro.carica(50))
     
-    print(motocarro._carico_attuale)
+    print(motocarro.get_carico_attuale())
     
     motocarro.scarica()
     
-    print(motocarro._carico_attuale)
+    print(motocarro.get_carico_attuale())
     
     gestore.aggiungi_veicolo(motocarro)
     

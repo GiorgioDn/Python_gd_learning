@@ -12,6 +12,26 @@ class VeicoloTrasporto(ABC):
     @abstractmethod
     def costo_manutenzione(self):
         pass
+    
+    #getter
+    def get_targa(self):
+        return self._targa
+    
+    #getter
+    def get_peso_massimo(self):
+        return self._peso_massimo
+    
+    #getter
+    def get_carico_attuale(self):
+        return self._carico_attuale
+    
+    #getter
+    def set_targa(self, targa:str):
+        self._targa = targa
+    
+    #setter
+    def set_peso_massimo(self, peso_massimo:int):
+        self._peso_massimo = peso_massimo
 
     #controlla se è possibile aggiungere il valore int per poi aggiornare l'attributo carico_atttuale
     def carica(self, peso:int):
