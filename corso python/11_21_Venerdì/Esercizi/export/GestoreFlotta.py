@@ -11,7 +11,7 @@ class GestoreFlotta:
         
     def rimuovi_veicolo(self, targa:str):
         for n in self.veicoli:
-            if n._targa == targa:
+            if n.get_targa() == targa:
                 self.veicoli.remove(n)
      
     #somma i costi totali eseguendo il metodo costo_manutenzione presente nella classe VeicoloTrasporto           
