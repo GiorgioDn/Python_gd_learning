@@ -31,6 +31,7 @@ arr = np.arange(10)
 print(arr)
 
 #reshape: cambia la forma dell'array senza cambiarne i dati
+#reshape dà errore se il valore riga x il valore colonna non è pari alla lunghezza dell'array
 arr = np.arange(6)
 reshaped_arr = arr.reshape((2, 3))
 print(reshaped_arr)
