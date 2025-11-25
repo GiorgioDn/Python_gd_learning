@@ -79,6 +79,7 @@ def main():
                 second_matrix = np.random.randint(start, end, size=(row, col))
                 
                 #creo la matrice con cui moltiplicare elemento per elemento
+                #matmul fa il prodotto riga per colonna
                 #mult_matrix = np.matmul(matrix, second_matrix)
                 #moltiplica elemento per elemento
                 mult_matrix = matrix * second_matrix
