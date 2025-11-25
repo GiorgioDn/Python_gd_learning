@@ -14,3 +14,6 @@ print("Somma elementi matrice con reshape: ", sum_matrix)
 
 sum_matrix = np.sum(matrix_rand)
 print("Somma elementi matrice random: ", sum_matrix)
+
+mat_add = np.add(arr_reshape, matrix_rand)
+print("Matrice somma: ", mat_add)
