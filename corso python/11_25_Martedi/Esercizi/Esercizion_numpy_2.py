@@ -30,12 +30,14 @@ def main():
             sum_tot = sum_arr.sum()
 
             new_sum = sum_arr[sum_arr > 5].sum()
+            
+            #stringa per la visualizzazione dei dati
+            string = f"Array con linspace: {arr_lin} \nArray random: {arr_rand} \nSomma array: {sum_arr} \nSomma elementi array somma: {sum_tot} \nSomma elementi maggiori di 5: {new_sum}\n"
 
-            print(arr_lin, arr_rand, sum_arr, sum_tot, new_sum)
-  
-                    
+            print(string)
+                
+            #aggiungo al file i nuovi dati
             with open (txt, "a") as file:
-                string = f"Array con linspace: {arr_lin} \nArray random: {arr_rand} \nSomma array: {sum_arr} \nSomma elementi array somma: {sum_tot} \nSomma elementi maggiori di 5: {new_sum}\n"
                 file.write(string)
 
             chooice = input("Si vogliono inserire altri dati? si/no: ")
