@@ -79,7 +79,9 @@ def main():
                 second_matrix = np.random.randint(start, end, size=(row, col))
                 
                 #creo la matrice con cui moltiplicare elemento per elemento
-                mult_matrix = np.matmul(matrix, second_matrix)
+                #mult_matrix = np.matmul(matrix, second_matrix)
+                #moltiplica elemento per elemento
+                mult_matrix = matrix * second_matrix
                 string = f"Seconda matrice: \n{second_matrix}\nProdotto tra le matrici: \n{mult_matrix}\n"
                 print(mult_matrix)
                 with open (txt, "a") as file:
@@ -93,7 +95,7 @@ def main():
                 with open (txt, "a") as file:
                     file.write(string)
                     
-            case 6:
+            case 7:
                 
                 #controllo matrice quadrata
                 if row == col:
@@ -106,7 +108,7 @@ def main():
                 else:
                     print("La matrice non è quadrata")
                 
-            case 7:
+            case 8:
                 
                 #scelta se cambiare utente o uscire
                 chooice = input("Si vuole inserire dati come nuovo utente? si/no: ")
