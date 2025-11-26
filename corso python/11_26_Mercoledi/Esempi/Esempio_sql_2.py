@@ -30,3 +30,13 @@ prezzo REAL
 """
 cursor.execute(sql_create_table)
 print("Tabella 'libri' creata con successo.")
+
+# 4. INSERIMENTO DATI (INSERT) - Metodo Singolo
+# NOTA: Uso '?' come placeholder per sicurezza (evita SQL Injection)
+sql_insert = "INSERT INTO libri (titolo, autore, anno, prezzo) VALUES (?, ?, ?, ?)"
+dati_libro = ("Il Signore degli Anelli", "J.R.R. Tolkien", 1954, 25.50)
+
+cursor.execute(sql_insert, dati_libro)
+print("Inserito un singolo libro.")
+#invia le modifiche
+conn.commit()
