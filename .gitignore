@@ -207,4 +207,4 @@ marimo/_lsp/
 __marimo__/
 .DS_Store
 template/
-*.db
+db_example/

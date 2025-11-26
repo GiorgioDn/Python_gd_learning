@@ -2,7 +2,7 @@ import sqlite3
 import os
 
 # Nome del file database
-db_filename = 'corso python/11_26_Mercoledi/Esempi/libreria_esempio.db'
+db_filename = 'db_example/libreria_esempio.db'
 
 # Rimuovo il file se esiste già per avere un ambiente pulito ad ogni esecuzione
 if os.path.exists(db_filename):
