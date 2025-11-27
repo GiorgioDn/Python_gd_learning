@@ -12,6 +12,7 @@ df = pd.DataFrame(data)
 
 #pivot
 #creazione della tabella pivot
+#applica la funzione al values organizzando i dati in modo tale che ogni riga rappresenti l'index ed ogni colonna riporti il dato corrispondente a columns
 pivot_df = df.pivot_table(values='Vendite', index='Prodotto', columns='Città', aggfunc='mean')
 
 print(pivot_df)
