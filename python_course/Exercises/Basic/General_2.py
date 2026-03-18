@@ -1,5 +1,3 @@
-from Esercizio_riassuntivo_1 import *
-
 #controlla l'argomento della funzione e se è negativo lo fa diventare positivo
 def d_controllo_negativi(funzione):
     def wrapper(*args, **kwargs):

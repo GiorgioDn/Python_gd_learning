@@ -1,7 +1,7 @@
-from export.Auto import Auto
-from export.Furgone import Furgone
-from export.Motocicletta import Motocicletta
-from export.GestoreParcoVeicoli import GestoreParcoVeicoli
+from .module.Car import Auto
+from .module.Van import Furgone
+from .module.Motorcycle import Motocicletta
+from .module.ManageVehicle import GestoreParcoVeicoli
 
 while True:
     

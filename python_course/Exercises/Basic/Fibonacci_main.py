@@ -1,5 +1,5 @@
 #importo tutte le funzioni presenti nel file Fibonacci.py
-from Import.Fibonacci import *
+from .Import.Fibonacci import *
         
 while True:
     #chiedo il numero della sequenza

@@ -1,5 +1,5 @@
-from export.Teatro import *
-from export.PostoSpeciale import *
+from .module.Theatre import *
+from .module.SpecialSeat import *
 
 def main():
     

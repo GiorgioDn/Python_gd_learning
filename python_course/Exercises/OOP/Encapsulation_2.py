@@ -1,5 +1,5 @@
-from export.Studente import Studente
-from export.Professore import Professore
+from .module.Student import Studente
+from .module.Professor import Professore
 
 while True:
     

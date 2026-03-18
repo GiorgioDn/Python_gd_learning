@@ -1,6 +1,6 @@
-from export.GestorePagamenti import GestorePagamenti
-from export.Pagamenti import *
-from export.MetodoPagamenti import *
+from .module.ManagePay import GestorePagamenti
+from .module.Pay import *
+from .module.PayMethod import *
 
 def main():
     while True:

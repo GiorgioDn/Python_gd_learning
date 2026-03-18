@@ -1,5 +1,5 @@
 #non riesce ad esportare (?)
-from export.Squadra import *
+from .module.Squad import *
 
 while True:
     

@@ -1,4 +1,4 @@
-from export.Animale import *
+from .module.Animal import *
 
 #classe Leone figlio della classe Animale
 class Leone(Animale):

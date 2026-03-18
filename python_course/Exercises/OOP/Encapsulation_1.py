@@ -1,4 +1,4 @@
-from export.ContoBancario import ContoBancario
+from .module.BankAccount import ContoBancario
 
 while True:
     

@@ -1,5 +1,5 @@
-from export.Unita import *
-from export.ControlloMilitare import *
+from .module.Unit import *
+from .module.MilitaryControl import *
 
 fanteria = Fanteria("fanteria", 10, "fucili")
 

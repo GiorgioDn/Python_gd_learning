@@ -1,5 +1,5 @@
-from export.Libro import Libro
-from export.Libreria import Libreria
+from .module.Book import Libro
+from .module.Library import Libreria
 
 catalogo ={}
 

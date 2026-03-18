@@ -1,6 +1,6 @@
-from export.Officina import Officina
-from export.TicketRiparazione import TicketRiparazione
-from export.ElettrodomesticoSpecifico import *
+from .module.Workshop import Officina
+from .module.RepairTicket import TicketRiparazione
+from .module.SpecificAppliance import *
 from random import randint
 
 def main():
