@@ -1,23 +1,23 @@
-numeri = [1, 2, 3, 4, 5]
+numbers = [1, 2, 3, 4, 5]
 
-#break fa terminare il ciclo
-#conntinue salta l'interazione, ma poi continua con la successiva
-for numero in numeri:
-    if numero == 2:
+# break terminates the loop
+# continue skips the iteration, but then continues with the next one
+for number in numbers:
+    if number == 2:
         continue
-    elif numero == 4:
+    elif number == 4:
         break
     else:
-        print(numero)
+        print(number)
     
-print("\nRisultati pass:")
-#pass non esegue alcuna azione
+print("\nResults of pass:")
+# pass does not perform any action
 for i in range(5):
     if i == 3:
         pass
     print(i)
 
-print("\nRisultati operatore splat:")    
-#splat: * prima della variabile iterabile per espanderla 
-numeri = [*range(1, 11)]
-print(numeri)
+print("\nResults of splat operator:")    
+# splat: * before the iterable variable to expand it 
+numbers = [*range(1, 11)]
+print(numbers)

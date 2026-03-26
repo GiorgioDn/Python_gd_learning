@@ -1,76 +1,76 @@
-#classe computer con metodo privato
+# computer class with a private method
 class Computer:
-    #l'attributo processore è privato
-    def __init__(self, nome_proc):
-        self.__processore = nome_proc
+    # the processor attribute is private
+    def __init__(self, proc_name):
+        self.__processor = proc_name
 
-    #accedo all'attributo tramite il metodo get
-    def get_processore(self):
-        return self.__processore
+    # access the attribute via the get method
+    def get_processor(self):
+        return self.__processor
 
-    #modifico l'attributo tramite il metodo set
-    def set_processore(self, processore):
-        self.__processore = processore
+    # modify the attribute via the set method
+    def set_processor(self, processor):
+        self.__processor = processor
     
-    #metodo privato 
-    def __metodo_privato(self):
-        return "Questo è un metodo privato"
+    # private method 
+    def __private_method(self):
+        return "This is a private method"
     
-    #metodo pubblico per accedere al metodo privato
-    def metodo_pubblico(self):
-        return self.__metodo_privato()
+    # public method to access the private method
+    def public_method(self):
+        return self.__private_method()
 
 
 pc = Computer("Intel i5")
-print(pc.get_processore()) 
+print(pc.get_processor()) 
 
-#accede all'attributo privato tramite il getter
-pc.set_processore("AMD Ryzen 5") 
+# access the private attribute via the getter
+pc.set_processor("AMD Ryzen 5") 
 
-#modifica l'attributo privato tramite il setter
-print(pc.get_processore())
+# modify the private attribute via the setter
+print(pc.get_processor())
 
-#da evitare anche per motivi di sicurezza
-print(pc._Computer__processore)
+# to be avoided, also for security reasons
+print(pc._Computer__processor)
 
-print(pc.metodo_pubblico())
+print(pc.public_method())
 
 print("\n")
 
-#variabile globale
-numero = 10
+# global variable
+number = 10
 
-def funzione_esterna():
-    #variabile locale nella funzione esterna
-    numero = 5
-    print("Numero dentro funzione_esterna (locale):", numero)    
+def outer_function():
+    # local variable in the outer function
+    number = 5
+    print("Number inside outer_function (local):", number)    
 
-    def funzione_interna():
-        #utilizzo nonlocal per modificare la variabile locale della funzione esterna
-        nonlocal numero
-        numero = 3
+    def inner_function():
+        # use nonlocal to modify the local variable of the outer function
+        nonlocal number
+        number = 3
 
-        print("Numero dentro funzione_interna (nonlocal):", numero)
+        print("Number inside inner_function (nonlocal):", number)
 
-    funzione_interna()
+    inner_function()
 
-print("Numero nel main (globale):", numero)
-funzione_esterna()
-print("Numero nel main dopo chiamata (globale non cambiato):", numero)
+print("Number in main (global):", number)
+outer_function()
+print("Number in main after call (global unchanged):", number)
 
-#classe con variabile protetta
-class ClasseBase:
+# class with protected variable
+class BaseClass:
     def __init__(self):
-        self._variabile_protetta = "Sono protetta"
+        self._protected_variable = "I am protected"
 
 
-class SottoClasse(ClasseBase):
+class SubClass(BaseClass):
     def __init__(self):
         super().__init__()
-        #la variabile viene ereditata dalla classe figlio
-        print(self._variabile_protetta)
+        # the variable is inherited by the child class
+        print(self._protected_variable)
 
 
-obj = SottoClasse()
-#da evitare anche per motivi di sicurezza
-print(obj._variabile_protetta)
+obj = SubClass()
+# to be avoided, also for security reasons
+print(obj._protected_variable)

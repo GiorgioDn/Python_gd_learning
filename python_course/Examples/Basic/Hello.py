@@ -1,30 +1,30 @@
-#print di una stringa
+# print a string
 print("Hello")
 
-#print di una stringa concatenata ad un'altra stringa
+# print a string concatenated with another string
 print("Hello" + " World")
 
 print("2" + " " + "Hello")
 
-#print di un numero
+# print a number
 print(10)
 
-#print di una stringa contenente un numero
+# print a string containing a number
 print("10")
 
-#print di una somma di 
+# print the sum of
 print(2+1)
 
-#dichiarazione di variabili da usare nel print
-nome = "Giorgio"
-eta = 28
+# declaration of variables to use in the print
+name = "Dr"
+age = 22
 
-#print con le variabili dichiarate nome ed eta
-print("Il mio nome è:", nome, "ed ho:", eta, "anni")
+# print with declared variables name and age
+print("My name is:", name, "and I am:", age, "years old")
 
-#sovrascrive i valori nome e eta con valori inseriti in fase di esecuzione per poi stamparli
-nome = input("Inserisci il tuo nome: ")
-#conversione valore di input in intero
-eta = int( input("Inserisci la tua età: "))
+# overwrites name and age values with values entered during execution and then prints them
+name = input("Enter your name: ")
+# convert input value to integer
+age = int( input("Enter your age: "))
 
-print("Il mio nome è:", nome, "ed ho:", eta, "anni")
+print("My name is:", name, "and I am:", age, "years old")

@@ -1,51 +1,51 @@
 from abc import ABC, abstractmethod
 
-#classe astratta
-class Animale(ABC):
-    #il pass è facoltivo
-    #il metodo astratto deve essere per forza sovrascritto dalle classi figlie
+#abstract clasas
+class Animal(ABC):
+    #pass is optional
+    #the abstract method must be overridden by the subclasses
     @abstractmethod
-    def muovi(self):
+    def move(self):
         pass
     
-class Cane(Animale):
-    def muovi(self):
-        print("Corro")
+class Dog(Animal):
+    def move(self):
+        print("I run")
     
-class Pesce(Animale):
-    def muovi(self):
-        print("Nuoto")
+class Fish(Animal):
+    def move(self):
+        print("I swim")
 
-cane = Cane()
-cane.muovi()
+dog = Dog()
+dog.move()
 
-pesce = Pesce()
-pesce.muovi()
+fish = Fish()
+fish.move()
 
-#classe astratta con metodi astratti e concreti
-class Forma(ABC):
+#abstract class with abstract method
+class Form(ABC):
     @abstractmethod
     def area(self):
         pass 
     
     @abstractmethod
-    def perimetro(self):
+    def perimeter(self):
         pass
     
-class Rettangolo(Forma):
-    def __init__(self, larghezza, altezza):
-        self.larghezza = larghezza
-        self.altezza = altezza
+class Rectangle(Form):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
         
     def area(self):
-        return self.larghezza * self.altezza
+        return self.width * self.height
     
-    def perimetro(self):
-        return 2 * (self.larghezza + self.altezza)
+    def perimeter(self):
+        return 2 * (self.width + self.height)
     
-# f = Forma() #TypeError perchè non si può inizializzare
+# f = Form() #TypeError because it can't be initialize 
 
-r = Rettangolo(5, 10)
+r = Rectangle(5, 10)
 print(r.area())
-print(r.perimetro())
+print(r.perimeter())
         

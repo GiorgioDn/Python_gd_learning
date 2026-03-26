@@ -1,32 +1,32 @@
-#Dati liste
-numeri = [1, 2, 3, 4, 5]
-nomi = ["Alice", "Bob", "Charlie"]
-misto = [1, 2, "Bob", False]
+# List data
+numbers = [1, 2, 3, 4, 5]
+names = ["Alice", "Bob", "Charlie"]
+mixed = [1, 2, "Bob", False]
 
-#Si accede agli elementi di una lista con l'indice partendo da 0
-print(numeri[0])
-print(nomi[1])
-print(misto[3])
+# Access list elements using an index starting from 0
+print(numbers[0])
+print(names[1])
+print(mixed[3])
 
-#si può modificare un elemento tramite l'indice
-numeri[2] = 20
-print(numeri)
+# an element can be modified via the index
+numbers[2] = 20
+print(numbers)
 
-#alcuni metodi sono
-#len per la lunghezza 
-print(len(numeri))
-#append per aggiungere un elemento a fine lista
-numeri.append(6)
-print(numeri)
-#insert per inserire un elemento in una posizione specifica
-numeri.insert(1, 10)
-print(numeri)
-#remove per rimuovere un elemento
-numeri.remove(4)
-print(numeri)
-#sort per organizzare la lista
-numeri.sort()
-print(numeri)
-#pop toglie l'ultimo elemento di una lista
-numeri.pop()
-print(numeri)
+# some methods are:
+# len for length 
+print(len(numbers))
+# append to add an element to the end of the list
+numbers.append(6)
+print(numbers)
+# insert to insert an element at a specific position
+numbers.insert(1, 10)
+print(numbers)
+# remove to remove an element
+numbers.remove(4)
+print(numbers)
+# sort to organize the list
+numbers.sort()
+print(numbers)
+# pop removes the last element of a list
+numbers.pop()
+print(numbers)

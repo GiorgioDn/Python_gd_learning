@@ -1,15 +1,15 @@
-#creo la matrice
-matrice = [
+# create the matrix
+matrix = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
 ]
 
-#accedo all'elemento nella posizione corrispondente
-elemento = matrice[0][1]
-print(elemento, "\n")
+# access the element at the corresponding position
+element = matrix[0][1]
+print(element, "\n")
 
-#stampo gli elementi singolarmente
-for riga in matrice:
-    for elemento in riga:
-        print(elemento)
+# print the elements individually
+for row in matrix:
+    for element in row:
+        print(element)

@@ -1,9 +1,9 @@
 import MyModule as pippo
 
-pippo.saluta("Alice")
+pippo.hello("Alice")
 
-raggio = 2
+radius = 2
 
-cerchio = pippo.Cerchio(raggio)
+circle = pippo.Circle(radius)
 
-print(cerchio.area())
+print(circle.area())

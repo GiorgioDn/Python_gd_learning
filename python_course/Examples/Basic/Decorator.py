@@ -1,55 +1,55 @@
-#dichiarazione del decoratore
-def decoratore(funzione):
+# decorator declaration
+def decorator(func):
     def wrapper():
-        print("Prima dell'esecuzione della funzione")
-        funzione()
-        print("Dopo l'esecuzione della funzione")
+        print("Before function execution")
+        func()
+        print("After function execution")
     return wrapper
 
-#inizializzo il decoratore 
-@decoratore
-def saluta():
-    print("Ciao")
+# initialize the decorator
+@decorator
+def greet():
+    print("Hello")
 
-#lancio la funzione saluta modificata dal wrapper
-saluta()
+# launch the greet function modified by the wrapper
+greet()
 
 print()
 
-#decoratore con argomenti
-def decoratore_con_argomenti(funzione):
+# decorator with arguments
+def decorator_with_arguments(func):
     def wrapper(*args, **kwargs):
-        print ("Prima")
-        risultato = funzione(*args, **kwargs)
-        print("Dopo")
-        return risultato
+        print ("Before")
+        result = func(*args, **kwargs)
+        print("After")
+        return result
     return wrapper
 
-@decoratore_con_argomenti
-def somma(a, b):
+@decorator_with_arguments
+def sum_nums(a, b):
     print(a + b)
     return a + b
 
-#utilizzo lo stesso wrapper una funzione con più parametri
-@decoratore_con_argomenti
-def sommaMultipla(a, b, c, d):
+# use the same wrapper for a function with more parameters
+@decorator_with_arguments
+def multipleSum(a, b, c, d):
     print(a + b + c + d)
     return a + b + c + d
 
-print("Il risultato è:", somma(4, 5))
+print("The result is:", sum_nums(4, 5))
 
-print("Il risultato è:", sommaMultipla(1, 2, 4, 3))
+print("The result is:", multipleSum(1, 2, 4, 3))
 
-def logger(funzione):
+def logger(func):
     def wrapper(*args, **kwargs):
-        print(f"Chiama a {funzione.__name__} con argomenti: {args} e {kwargs}")
-        risultato = funzione (*args, **kwargs)
-        print(f"Risultato di {funzione.__name__}: {risultato}")
-        return risultato
+        print(f"Call to {func.__name__} with arguments: {args} and {kwargs}")
+        result = func(*args, **kwargs)
+        print(f"Result of {func.__name__}: {result}")
+        return result
     return wrapper
 
 @logger
-def moltiplica (a, b):
+def multiply (a, b):
     return a*b
 
-moltiplica (3, 5)
+multiply (3, 5)

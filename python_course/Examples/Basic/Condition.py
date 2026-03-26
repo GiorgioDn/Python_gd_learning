@@ -1,25 +1,25 @@
-#si fa selezionare il numero per verificare sl'if o l'else
-numero = int(input("Selezionare un numero intero: "))
+# ask the user to select a number to check the if or else
+number = int(input("Select an integer number: "))
 
-#se la condizione è vera viene restituito il codice dopo i due punti
-if numero > 0: 
-    print ("Il numero è positivo")
-#se la prima condizione è falsa si può usare l'elif
-elif numero < 0:
-    print("Il numero è negativo")
-#se l'if e gli elif non vengono verificati si usa il codice dell'else
+# if the condition is true, the code after the colon is executed
+if number > 0: 
+    print ("The number is positive")
+# if the first condition is false, elif can be used
+elif number < 0:
+    print("The number is negative")
+# if the if and elif conditions are not met, the else code is used
 else: 
-    print("Il numero è 0")
+    print("The number is 0")
     
-#match confronta il valore con il case
-comando = input("Inserisci un comando: ")
+# match compares the value with the case
+command = input("Enter a command: ")
 
-match comando:
+match command:
     case "start":
-        print("Avvio del programma")
+        print("Starting the program")
     case "stop":
-        print("Chiusura del programma")
-    case "pausa":
-        print("Programma in pausa")
+        print("Closing the program")
+    case "pause":
+        print("Program paused")
     case _:
-        print("Programma non riconosciuto")
+        print("Unrecognized command")

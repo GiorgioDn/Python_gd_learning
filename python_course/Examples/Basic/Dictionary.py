@@ -1,31 +1,30 @@
-#creo un dizionario associandolo ad una variabile
-studente = {
-    "nome": "Alice",
-    "eta": 20,
-    "sesso": "femmina",
+# create a dictionary by associating it with a variable
+student = {
+    "name": "Alice",
+    "age": 20,
+    "gender": "female",
 }
 
-#restituisco i dati del dizionario
-print(studente["nome"])
-print(studente["eta"])
+# return the dictionary data
+print(student["name"])
+print(student["age"])
 
-#modifica del valore eta
-studente["eta"] = 21
-print(studente)
+# modify the age value
+student["age"] = 21
+print(student)
 
-#aggiungere un elemento
-studente["citta"] = "Roma"
-print(studente)
+# add an element
+student["city"] = "Rome"
+print(student)
 
-#stampo solo le chiavi
-print(studente.keys())
+# print only the keys
+print(student.keys())
 
-#stampo solo i valori
-print(studente.values())
+# print only the values
+print(student.values())
 
-#stampa la lista delle coppie chiave valore
-print(studente.items())
+# print the list of key-value pairs
+print(student.items())
 
-#stampa il valore associato ad una chiave
-print(studente.get("nome"))
-
+# print the value associated with a key
+print(student.get("name"))

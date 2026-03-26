@@ -1,44 +1,44 @@
-conteggio = 0
+count = 0
 
-#inizializzo un ciclo while che viene eseguito finchè la condizione non è soddisfatta
-#ciclo matematico
-while conteggio < 5:
-    print(conteggio)
-    conteggio += 1
+# initialize a while loop that runs until the condition is met
+# mathematical loop
+while count < 5:
+    print(count)
+    count += 1
     
-controllor = True
+controller = True
 
-#ciclo booleano
-while controllor:
-    print(controllor)
-    scelta = input("Vuoi continuare? ")
-    if scelta.lower() == "no":
-        controllor = False
+# boolean loop
+while controller:
+    print(controller)
+    choice = input("Do you want to continue? ")
+    if choice.lower() == "no":
+        controller = False
     else:
-        print("Stai continuando ")
+        print("You are continuing")
         
-numeri = [1, 2, 3, 4, 5]
+numbers = [1, 2, 3, 4, 5]
 
-#ciclo for 
-for numero in numeri:
-    print(numero)
+# for loop 
+for number in numbers:
+    print(number)
     
-#vado a capo per distinguere meglio i cicli for
+# add a newline to better distinguish the for loops
 print("\n")
     
-#ciclo for con range solo stop
+# for loop with range (stop only)
 for i in range(5):
     print(i)
 
 print("\n")
 
-#ciclo for con range start e stop
+# for loop with range (start and stop)
 for i in range(2, 8):
     print(i)
 
 print("\n")
 
-#ciclo for con range start e stop e step
+# for loop with range (start, stop, and step)
 for i in range(2, 10, 2):
     print(i)
 

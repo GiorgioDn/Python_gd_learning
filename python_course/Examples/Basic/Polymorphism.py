@@ -1,44 +1,44 @@
-#polimorfimo con overriding
-class Animale:
+# polymorphism with overriding
+class Animal:
 
-    def emetti_suono(self):
-        print("Questo animale fa un suono")
+    def make_sound(self):
+        print("This animal makes a sound")
 
 
-class Cane(Animale):
+class Dog(Animal):
 
-    def emetti_suono(self):
-        print("Bau")
+    def make_sound(self):
+        print("Woof")
     
-    #usato per il polimorfismo passivo
-    def parla(self):
-        return "Bau!"
+    # used for passive polymorphism
+    def speak(self):
+        return "Woof!"
 
 
-class Gatto(Animale):
+class Cat(Animal):
 
-    def emetti_suono(self):
-        print("Miao")
+    def make_sound(self):
+        print("Meow")
     
-    #usato per il polimorfismo passivo
-    def parla(self):
-        return "Miao!"
+    # used for passive polymorphism
+    def speak(self):
+        return "Meow!"
         
-animale = Animale()
-animale.emetti_suono()
+animal = Animal()
+animal.make_sound()
 
-cane = Cane()
-cane.emetti_suono()
+dog = Dog()
+dog.make_sound()
 
-gatto = Gatto()
-gatto.emetti_suono()
+cat = Cat()
+cat.make_sound()
 
         
-#Simulazione overloading
-class Stampa:
+# Simulating overloading
+class Print:
 
-    #argomenti opzionali o variadici con cui simulare l'overloading
-    def mostra(self, a=None, b=None):
+    # optional or variadic arguments to simulate overloading
+    def show(self, a=None, b=None):
         if a is not None and b is not None:
             print(a + b)
 
@@ -46,38 +46,38 @@ class Stampa:
             print(a)
 
         else:
-            print("Niente da mostrare")
+            print("Nothing to show")
             
-stampa = Stampa()
-stampa.mostra()
-stampa.mostra(1)
-stampa.mostra(1, 2)
+printer = Print()
+printer.show()
+printer.show(1)
+printer.show(1, 2)
 
-#Polimorfismo passivo: duck typing con funzione che usa il metodo polimorfico
-def fai_parlare(animale):
-    print(animale.parla())
+# Passive polymorphism: duck typing with a function that uses the polymorphic method
+def make_speak(animal):
+    print(animal.speak())
 
-fai_parlare(cane) 
-fai_parlare(gatto) 
+make_speak(dog) 
+make_speak(cat) 
 
-#duck typing con ciclo polimorfico (duck typing)
-class Cerchio:
-    def disegna(self):
-        print("Disegno un cerchio")
-
-
-class Rettangolo:
-    def disegna(self):
-        print("Disegno un rettangolo")
+# duck typing with a polymorphic loop
+class Circle:
+    def draw(self):
+        print("Drawing a circle")
 
 
-def disegna_figura(figura):
-    #basta che esista disegna
-    figura.disegna()
+class Rectangle:
+    def draw(self):
+        print("Drawing a rectangle")
 
 
-figure = [Cerchio(), Rettangolo()]
+def draw_shape(shape):
+    # as long as draw exists
+    shape.draw()
 
-#si itera ogni figura
-for figura in figure:
-    disegna_figura(figura)
+
+shapes = [Circle(), Rectangle()]
+
+# iterate through each shape
+for shape in shapes:
+    draw_shape(shape)

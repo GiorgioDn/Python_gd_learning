@@ -1,59 +1,59 @@
-#classe base
-class Animale:
+# base class
+class Animal:
 
-    def __init__(self, nome):
-        self.nome = nome
+    def __init__(self, name):
+        self.name = name
 
-    def parla(self):
-        print(f"{self.nome} fa suono generico.")
+    def speak(self):
+        print(f"{self.name} makes a generic sound.")
 
 
-#classe derivata (eredita da Animale)
-class Cane(Animale):
+# derived class (inherits from Animal)
+class Dog(Animal):
 
-    #si sovrascrive il metodo 
-    def parla(self):
-        print(f"{self.nome} abbaia!")
+# overwrite the method 
+    def speak(self):
+        print(f"{self.name} barks!")
         
-animale_generico = Animale("AnimaleGenerico")
-cane = Cane("Fido")
+generic_animal = Animal("GenericAnimal")
+dog = Dog("Fido")
 
-animale_generico.parla()
-cane.parla()  
+generic_animal.speak()
+dog.speak()  
 
-#multiereditarietà
-#classi base
-class Veicolo:
-    def __init__(self, marca, modello):    
-        self.marca = marca
-        self.modello = modello
+# multiple inheritance
+# base classes
+class Vehicle:
+    def __init__(self, make, model):    
+        self.make = make
+        self.model = model
 
-    def mostra_informazioni(self):
-        print(f"Veicolo marca {self.marca}, modello {self.modello}")
+    def show_info(self):
+        print(f"Vehicle make {self.make}, model {self.model}")
 
 
-class DotazioniSpeciali:
-    def __init__(self, dotazioni):
-        self.dotazioni = dotazioni
+class SpecialEquipment:
+    def __init__(self, equipment):
+        self.equipment = equipment
 
-    def mostra_dotazioni(self):
-        print(f"Dotazioni speciali: {', '.join(self.dotazioni)}")
+    def show_equipment(self):
+        print(f"Special equipment: {', '.join(self.equipment)}")
 
-#classe che eredità entrambe le classi base       
-class AutomobileSportiva(Veicolo, DotazioniSpeciali):
+# class that inherits from both base classes       
+class SportsCar(Vehicle, SpecialEquipment):
 
-    def __init__(self, marca, modello, dotazioni, cavalli):
-        Veicolo.__init__(self, marca, modello)  
-        #alternativa a super per l'ereditarietà multipla
-        DotazioniSpeciali.__init__(self, dotazioni)
-        self.cavalli = cavalli
+    def __init__(self, make, model, equipment, horsepower):
+        Vehicle.__init__(self, make, model)  
+        # alternative to super for multiple inheritance
+        SpecialEquipment.__init__(self, equipment)
+        self.horsepower = horsepower
 
-    def mostra_informazioni(self):
-        super().mostra_informazioni()  
-        #chiamiamo il metodo della prima superclasse
-        print(f"Potenza: {self.cavalli} CV")
-        self.mostra_dotazioni()  
+    def show_info(self):
+        super().show_info()  
+        # call the method of the first superclass
+        print(f"Power: {self.horsepower} HP")
+        self.show_equipment()  
 
-auto_sportiva = AutomobileSportiva("Ferrari", "F8", ["ABS", "Controllotrazione", "Airbag laterali"], 720)
+sports_car = SportsCar("Ferrari", "F8", ["ABS", "Traction Control", "Side Airbags"], 720)
 
-auto_sportiva.mostra_informazioni()
+sports_car.show_info()

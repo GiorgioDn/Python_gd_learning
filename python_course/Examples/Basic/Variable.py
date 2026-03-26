@@ -1,89 +1,89 @@
-#tipi di variabili interi
+# integer variable types
 x = 1
 y = -5
 
 print(x, y)
 
-#tipi di variabili float (usa il . e non la ,)
+# float variable types (uses . and not ,)
 x = 3.14
 y = -5.46
 
 print(x, y)
 
-#tipi di variabili stringhe
-x = "more"
-y = "metri"
+# string variable types
+x = "blackberry"
+y = "meters"
 
 print(x, y)
 
-#indice del char di una stringa 
-print("Char m della stringa x: ", x[0])
-print("Char r della stringa y: ", y[3])
+# string char index 
+print("Char b of string x: ", x[0])
+print("Char e of string y: ", y[1])
 
-#concatenazione stringhe
+# string concatenation
 conc = x + " 3.3 " + y 
 
 print(conc)
 
-#metodi stringhe
-#len = lunghezza stringa
+# string methods
+# len = string length
 print(len(x))
 
-#upper = converte stringa in maiuscolo
+# upper = converts string to uppercase
 print(x.upper())
 
-#lower = converte stringa in minuscolo
+# lower = converts string to lowercase
 print(x.lower())
 
-#split = divide in una lista di sottostringhe
+# split = splits into a list of substrings
 print(conc.split())
 
-#in base anche ad un delimitatore
+# also based on a delimiter
 concDel = conc + ", " + x
 print(concDel.split(','))
 
-#replace = sostituisce parte di una stringa con un'altra
-print(conc.replace('more', 'distanza'))
+# replace = replaces part of a string with another
+print(conc.replace('blackberry', 'distance'))
 
-#tipo char
+# char type
 char = "A"
 print(char)
 
-#tipi di variabili booleane True o False
+# boolean variable types True or False
 x = True
 y = False 
 
 print(x, y)
 
-#I valori booleani True o False si possono usare con operatori logici 
+# Boolean values True or False can be used with logical operators 
 x = 5
 y = 10
 z = 7
 
-#and restituisce true con entrambe le condizione vere
-print("Il valore booleano di: x < y and z < y è:", x < y and z < y)
+# and returns true if both conditions are true
+print("The boolean value of: x < y and z < y is:", x < y and z < y)
 
-#or restituisce true se almeno una delle condizioni è vera
-print("Il valore booleano di: x < y or x > z è:", x < y or x > z)
+# or returns true if at least one of the conditions is true
+print("The boolean value of: x < y or x > z is:", x < y or x > z)
 
-#not restituisce il valore booleano opposto di ciò che segue
-print("Il valore booleano di: not(x < y) è:", not(x < y))
+# not returns the opposite boolean value
+print("The boolean value of: not(x < y) is:", not(x < y))
 
-#operatori di confronto, restituiscono un valore booleano
-#== uguale a
-print("Il valore booleano di: x == y è:", x == y)
+# comparison operators, return a boolean value
+# == equal to
+print("The boolean value of: x == y is:", x == y)
 
-#!= diverso da 
-print("Il valore booleano di: x != y è:", x != y)
+# != different from 
+print("The boolean value of: x != y is:", x != y)
 
-# < minore di 
-print("Il valore booleano di: x < y è:", x < y)
+# < less than 
+print("The boolean value of: x < y is:", x < y)
 
-#> maggiore di 
-print("Il valore booleano di: x > y è:", x > y)
+# > greater than 
+print("The boolean value of: x > y is:", x > y)
 
-#<= minore o uguale a 
-print("Il valore booleano di: x <= y è:", x <= y)
+# <= less than or equal to 
+print("The boolean value of: x <= y is:", x <= y)
 
-#>= maggiore o uguale a
-print("Il valore booleano di: x >= y è:", x >= y)
+# >= greater than or equal to
+print("The boolean value of: x >= y is:", x >= y)

@@ -1,78 +1,78 @@
-#dichiarazione della classe Automobile
-class Automobile:
-    #attributo della classe
-    numero_di_ruote = 4
-    #metodo costruttore
-    def __init__(self, marca, modello):
-        #attributi di istanza
-        self.marca = marca
-        self.modello = modello
-    #metodo speciale
+#declare of the class Car
+class Car:
+    #class attribute
+    number_of_wheels = 4
+    #constructor method
+    def __init__(self, brand, model):
+        #instance attributes
+        self.brand = brand
+        self.model = model
+    #special method
     def __str__(self):
-        #si usa nel print della classe
-        return f"Automobile marca = {self.marca}, modello = {self.modello}"
-    #metodo di istanza
-    def stampa_info(self):
-        print("L'automobile è una", self.marca, self.modello)
+        #It is used in the class's print statement
+        return f"Car brand = {self.brand}, model = {self.model}"
+    #instance method
+    def print_info(self):
+        print("The car is a ", self.brand, self.model)
         
-#creazione due oggetti di tipo Automobile
-auto1 = Automobile("Fiat", "500")    
-auto2 = Automobile("BMW", "X3")
+#creation of two objects of type Car
+car1 = Car("Fiat", "500")    
+car2 = Car("BMW", "X3")
 
-#richiamo del metodo di istanza
-auto1.stampa_info()            
-auto2.stampa_info()
+#instance method call
+car1.print_info()            
+car2.print_info()
 
-#stampa indirizzo di memoria o il metodo speciale __str__ se definito
-print(auto1)
+#print the memory address or the special __str__ method, if defined
+print(car1)
 
-#dichiarazione della classe Persona
-class Persona: 
-    def __init__(self, nome, eta):
-        self.nome = nome
-        self.eta = eta
-    #metodo
-    def saluta(self):
-        print(f"Ciao mi chiamo {self.nome}")
+#declare of the class Person
+class Person: 
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    #method
+    def hello(self):
+        print(f"Hello my name is {self.name}")
     
-#Creazione di un oggetto di tipo Persona
-p = Persona("Pippo", 30)
+#creation of object of type Car
+p = Person("Pippo", 30)
 
-#Stampo i singoli attributi di istanza associati all'oggetto
-print(p.nome)
-print(p.eta)
-#uso il metodo 
-p.saluta()
+#Print the single instance attributes associated with the object
+print(p.name)
+print(p.age)
+#use the method
+p.hello()
 
-#classe con metodo statico
-class Calcolatrice:
+#class with static method
+class Calculator:
     
-    #metodo statico
+    #static method
     @staticmethod
-    def somma(a, b):
+    def sum(a, b):
         return a + b
 
 
-#Uso del metodo statico senza creare un'istanza
-risultato = Calcolatrice.somma(5, 3)
+#static method without instance
+result = Calculator.sum(5, 3)
 
-print(risultato)  
+print(result)
 
-#classe con metodo di classe
-class Contatore: 
-    #attributo di classe
-    numero_istanze = 0
+#class using the class method
+class Counter: 
+    #class attribute
+    number_instance = 0
     
     def __init__(self):
-        Contatore.numero_istanze += 1
+        Counter.number_instance += 1
 
-    #metodo di classe: cls indica la classe
+    #class method: cls refers to the class
     @classmethod
-    def mostra_numero_istanze(cls):
-        print(f"Sono state create {cls.numero_istanze} istanze.")
+    def show_number_instance(cls):
+        print(f"{cls.number_instance} instances have been created.")
 
-#creo due istanze di classe   
-c1 = Contatore()
-c2 = Contatore()
+#creation of two class instances
+c1 = Counter()
+c2 = Counter()
 
-Contatore.mostra_numero_istanze()
+Counter.show_number_instance()

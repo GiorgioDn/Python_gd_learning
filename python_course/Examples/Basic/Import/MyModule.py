@@ -1,10 +1,10 @@
-def saluta(nome):
-    print("Ciao", nome)
+def hello(name):
+    print("Hello ", name)
     
 PI = 3.14159
 
-class Cerchio:
-    def __init__(self, raggio):
-        self.raggio = raggio
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
     def area(self):
-        return PI * self.raggio**2
+        return PI * self.radius**2

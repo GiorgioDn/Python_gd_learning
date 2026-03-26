@@ -1,21 +1,21 @@
-#definizione funzione saluta
-def saluta(nome):
-    print("Ciao,", nome)
-    print("Benvenuto nel nostro programma")
+# greet function definition
+def greet(name):
+    print("Hello,", name)
+    print("Welcome to our program")
 
-#definizione funzione somma
-def somma(a, b):
-    risultato = a + b
-    print("La somma è:", risultato)
+# sum function definition
+def sum_nums(a, b):
+    result = a + b
+    print("The sum is:", result)
     
-#eseguo le funzioni dichiarate 
-saluta("Alice")
-somma(3, 4)
+# execute the declared functions 
+greet("Alice")
+sum_nums(3, 4)
 
-#funzione con return
-def quadrato(num):
+# function with return
+def square(num):
     return num * num
 
-#memorizzo il risultato restituito dalla funzione in una variabile
-risultato = quadrato(2)
-print("Il quadrato è:", risultato)
+# store the result returned by the function in a variable
+result = square(2)
+print("The square is:", result)
