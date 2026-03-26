@@ -1,37 +1,37 @@
 import numpy as np
 
-#creazione di un array unidimensionale
+# creation of a one-dimensional array
 arr = np.array([1, 2, 3, 4, 5])
 print(arr)
 
-# Utilizzo di alcuni metodi
-print("Forma dell'array:", arr.shape)  
-print("Dimensioni dell'array:", arr.ndim) 
-print("Tipo di dati:", arr.dtype) 
-print("Numero di elementi:", arr.size)  
-print("Somma degli elementi:", arr.sum()) 
-print("Media degli elementi:", arr.mean()) 
-print("Valore massimo:", arr.max())
-print("Indice del valore massimo:", arr.argmax())
+# Using some methods
+print("Array shape:", arr.shape)  
+print("Array dimensions:", arr.ndim) 
+print("Data type:", arr.dtype) 
+print("Number of elements:", arr.size)  
+print("Sum of elements:", arr.sum()) 
+print("Mean of elements:", arr.mean()) 
+print("Maximum value:", arr.max())
+print("Index of maximum value:", arr.argmax())
 
-#creazione di un array bidimensionale
+# creation of a two-dimensional array
 arr2d = np.array([[1, 2, 3], [4, 5, 6]])
 print(arr2d)
 
-#dtype: tipo di dati nell'array
+# dtype: data type in the array
 arr = np.array([1, 2, 3], dtype='int32')
 print(arr.dtype)
 
-#shape: dimensioni dell'array in ciascuna dimensione restituite come tupla
+# shape: array dimensions in each dimension returned as a tuple
 arr = np.array([[1, 2, 3], [4, 5, 6]])
 print(arr.shape)
 
-#arange: crea un array con una sequenza di numeri
+# arange: creates an array with a sequence of numbers
 arr = np.arange(10)
 print(arr)
 
-#reshape: cambia la forma dell'array senza cambiarne i dati
-#reshape dà errore se il valore riga x il valore colonna non è pari alla lunghezza dell'array
+# reshape: changes the shape of the array without changing its data
+# reshape throws an error if row value x column value is not equal to the array length
 arr = np.arange(6)
 reshaped_arr = arr.reshape((2, 3))
 print(reshaped_arr)

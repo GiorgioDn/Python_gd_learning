@@ -1,22 +1,22 @@
-#apre il file in lettura
-file = open("corso python/11_21_Venerdì/Esempi/file/test.txt", "r") 
+# opens the file in read mode
+file = open("python_course/Examples/I_O/test.txt", "r") 
 
-#legge l'intero contenuto del file
-contenuto = file.read()
-print(contenuto)
+# reads the entire contents of the file
+content = file.read()
+print(content)
 
-#legge una riga del file 
-riga = file.readline()
-print(riga)
+# reads a line from the file 
+line = file.readline()
+print(line)
 
-#apre il file in scrittura sovrascrivendone il contenuto
-file = open("corso python/11_21_Venerdì/Esempi/file/test.txt", "w") 
+# opens the file in write mode, overwriting its contents
+file = open("python_course/Examples/I_O/test.txt", "w") 
 
-file.write("Ciaoooo, forse")
-#chiusura del file
+file.write("Helloooo, maybe")
+# closing the file
 file.close()
 
-#con with open il file viene chiuso automaticamente alla fine
-with open ("corso python/11_21_Venerdì/Esempi/file/test.txt", "r") as file:
-    contenuto = file.read()
-    print(contenuto)
+# with 'with open', the file is closed automatically at the end
+with open ("python_course/Examples/I_O/test.txt", "r") as file:
+    content = file.read()
+    print(content)

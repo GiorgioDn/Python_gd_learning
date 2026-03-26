@@ -1,41 +1,41 @@
 import numpy as np
 
-#Inversa di una matrice
-#creazione di una matrice quadrata
+# Matrix Inverse
+# creation of a square matrix
 quad = np.array([[1, 2], [3, 4]])
 
-#inversa della matrice
+# inverse of the matrix
 quad_inv = np.linalg.inv(quad)
-print("Inversa di quad:\n", quad_inv)
+print("Inverse of quad:\n", quad_inv)
 
-#norma di vettore
-#creazione del vettore
+# vector norm
+# creation of the vector
 vector = np.array([3, 4])
 
-#norma del vettore
+# norm of the vector
 norm_vector = np.linalg.norm(vector)
-print("Norma di vector:", norm_vector)
+print("Norm of vector:", norm_vector)
 
 
-#creazzione matrice e vettore
+# creation of matrix and vector
 matrix_A = np.array([[3, 1], [1, 2]])
 vector_B = np.array([9, 8])
 
-#soluzione del sistema di equazioni Ax = B
-#A è una matrice, B è un vettore o matrice
+# solution to the system of equations Ax = B
+# A is a matrix, B is a vector or matrix
 x = np.linalg.solve(matrix_A, vector_B)
-print("Soluzione x:", x) 
+print("Solution x:", x) 
 
-#Trasformata di fourier
-#creazione di un segnale
+# Fourier Transform
+# creation of a signal
 t = np.linspace(0, 1, 400)
 sig = np.sin(2 * np.pi * 50 * t) + np.sin(2 * np.pi * 120 * t)
 
-#calcolo della Trasformata di Fourier
+# calculation of the Fourier Transform
 fft_sig = np.fft.fft(sig)
 
-#frequenze associate
+# associated frequencies
 freqs = np.fft.fftfreq(len(fft_sig))
 
-print("Trasformata di Fourier:", fft_sig)
-print("Frequenze associate:", freqs)
+print("Fourier Transform:", fft_sig)
+print("Associated frequencies:", freqs)

@@ -1,19 +1,18 @@
 import sqlite3
 
-#connessione al database
-conn = sqlite3.connect('esempio.db')
+# database connection
+conn = sqlite3.connect('python_course/Examples/Sql_lite/db_example/example.db')
 cur = conn.cursor()
 
-#query con filtro
-cur.execute("SELECT nome, voto FROM studenti WHERE voto > ?", (25, ))
+# query with filter
+cur.execute("SELECT name, grade FROM students WHERE grade > ?", (25, ))
 
-#recupero risultati
-studenti_meritevoli = cur.fetchall()
+# retrieve results
+honors_students = cur.fetchall()
 
-#stampa dei risultati
-for nome, voto in studenti_meritevoli:
-    print(f"{nome} ha preso {voto}")
+# print the results
+for name, grade in honors_students:
+    print(f"{name} got {grade}")
     
-#chiusura connessione
+# close connection
 conn.close()
-

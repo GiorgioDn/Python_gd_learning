@@ -2,11 +2,11 @@ import numpy as np
 
 arr = np.array([1, 2, 3, 4, 5])
 
-#somma
+# sum
 sum_value = np.sum(arr)
-#media
+# mean
 mean_value = np.mean(arr)
-#deviazione standard
+# standard deviation
 std_value = np.std(arr)
 
 print("Sum:", sum_value)   
