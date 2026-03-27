@@ -1,18 +1,18 @@
-#variabile di input per far selezionare il tipo di operazione e la parola iniziale
-start = input("Scrivere una parola: ")
-cond = input("Scrivere il tipo di operazione voluta per la parola iniziale tra: aggiungi, aggiorna ed elimina: ")
+#input variable to select operation type and initial word
+start = input("Write a word: ")
+cond = input("Write desired operation type for the initial word: add, update, and delete: ")
 cond.lower()
 
-#condizioni dati dall'input
-if cond == "aggiungi":
-    cond = input("Scrivere la parola da aggiungere: ")
-    print("La nuova frase è:", start, cond)
-elif cond == "aggiorna":
-    cond = input("Scrivere con che parola sostituire: ")
+#conditions given by input
+if cond == "add":
+    cond = input("Write the word to add: ")
+    print("The new sentence is:", start, cond)
+elif cond == "update":
+    cond = input("Write word to replace with: ")
     start = cond
-    print("La nuova parola è:", start)
-elif cond == "elimina": 
+    print("The new word is:", start)
+elif cond == "delete": 
     start = ""
-    print("La parola è stata eliminata", start)
+    print("The word was deleted", start)
 else: 
-    print("Operazione non valida")
+    print("Invalid operation")

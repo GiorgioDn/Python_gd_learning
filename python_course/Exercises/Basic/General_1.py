@@ -1,34 +1,34 @@
 """ 
-    Creare una funzione che prende un intero positivo per generare una sottolista dei primi n elementi di una lista definita dall'utente, inoltre la funzione deve far scegliere se restituire la sottolista, eliminare i duplicati o verificare le eventuali differenze tra la lista e la sottolista.
+    Create a function that takes a positive integer to generate a sublist of the first n elements of a user-defined list, furthermore the function must let you choose whether to return the sublist, eliminate duplicates or check for any differences between the list and the sublist.
 """
 from random import randint
 
-#funzione per eseguire le funzionalità dell'esercizio
+#function to perform exercise features
 def subList (n, base_list):
     
-    #controllo che n sia minore della lunghezza della lista
+    #check that n is less than the length of the list
     if len(base_list)>n:
-        #inizializzazione nuova lista
+        #initialization of new list
         new_list = []
         end = 0
         
-        #riempio la nuova lista
+        #fill the new list
         while end < n:
             new_list.append(base_list[end])
             end +=1
         
-        #scelta dell'operazione
-        chooice = int(input("Scegliere una delle seguenti operazioni: \n 1. Restituire la sottolista \n 2. Eliminare i duplicati della sottolista\n 3. Verificare gli elementi diversi della sottolista \n"))
+        #choice of operation
+        chooice = int(input("Choose one of the following operations: \n 1. Return the sublist \n 2. Eliminate duplicates of the sublist\n 3. Verify the different elements of the sublist \n"))
         
         match chooice:
             case 1:
                 return new_list
             case 2:
-                #conversione per eliminare i duplicati
+                #conversion to eliminate duplicates
                 list_without_double = set(new_list)
                 return list_without_double
             case 3:
-                #faccio la comparazione delle due liste
+                #make comparison of the two lists
                 set_new = set(new_list)
                 set_ori = set(base_list)
                 return set_ori.difference(set_new)
@@ -37,43 +37,43 @@ def subList (n, base_list):
     else:
         return False
 
-#in caso non si inserisca una lista in input      
+#in case a list is not entered as input      
 def subList_withoutList (n):
     
-    #inizializzazione nuova lista con numeri casuali
+    #initialization of new list with random values
     
     new_list = []
     end = 0
     base_list = []
     
-    #creo la lista iniziale con valori random
+    #create the initial list with random values
     for num in range(n+1):
         base_list.append(randint(0, n*2))
     
-    #riempio la nuova lista
+    #fill the new list
     while end < n:
         new_list.append(base_list[end])
         end +=1
     
-    #scelta dell'operazione
-    chooice = int(input("Scegliere una delle seguenti operazioni: \n 1. Restituire la sottolista \n 2. Eliminare i duplicati della sottolista\n 3. Verificare gli elementi diversi della sottolista \n"))
+    #choice of operation
+    chooice = int(input("Choose one of the following operations: \n 1. Return the sublist \n 2. Eliminate duplicates of the sublist\n 3. Verify the different elements of the sublist \n"))
     
     match chooice:
         case 1:
             return new_list
         case 2:
-            #conversione per eliminare i duplicati
+            #conversion to eliminate duplicates
             list_without_double = set(new_list)
             return list_without_double
         case 3:
-            #faccio la comparazione delle due liste
+            #make comparison of the two lists
             set_new = set(new_list)
             set_ori = set(base_list)
             return set_ori.difference(set_new)
         case _:
             return False
 
-#fa eseguire la funzione in automatico quando viene importata 
+#executes the function automatically when imported 
 #x = subList(4, [9, 2, 2, 4, 5, 1, 3, 4])
 
 #print(x)

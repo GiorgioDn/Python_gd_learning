@@ -1,10 +1,10 @@
-#prendo la parola in input
-str_in = input("Digitare una parola: ")
+#get the input word
+str_in = input("Type a word: ")
 str_out = ""
 
-#prendo il singolo char con lo spazio che farà da delimitatore
+#get each character with a space acting as a delimiter
 for s in str_in:
     str_out += s + " "
 
-#stampo ogni singola parola spaziandole    
+#print each character separated by spaces
 print(str_out)

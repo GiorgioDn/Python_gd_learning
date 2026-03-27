@@ -1,26 +1,26 @@
-#variabili per inizializzare i numeri selezionati, pari, dispari e le relative somme
+#variables to initialize selected numbers, even, odd and their sums
 even = []
 odd = []
 
-#lista input utenti 
+#user input list 
 remember = []
 
-#while per gli input positivi dell'utente
+#while for user's positive inputs
 while True:
-    num_int = int(input("Digitare un numero intero positivo maggiore di 0: "))
+    num_int = int(input("Type a positive integer greater than 0: "))
     
-    #ciclo while eseguito finchè il numero non è positivo
+    #while loop executed until the number is positive
     while num_int<=0:
-        num_int = int(input("Digitare un numero intero positivo maggiore di 0: "))
+        num_int = int(input("Type a positive integer greater than 0: "))
 
-    print("Il numero scelto è: ", num_int)
+    print("The chosen number is: ", num_int)
     remember.append(num_int)
     
-    #variabili per la somma
+    #variables for the sum
     even_sum = 0
     odd_sum = 0
 
-    #verifico la parità e disparità del numero selezionato
+    #check if the selected number is even or odd
     for n in range(1, num_int):
         if n%2==0:
             even.append(n)
@@ -29,27 +29,27 @@ while True:
             odd.append(n)
             odd_sum += n
             
-    print("I numeri pari nell'intervallo sono: ", even, "la cui somma è: ", even_sum)
+    print("Even numbers in the range are: ", even, "whose sum is: ", even_sum)
             
-    print("I numeri dispari nell'intervallo sono: ", odd, "la cui somma è: ", odd_sum)
+    print("Odd numbers in the range are: ", odd, "whose sum is: ", odd_sum)
 
-    #verifico che il numero sia primo oppure no 
+    #check if the number is prime or not 
     if num_int < 2:
-        print("Il numero selezionato non è primo")
+        print("The selected number is not prime")
     else:
         for i in range(2, int(n ** 0.5) + 1):
             if num_int % i == 0:
-                print("Il numero selezionato non è primo")
+                print("The selected number is not prime")
                 break
         else:
-            print("Il numero selezionato è primo")
+            print("The selected number is prime")
     
-    print("I numeri scelti finora sono:", remember)
-    chooice = input("Si desidera continuare ad inserire numeri? ")
+    print("Numbers chosen so far are:", remember)
+    chooice = input("Do you want to continue entering numbers? ")
     
     if chooice.lower() == "no":
         break
-    #azzero le variabili usate per riutilizzarle nel nuovo ciclo
+    #reset the variables used to reuse them in the new cycle
     else:
         even.clear()
         odd.clear()

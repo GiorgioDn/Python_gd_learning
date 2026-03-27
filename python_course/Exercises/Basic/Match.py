@@ -1,25 +1,23 @@
-#utente di verifica
+# verification user
 verify_user = ["admin", "12345"]
 
-#lista che conterrà i dati utente
+# list that will contain user data
 entry_user = []
 
-#richiesta per l'username
-username = input("Inserire il nome utente: ")
+# username request
+username = input("Enter username: ")
 entry_user.append(username)
 
-#richiesta per la password
-password = input("Inserire la password: ")
+# password request
+password = input("Enter password: ")
 entry_user.append(password)
 
-#verifico che il file utente e la password siano corretti
+# check if username and password are correct
 if entry_user[0] == verify_user[0] and entry_user[1] == verify_user[1]:
-    print("Benvenuto")
+    print("Welcome")
     secret = []
 
-    answer = input("Qual'è il tuo animale preferito: ")
+    answer = input("What is your favorite animal: ")
     secret.append(answer)
 else:
-    print("Credenziali errate")
-    
-
+    print("Wrong credentials")

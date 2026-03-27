@@ -1,61 +1,61 @@
-#controlla l'argomento della funzione e se è negativo lo fa diventare positivo
-def d_controllo_negativi(funzione):
+#checks the function argument and if it's negative makes it positive
+def d_control_negative(function):
     def wrapper(*args, **kwargs):
-        #richiede che il primo argomento della funzione sia un intero
+        #requires the first argument of the function to be an integer
         if args[0]<0:
             new_args = list(args)
             new_args[0] = abs(new_args[0])
-            return funzione(*new_args, **kwargs)
+            return function(*new_args, **kwargs)
         else: 
-            return funzione(*args, **kwargs)
+            return function(*args, **kwargs)
     return wrapper
 
 #DA TESTARE
-#eseguire la funzione in base se viene restituita la lista o no
-def d_controllo_lista(funzione):
+#execute function based on whether the list is returned or not
+def d_control_list(function):
     def wrapper(*args, **kwargs):
-        #richiede che il secondo argomento di una funzione sia una collezione
+        #requires that the second argument of a function be a collection
         
         if len(args[1]) !=0:
-            if funzione.__name__ == "subList":
-                result = funzione(*args, **kwargs)
+            if function.__name__ == "subList":
+                result = function(*args, **kwargs)
                 return result
         else:
-            if funzione.__name__ == "subList_withoutList":
-                result = funzione(*args, **kwargs)
+            if function.__name__ == "subList_withoutList":
+                result = function(*args, **kwargs)
                 return result
     return wrapper
 
 
-@d_controllo_negativi
+@d_control_negative
 def subList_on_decoration (n, base_list):
     
-    #controllo che n sia minore della lunghezza della lista
+    #check that n is less than the length of the list
     if len(base_list)>n:
-        #inizializzazione nuova lista
+        #initialization of new list
         new_list = []
         end = 0
         
-        #verifico che n sia giusto
+        #verify that n is correct
         print(n)
         
-        #riempio la nuova lista
+        #fill the new list
         while end < n:
             new_list.append(base_list[end])
             end +=1
         
-        #scelta dell'operazione
-        chooice = int(input("Scegliere una delle seguenti operazioni: \n 1. Restituire la sottolista \n 2. Eliminare i duplicati della sottolista\n 3. Verificare gli elementi diversi della sottolista \n"))
+        #choice of operation
+        chooice = int(input("Choose one of the following operations: \n 1. Return the sublist \n 2. Eliminate duplicates of the sublist\n 3. Verify the different elements of the sublist \n"))
         
         match chooice:
             case 1:
                 return new_list
             case 2:
-                #conversione per eliminare i duplicati
+                #conversion to eliminate duplicates
                 list_without_double = set(new_list)
                 return list_without_double
             case 3:
-                #faccio la comparazione delle due liste
+                #make comparison of the two lists
                 set_new = set(new_list)
                 set_ori = set(base_list)
                 return set_ori.difference(set_new)

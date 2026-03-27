@@ -1,29 +1,29 @@
-#selezione dei due numeri int dall'utente
-print ("Selezionare due numeri")
-num1 = float(input("Primo numero: "))
-num2 = float(input("Secondo numero: "))
+#selection of two int numbers from user
+print ("Select two numbers")
+num1 = float(input("First number: "))
+num2 = float(input("Second number: "))
 
-#Scrivo le operazioni disponibili e le faccio scegliere all'utente
-print("Selezionare il numero dell'operazione corrispondente tra: \n 1. Addizione \n 2. Sottrazione \n 3. Moltiplicazione \n 4. Divisione")
-operazione = int(input())
+#I write available operations and let user choose
+print("Select the corresponding operation number: \n 1. Addition \n 2. Subtraction \n 3. Multiplication \n 4. Division")
+operation = int(input())
 
-#associo l'operazione corrispondente in base all'input dell'utente
-match operazione:
+#associate corresponding operation based on user input
+match operation:
     case 1: 
-        operazione = num1 + num2
-        print("L'addizione ha restituito: ", operazione)
+        operation = num1 + num2
+        print("Addition returned: ", operation)
     case 2: 
-        operazione = num1 - num2
-        print("La sottrazione ha restituito: ", operazione)
+        operation = num1 - num2
+        print("Subtraction returned: ", operation)
     case 3: 
-        operazione = num1 * num2
-        print("La moltiplicazione ha restituito: ", operazione)
+        operation = num1 * num2
+        print("Multiplication returned: ", operation)
     case 4: 
-        #controllo che la divisione possa essere eseguita
+        #check if division can be performed
         if num2 == 0:
-            print("Errore divisione per zero")
+            print("Error division by zero")
         else: 
-            operazione = num1 / num2
-            print("La divisione ha restituito: ", operazione)
+            operation = num1 / num2
+            print("Division returned: ", operation)
     case _:
-        print("Operazione non valida")
+        print("Invalid operation")

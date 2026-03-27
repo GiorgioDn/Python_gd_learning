@@ -1,21 +1,21 @@
-# definisco la lista che conterrà i numeri primi
+# define the list that will contain prime numbers
 prime = []
 
-# ciclo finché non trovo 5 numeri primi
+# loop until 5 prime numbers are found
 while len(prime) < 5:
-    num = int(input("Inserire un numero positivo: "))
+    num = int(input("Enter a positive number: "))
 
     if num < 2:
-        print("Numero non valido o non primo")
+        print("Invalid number or not prime")
     else:
-        # verifichiamo se num è primo o no
+        # check if num is prime or not
         for i in range(2, int(num ** 0.5) + 1):
             if num % i == 0:
-                print("Il numero non è primo")
+                print("The number is not prime")
                 break
         else:
-            # se il ciclo non si interrompe con break significa che è un numero primo
-            print("Il numero è primo")
+            # if the loop doesn't break, it means it's a prime number
+            print("The number is prime")
             prime.append(num)
 
-print("Sono stati trovati 5 numeri primi:", prime)
+print("5 prime numbers found:", prime)

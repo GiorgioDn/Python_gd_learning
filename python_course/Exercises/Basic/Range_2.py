@@ -1,19 +1,19 @@
-# definisco la lista che conterrà i numeri primi e non 
+# define the lists that will contain prime and non-prime numbers
 prime = []
 non_prime = []
 
 while True:
-    #Scelta dell'intervallo di numeri
-    print("Scegliere un intervallo di due numeri ")
-    num1 = int(input("Primo numero: "))
-    num2 = int(input("Secondo numero: "))
+    # Choice of number range
+    print("Choose a range of two numbers")
+    num1 = int(input("First number: "))
+    num2 = int(input("Second number: "))
     
-    #creo la lista compreso con num2
+    # create the list including num2
     numeri = [*range(num1, num2 + 1)]
     
     print(numeri)
 
-    # verifichiamo se i numeri sono primi o no
+    # check if numbers are prime or not
     for n in numeri:
         if n < 2:
             non_prime.append(n)
@@ -25,11 +25,11 @@ while True:
             else:
                 prime.append(n)
     
-    #stampo i numeri primi e non primi
-    print("Numeri primi nell'intervallo:", prime)
-    print("Numeri non primi nell'intervallo:", non_prime)
+    # print prime and non-prime numbers
+    print("Prime numbers in the range:", prime)
+    print("Non-prime numbers in the range:", non_prime)
 
-    #si esce dal ciclo while
-    choice = input("Vuoi ripetere la scelta? (sì o no): ")
-    if choice.lower() == "no":
+    # exit the while loop
+    choice = input("Do you want to repeat? (yes or no): ")
+    if choice.lower() == "no" or choice.lower() == "n":
         break

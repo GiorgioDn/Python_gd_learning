@@ -1,29 +1,29 @@
-#interrompo il while con il break
+# break the while loop with a choice
 while True:
-    #scelta dell'input
-    chooice = int(input("Scegliere 1 per inserire una stringa, 2 per un numero: "))
+    # input choice
+    choice = int(input("Choose 1 to enter a string, 2 for a number: "))
     
-    if chooice == 1:
-        chooice = input("Inserire una stringa: ")
-        #prendo la lunghezza della stringa
-        pair = len(chooice)
-        #vedo se le lettere della stringa sono pari o dispari
+    if choice == 1:
+        text = input("Enter a string: ")
+        # get the length of the string
+        pair = len(text)
+        # check if the number of letters is even or odd
         if pair%2 == 0:
-            print("La stringa contiene un numero pari di lettere: ", pair)
+            print("The string contains an even number of letters: ", pair)
         else:
-            print("La stringa contiene un numero dispari di lettere: ", pair)
-    elif chooice == 2:
-        chooice = int(input("Inserire un numero: "))
-        #vedo se le lettere della stringa sono pari o dispari
-        if chooice%2 == 0:
-            print("Il numero", chooice, "è pari")
+            print("The string contains an odd number of letters: ", pair)
+    elif choice == 2:
+        num = int(input("Enter a number: "))
+        # check if the number is even or odd
+        if num%2 == 0:
+            print("The number", num, "is even")
         else:
-            print("Il numero", chooice, "è dispari")
+            print("The number", num, "is odd")
     else:
-        print("Non si è inserito un dato valido")
+        print("Invalid data entered")
     
-    chooice = input("Si vuole ripetere la scelta?")
+    repeat = input("Do you want to repeat the choice? ")
     
-    #si esce dal ciclo while
-    if chooice.lower() == "no":
+    # exit the while loop
+    if repeat.lower() == "no":
         break

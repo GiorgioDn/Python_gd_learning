@@ -1,39 +1,39 @@
-#selezione dei numeri dall'utente che andranno a popolare la lista
-lista_num = []
-print ("Selezionare i numeri")
-#aggiungo gli input alla lista man mano che vengono digitati dall'utente
-num = float(input("Primo numero: "))
-lista_num.append(num)
-num = float(input("Secondo numero: "))
-lista_num.append(num)
-num = float(input("Terzo numero: "))
-lista_num.append(num)
-num = float(input("Quarto numero: "))
-lista_num.append(num)
-num = float(input("Quinto numero: "))
-lista_num.append(num)
+#user number selection to populate the list
+list_num = []
+print ("Select numbers")
+#add inputs to the list as they are typed by the user
+num = float(input("First number: "))
+list_num.append(num)
+num = float(input("Second number: "))
+list_num.append(num)
+num = float(input("Third number: "))
+list_num.append(num)
+num = float(input("Fourth number: "))
+list_num.append(num)
+num = float(input("Fifth number: "))
+list_num.append(num)
 
-#Scrivo le operazioni disponibili e le faccio scegliere all'utente
-print("Selezionare il numero dell'operazione corrispondente tra: \n 1. Addizione \n 2. Sottrazione \n 3. Moltiplicazione \n 4. Divisione")
-operazione = int(input())
+#I write available operations and let user choose
+print("Select the corresponding operation number: \n 1. Addition \n 2. Subtraction \n 3. Multiplication \n 4. Division")
+operation = int(input())
 
-#associo l'operazione corrispondente in base all'input dell'utente
-match operazione:
+#associate corresponding operation based on user input
+match operation:
     case 1: 
-        operazione = lista_num[0] + lista_num[1] + lista_num[2] + lista_num[3] + lista_num[4]
-        print("L'addizione ha restituito: ", operazione)
+        operation = list_num[0] + list_num[1] + list_num[2] + list_num[3] + list_num[4]
+        print("Addition returned: ", operation)
     case 2: 
-        operazione = lista_num[0] - lista_num[1] - lista_num[2] - lista_num[3] - lista_num[4]
-        print("La sottrazione ha restituito: ", operazione)
+        operation = list_num[0] - list_num[1] - list_num[2] - list_num[3] - list_num[4]
+        print("Subtraction returned: ", operation)
     case 3: 
-        operazione = lista_num[0] * lista_num[1] * lista_num[2] * lista_num[3] * lista_num[4]
-        print("La moltiplicazione ha restituito: ", operazione)
+        operation = list_num[0] * list_num[1] * list_num[2] * list_num[3] * list_num[4]
+        print("Multiplication returned: ", operation)
     case 4: 
-        #controllo che la divisione possa essere eseguita
-        if lista_num[0] == 0 or lista_num[1] == 0 or lista_num[2] == 0 or lista_num[3] == 0 or lista_num[4] == 0:
-            print("Errore divisione per zero")
+        #check if division can be performed
+        if list_num[0] == 0 or list_num[1] == 0 or list_num[2] == 0 or list_num[3] == 0 or list_num[4] == 0:
+            print("Error division by zero")
         else: 
-            operazione = lista_num[0] / lista_num[1] / lista_num[2] / lista_num[3] / lista_num[4]
-            print("La divisione ha restituito: ", operazione)
+            operation = list_num[0] / list_num[1] / list_num[2] / list_num[3] / list_num[4]
+            print("Division returned: ", operation)
     case _:
-        print("Operazione non valida")
+        print("Invalid operation")

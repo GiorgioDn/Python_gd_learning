@@ -1,20 +1,20 @@
-#faccio selezionare all'utente i tre numeri per lo step, il massimo ed il numero di visualizzazioni per riga
-print("Scegliere il numero massimo, gli step del range ed i numeri visualizzati per riga")
-max = int(input("Massimo: "))
+# let the user select three numbers for the step, the maximum, and the number of items per row
+print("Choose the maximum number, the range steps, and the numbers displayed per row")
+max_val = int(input("Maximum: "))
 step = int(input("Step: "))
-row = int(input("Numeri per riga: "))
+row_size = int(input("Numbers per row: "))
 
 counter = 0
 
-#controllo che il massimo sia maggiore degli step
-if max>step:
-    #stampo i numeri per riga definiti dall'utente fino al massimo
-    for i in range(0, max + 1, step):
+# check that the maximum is greater than the steps
+if max_val > step:
+    # print the numbers per row defined by the user up to the maximum
+    for i in range(0, max_val + 1, step):
         print(i, end=" ")
         counter += 1
-        if counter == row:
-            #vado a capo
+        if counter == row_size:
+            # new line
             print()    
             counter = 0
 else:
-    print("Dati non validi")
+    print("Invalid data")

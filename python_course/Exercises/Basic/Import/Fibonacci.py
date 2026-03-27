@@ -1,26 +1,26 @@
-#definisco la funzione fibonacci ricorsiva che restituise solo l'ultimo elemento
-def fibonacci_ricorsiva(n):
+#define the recursive fibonacci function that returns only the last element
+def fibonacci_recursive(n):
 
-    #ritorno come valore -1 in caso di errore per eventuali
+    #return -1 as value in case of errors for any [reason]
     if n < 0:
         return -1
     elif n< 2:
         return n
     else:
-        return (fibonacci_ricorsiva(n-1) + fibonacci_ricorsiva(n-2))
+        return (fibonacci_recursive(n-1) + fibonacci_recursive(n-2))
 
-#definisco la funzione fibonacci che ritorna l'elenco degli elementi durante ogni iterazione
-def fibonacci_succ(n, lista_res):
+#define the fibonacci function that returns the list of elements during each iteration
+def fibonacci_succ(n, list_res):
     
     a = 0
     b = 1
     count = 1
 
     while count <= n +1:
-        lista_res.append(a)
+        list_res.append(a)
         count += 1
-        successivo = a + b
+        next = a + b
         a = b
-        b = successivo
+        b = next
         
-    return lista_res
+    return list_res

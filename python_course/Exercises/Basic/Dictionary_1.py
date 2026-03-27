@@ -1,27 +1,27 @@
-#input dei dati dei dizionari
-boolean = input("Inserisci un valore booleano: ")
-integer = int(input("Inserisci un intero: "))
-string = input("Inserisci la stringa: ")
+#dictionary data input
+boolean = input("Enter a boolean value: ")
+integer = int(input("Enter an integer: "))
+string = input("Enter the string: ")
 
-#dizionario con i valori in input
+#dictionary with input values
 diz = {
     "boolean": boolean,
     "integer": integer,
     "string": string,
 }
 
-#lista di dizionari
+#list of dictionaries
 list_diz = [diz]
 
-#dizionario con lista
+#dictionary with list
 date = {
     
-    "tipodato": [boolean, integer, string],
-    "dizionario": list_diz
+    "datatype": [boolean, integer, string],
+    "dictionary": list_diz
     
 }
 
-#visualizzazione chiavi e valori
+#display keys and values
 for x, y in diz.items():
-    print("chiave: ", x)
-    print("valore: ", y)
+    print("key: ", x)
+    print("value: ", y)

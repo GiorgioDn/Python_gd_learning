@@ -1,11 +1,11 @@
-#Inizializzo la lista
+#Initialize the list
 list_num = []
 
-#faccio selezionare all'utente 5 numeri da aggiungere alla lista
+#let the user select 5 numbers to add to the list
 while len(list_num)<6:
-    list_num.append(float(input("Digitare un numero: ")))
+    list_num.append(float(input("Type a number: ")))
 
-#stampo il quadrato di ogni numero nella lista
+#print the square of each number in the list
 for n in list_num:
     n = n**2
     print(n)

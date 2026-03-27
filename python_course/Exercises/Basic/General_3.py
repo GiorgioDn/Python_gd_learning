@@ -2,28 +2,28 @@ from Import.Import_1 import Sell
 
 while True: 
     
-    dati_vendita = []
+    sell_data = []
     
-    print("Inserire importi vendite")
+    print("Enter sales amounts")
     
     while True:
-        dati = input("Importo: ")
-        dati_vendita.append(dati)
+        data = input("Amount: ")
+        sell_data.append(data)
         
-        chooice = input("Si vuole selezionare un altro importo? ")
+        chooice = input("Do you want to select another amount? ")
     
-        #si esce dal ciclo while
+        #exit the while loop
         if chooice.lower() == "no":
             break
         
-    vendita = Sell(dati_vendita)
+    sell = Sell(sell_data)
     
-    x = vendita.total_sell()
+    x = sell.total_sell()
     
     print(x)
     
-    chooice = input("Si vuole ripetere la scelta? ")
+    chooice = input("Do you want to repeat the choice? ")
     
-    #si esce dal ciclo while
+    #exit the while loop
     if chooice.lower() == "no":
         break

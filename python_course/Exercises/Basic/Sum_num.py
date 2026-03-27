@@ -1,24 +1,24 @@
-#lista contenente i numeri da sommare
+# list containing the numbers to sum
 sum_num=[]
 
 while True:
-    print("Scegliere dei numeri interi, per terminare la scelta scegliere il numero 0")
+    print("Choose integer numbers, enter 0 to finish")
     
-    #variabile per dare una scelta infinita all'utente di numeri
+    # variable to allow the user to enter infinite numbers
     end_number = 1
-    #aggiorno la lista con ogni numero finchè non viene scelto lo 0
+    # update the list with each number until 0 is chosen
     while end_number !=0:
-        num = int (input("Scegliere il numero: "))
+        num = int(input("Choose a number: "))
         sum_num.append(num)
         end_number = num
     
-    #quando il numero finale è 0 sommo i numeri
+    # when the final number is 0, sum the numbers
     if end_number == 0:
-        sum = 0
+        total_sum = 0
         n = 0
         while n<len(sum_num):
-            sum += sum_num[n]
+            total_sum += sum_num[n]
             n+=1 
-        #stampo ed esco dal while
-        print("La somma dei numeri è:", sum)
+        # print and exit the loop
+        print("The sum of the numbers is:", total_sum)
         break

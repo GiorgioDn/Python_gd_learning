@@ -1,15 +1,15 @@
-#definisco la lista che conterrà i numeri pari
-pair =[]
+#define the list that will contain even numbers
+even =[]
 
-#verifico se il numero è pari
-while len(pair)<6:
-    #chiedo all'utente il numero da inserire
-    num = int(input("Inserire un numero positivo: "))
+#check if the number is even
+while len(even)<6:
+    #ask user for number to insert
+    num = int(input("Enter a positive number: "))
     
     if num%2 == 0:
-        print("il numero è pari")
-        pair.append(num)
+        print("the number is even")
+        even.append(num)
     else:
-        print("il numero è dispari")
+        print("the number is odd")
     
-print("5 numeri pari trovati")
+print("5 even numbers found")

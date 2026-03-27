@@ -1,14 +1,14 @@
-#variabile di input per il numero selezionato dall'utente
-numero = int(input("Selezionare un numero intero: "))
+#input variable for number selected by user
+number = int(input("Select an integer number: "))
 
-#verifico il numero in base alle condizoni soddisfatte
-if numero > 0:
-    if numero%2 == 0:
-        if numero > 10:
-            print("Il numero è pari e maggiore di 10")
+#check number based on met conditions
+if number > 0:
+    if number%2 == 0:
+        if number > 10:
+            print("The number is even and greater than 10")
         else:
-            print("Il numero è pari e minore di 10")
+            print("The number is even and less than 10")
     else:
-        print("Il numero è dispari")
+        print("The number is odd")
 else:
-    print("Il numero è negativo")
+    print("The number is negative")

@@ -1,31 +1,31 @@
 import random
 
-#definisco la funzione che randomizza dato un certo intervallo
+#define the function that randomizes given a certain interval
 def randomNum (min, max):
     ran = random.randint(min, max)
     return ran
 
-#definisco la funzione che confronta il numero randomico con le risposte dell'utente
+#define the function that compares the random number with user responses
 def guess (casual):
     while True:
-        answer = int(input("Provare ad indovinare il numero casule nell'intervallo: "))
+        answer = int(input("Try to guess the random number in the interval: "))
         if answer<casual:
-            print("Il numero selezionato è minore rispetto a quello giusto")
+            print("The selected number is lower than the correct one")
         elif answer>casual:
-            print("Il numero selezionato è maggiore rispetto a quello giusto")
+            print("The selected number is higher than the correct one")
         else: 
             break
     
     return True
         
-#seleziono il massimo e minimo per la randomizzazione
-print("Selezionare numero minimo e massimo per l'intervallo randomico")
-min = int(input("Minimo: "))
-max = int(input("Massimo: "))
+#select max and min for randomization
+print("Select minimum and maximum number for the random interval")
+min = int(input("Minimum: "))
+max = int(input("Maximum: "))
 
-#genero il numero casuale
+#generate random number
 casual = randomNum(min, max)
-#provo ad indovinare il numero
+#try to guess the number
 guess = guess(casual)
 if guess == True:
-    print("Complimenti hai indovinato")
+    print("Congratulations you guessed it")

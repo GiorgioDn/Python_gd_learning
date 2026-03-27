@@ -1,8 +1,8 @@
-#prendo il numero in input
-num = int(input("Digitare un numero: "))
+# get input number
+num = int(input("Type a number: "))
 
-#controllo se il numero sia pari o dispari
+# check if the number is even or odd
 if num%2 == 0:
-    print("Il numero è pari")
+    print("The number is even")
 else:
-    print("Il numero è dispari")
+    print("The number is odd")

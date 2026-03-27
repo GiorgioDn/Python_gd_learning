@@ -1,20 +1,20 @@
-#importo tutte le funzioni presenti nel file Fibonacci.py
+# Import all functions from the Fibonacci.py file
 from .Import.Fibonacci import *
         
 while True:
-    #chiedo il numero della sequenza
-    num_fibonacci = int(input("Digitare un numero intero positivo per la sequenza di fibonacci: "))
-    #inizializzo la lista con i risultati
-    lista_res = []
-    #risultato della versione con le successioni
-    result = fibonacci_succ(num_fibonacci, lista_res)
+    # Ask for the sequence number
+    num_fibonacci = int(input("Type a positive integer for the Fibonacci sequence: "))
+    # Initialize the list with results
+    list_res = []
+    # Result of the sequence version
+    result = fibonacci_succ(num_fibonacci, list_res)
     print(result)
     
-    #risultato ricorsiva con solo il risultato restituito al num_fibonacci
-    result_ric = fibonacci_ricorsiva(num_fibonacci)
+    # Recursive result with only the result returned for num_fibonacci
+    result_ric = fibonacci_recursive(num_fibonacci)
     print(result_ric)
     
-    chooice = input("Si desidera continuare ad inserire numeri? ")
+    choice = input("Do you want to continue entering numbers? ")
     
-    if chooice.lower() == "no":
+    if choice.lower() == "no":
         break

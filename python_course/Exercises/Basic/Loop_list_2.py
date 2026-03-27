@@ -1,30 +1,30 @@
-#Inizializzo la lista
+# Initialize the list
 list_num = [3, 4, 6, 7, 8, 10]
 
-#controllo se la lista non sia vuota
+# check if the list is not empty
 if len(list_num) > 0:
        
-    #inizializzo il valore massimo 
-    max = list_num[0]
+    # initialize the maximum value 
+    max_val = list_num[0]
     
-    #trovo il massimo
+    # find the maximum
     for n in list_num:
-        if n > max:
-            max = n
+        if n > max_val:
+            max_val = n
         
-    print(max, "\n")
+    print("Maximum value:", max_val, "\n")
 
-    #iniializzo le variabili per contare con il while
+    # initialize variables for counting with while
     list_len = len(list_num)
     n=0 
     
-    #conto i numeri presenti nella lista con il while
+    # count the numbers in the list with while
     while n<list_len:
-        print(list_num[n])
+        print(f"Element at index {n}: {list_num[n]}")
         n += 1
     
-    #stampo i numeri nella lista
-    print(n)
+    # print total count
+    print("Total count:", n)
     
 else:
-    print("Lista vuota")
+    print("Empty list")

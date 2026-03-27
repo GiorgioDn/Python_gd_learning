@@ -1,18 +1,18 @@
 repeat = True
 
-#creo un ciclo while che si ripete finchè l'utente vuole
+#create a while loop that repeats until the user wants
 while repeat:
-    #prendo il numero in input
-    num = int(input("Digitare un numero positivo: "))
-    #controllo che il numero sia positivo
+    #get input number
+    num = int(input("Type a positive number: "))
+    #check that the number is positive
     if num<0:
-        print("Il numero non è valido")
+        print("Number is invalid")
     else: 
-        #stampo i numeri in ordine decrescente
+        #print numbers in descending order
         for n in range(num, -1, -1):
             print(n)
             
-    #chiedo all'utente per l'uscita del while
-    ask = input("Si vuole continuare? ")
+    #ask user to exit the while
+    ask = input("Do you want to continue? ")
     if ask.lower() == "no":
         repeat = False

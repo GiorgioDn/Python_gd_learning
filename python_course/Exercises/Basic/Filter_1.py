@@ -1,7 +1,7 @@
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 '''
-#prova filtro
+#filter test
 def sum_elem(x, list): 
     for i in range(len(list)-2):
         return list[x] + list[x + 1] > list[x + 2]
@@ -10,30 +10,30 @@ index = []
 for i in range(len(numbers)-2):
     index.append(i)
 
-indici_validi = list(filter(sum_elem(index, numbers), index))
+valid_index = list(filter(sum_elem(index, numbers), index))
 
-gruppi_validi = [
+valid_group = [
     (numbers[i], numbers[i + 1], numbers[i + 2])
-    for i in indici_validi
+    for i in valid_index
 ]
 
 
-print("Indici che rispettano la condizione:", indici_validi)
-print("Gruppi (x, x+1, x+2) validi:", gruppi_validi)
+print("Indices that meet the condition:", valid_index)
+print("Valid groups (x, x+1, x+2):", valid_group)
 '''
 
-#funzione di filtro: prende un indice x
-def somma_due_maggiore_del_terzo(x):
+#filter function: takes an index x
+def sum_two_greater_than_third(x):
     return numbers[x] + numbers[x + 1] > numbers[x + 2]
 
 indici = range(len(numbers) - 2)
 
-indici_validi = list(filter(somma_due_maggiore_del_terzo, indici))
+valid_index = list(filter(sum_two_greater_than_third, indici))
 
-gruppi_validi = [
+valid_group = [
     (numbers[i], numbers[i + 1], numbers[i + 2])
-    for i in indici_validi
+    for i in valid_index
 ]
 
-print("Indici che rispettano la condizione:", indici_validi)
-print("Gruppi (x, x+1, x+2) validi:", gruppi_validi)
+print("Indices that meet the condition:", valid_index)
+print("Valid groups (x, x+1, x+2):", valid_group)
