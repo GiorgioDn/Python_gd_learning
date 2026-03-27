@@ -1,27 +1,27 @@
 import numpy as np
 
-#matrice 6x6 con valori casuali
+# 6x6 matrix with random values
 matrix = np.random.randint(1, 101, (6, 6))
-print("Matrice: ", matrix)
+print("Matrix: ", matrix)
 
 sub_matrix = matrix[2:6, 2:6]
-print("Sotto matrice: ", sub_matrix)
+print("Sub-matrix: ", sub_matrix)
 
-#inverso righe
-invert_matrix = sub_matrix[::-1]
-print("Sotto matrice invertita: ", invert_matrix)
+# reverse rows
+reversed_matrix = sub_matrix[::-1]
+print("Reversed sub-matrix: ", reversed_matrix)
 
-#valori diagonali
-diagonal_array = invert_matrix.diagonal()
-print("Elementi nella diagonale: ", diagonal_array)
+# diagonal values
+diagonal_array = reversed_matrix.diagonal()
+print("Elements in the diagonal: ", diagonal_array)
 
-#uso del select, popola la matrice in base alla corrispettiva condizione e scelta
-condition = [invert_matrix%3 == 0]
-chooice = [-1]
-select_matrix = np.select(condition, chooice)
+# use of select, populates the matrix based on the corresponding condition and choice
+condition = [reversed_matrix%3 == 0]
+choice = [-1]
+select_matrix = np.select(condition, choice)
 print("Select matrix: ", select_matrix)
 
-#uso dello slicing booleano
-new_invert = invert_matrix
-new_invert[invert_matrix%3 == 0] = -1
-print("New invert matrix: ", new_invert)
+# use of boolean slicing
+new_reversed = reversed_matrix
+new_reversed[reversed_matrix%3 == 0] = -1
+print("New reversed matrix: ", new_reversed)

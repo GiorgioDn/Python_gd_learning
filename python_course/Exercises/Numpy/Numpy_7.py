@@ -1,17 +1,17 @@
 import numpy as np
 
-#matrice 5x5 con sequenza di numeri
+# 5x5 matrix with number sequence
 matrix = np.arange(1,26).reshape(5, 5)
-print("Matrice: ", matrix)
+print("Matrix: ", matrix)
 
-#seconda colonna della matrice
+# second column of the matrix
 second_col = matrix[: , 1:2]
-print("Seconda colonna della matrice: ", second_col)
+print("Second column of the matrix: ", second_col)
 
-#terza riga della matrice
+# third row of the matrix
 third_row = matrix[2:3]
-print("Terza riga della matrice: ", third_row)
+print("Third row of the matrix: ", third_row)
 
-#somma della diagonale principale
+# sum of the main diagonal
 sum_diag = np.diag(matrix).sum()
-print("La somma della diagonale principale è: ", sum_diag)
+print("The sum of the main diagonal is: ", sum_diag)

@@ -1,12 +1,12 @@
 import numpy as np
 
-#genero l'array con elementi random in un certo intervallo
+# generate array with random elements in a certain range
 rand_arr = np.random.randint(1, 100, 15)
 
-#calcolo la somma e la media
-sum = rand_arr.sum()
+# calculate sum and mean
+total_sum = rand_arr.sum()
 mean = rand_arr.mean()
 
-print("L'array generato è: ", rand_arr)
-print("La somma dell'array è: ", sum)
-print("La media degli array è: ", mean)
+print("The generated array is: ", rand_arr)
+print("The sum of the array is: ", total_sum)
+print("The mean of the array is: ", mean)

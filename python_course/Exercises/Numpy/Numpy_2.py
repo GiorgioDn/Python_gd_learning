@@ -1,40 +1,40 @@
 import numpy as np
 
-#array di 20 elementi random di valore compreso tra 10 e 50
+# array of 20 random elements with value between 10 and 50
 rand_arr = np.random.randint(10, 50, 20)
-print("Array originale ", rand_arr)
+print("Original array ", rand_arr)
 
 slice_1 = rand_arr[:10]
-print("Primi 10 elementi dell'array ", slice_1)
+print("First 10 elements of the array ", slice_1)
 
 slice_2 = rand_arr[-5:]
-print("Ultimi 5 elementi dell'array: ", slice_2)
+print("Last 5 elements of the array: ", slice_2)
 
 slice_3 = rand_arr[5:15]
-print("Elementi dall'indice 5 al 15 escluso: ", slice_3)
+print("Elements from index 5 to 15 excluded: ", slice_3)
 
 slice_4 = rand_arr[::3]
-print("Ogni terzo elemento dell'array: ", slice_4)
+print("Every third element of the array: ", slice_4)
 
-#assegna un valore nelle posizioni corrispondenti
+# assigns a value in the corresponding positions
 rand_arr[5:10] = 99
-print("L'array con i valori modificati dalla posizione 5 a 10 escluso: ", rand_arr)
+print("The array with values modified from position 5 to 10 excluded: ", rand_arr)
 
-#array multidimensionale a partire da quella originale
+# multidimensional array starting from the original one
 rand_reshaped = rand_arr.reshape(5, 4)
-print("Array multidimensionale: ", rand_reshaped)
+print("Multidimensional array: ", rand_reshaped)
 
 slice_1 = rand_reshaped[:, :2]
-print("Primi due colonne: ", slice_1)
+print("First two columns: ", slice_1)
 
 slice_2 = rand_reshaped[:, -2:]
-print("Ultime due colonne: ", slice_2)
+print("Last two columns: ", slice_2)
 
 slice_3 = rand_reshaped[1:3, 2:3]
-print("Seconda e terza riga, terza colonna: ", slice_3)
+print("Second and third row, third column: ", slice_3)
 
 slice_4 = rand_reshaped[::2, ::2]
-print("Ogni due righe e colonne: ", slice_4)
+print("Every two rows and columns: ", slice_4)
 
 rand_reshaped[1:3, 2:3] = 10
-print("Nuova array multidimensionale: ", rand_reshaped)
+print("New multidimensional array: ", rand_reshaped)

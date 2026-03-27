@@ -5,16 +5,16 @@ def main():
     rand_id = str(np.random.randint(0, 100, 10))
     txt = "python_course/Exercises/Numpy/export/data_1.txt"
     
-    chooice = input("Si vuole scrivere un file txt con i dati? si/no: ")
-    if chooice.lower() == "si":
+    choice = input("Do you want to write a txt file with data? yes/no: ")
+    if choice.lower() == "yes":
         while True:
 
-            #legge la prima riga
+            # reads the first line
             file = open(txt, "r")
-            riga = file.readline().strip()
+            line = file.readline().strip()
             file.close()
-            #sovrascrive il file se non è presente lo stesso id
-            if riga != rand_id:
+            # overwrites the file if the same ID is not present
+            if line != rand_id:
                 string = f"{rand_id}\n"  
                 file = open (txt, "w")
                 file.write(string)
@@ -31,25 +31,25 @@ def main():
 
             new_sum = sum_arr[sum_arr > 5].sum()
             
-            #stringa per la visualizzazione dei dati
-            string = f"Array con linspace: {arr_lin} \nArray random: {arr_rand} \nSomma array: {sum_arr} \nSomma elementi array somma: {sum_tot} \nSomma elementi maggiori di 5: {new_sum}\n"
+            # string for data visualization
+            string = f"Array with linspace: {arr_lin} \nRandom array: {arr_rand} \nArray sum: {sum_arr} \nSum of sum array elements: {sum_tot} \nSum of elements greater than 5: {new_sum}\n"
 
             print(string)
                 
-            #aggiungo al file i nuovi dati
+            # add new data to the file
             with open (txt, "a") as file:
                 file.write(string)
 
-            chooice = input("Si vogliono inserire altri dati? si/no: ")
-            if chooice.lower() == "no":
+            choice = input("Do you want to enter more data? yes/no: ")
+            if choice.lower() == "no":
                 break
             
-            chooice = input("Si vvuole sovrascrivere il file? si/no: ")
-            if chooice.lower() == "si":
+            choice = input("Do you want to overwrite the file? yes/no: ")
+            if choice.lower() == "yes":
                 rand_id = str(np.random.randint(0, 100, 10))
             
             
 if __name__ == "__main__":
     main()
 else: 
-    print("È stato importato")
+    print("Module imported")

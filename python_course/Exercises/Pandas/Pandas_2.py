@@ -1,49 +1,49 @@
 import pandas as pd
 
-file_path = "vendite.csv"
+file_path = "Sales.csv"
 
-#creazione del dataset dal file
+# dataset creation from file
 df = pd.read_csv(file_path)
 print(df)
 
-#aggiungo una nuova colonna con il totale delle vendite
-print("\n=====AGGIUNTA DI UNA COLONNA=====\n")
-df["Totale vendite"] = df["Quantita"] * df ["Prezzo unitario"]
+# adding a new column with total sales
+print("\n=====ADDING A COLUMN=====\n")
+df["Total Sales"] = df["Quantita"] * df ["Prezzo unitario"]
 print(df)
 
-#raggruppamento dati prodotto
-print("\n=====TOTALE VENDITE PRODOTTO=====\n")
-#con groupby ragggruppa le colonne colonne e seleziona la colonna totale vendite di ogni gruppo
-#reset_index fa visualizzare l'indice delle righe per una visualizzazione simile al dataframe
-result = df.groupby("Prodotto")["Totale vendite"].sum().reset_index()
+# product data grouping
+print("\n=====TOTAL PRODUCT SALES=====\n")
+# groupby groups the columns and selects the total sales column for each group
+# reset_index displays the row index for a view similar to a dataframe
+result = df.groupby("Prodotto")["Total Sales"].sum().reset_index()
 print(result)
 
-#prodotto più venduto
-print("\n=====PRODOTTO CON MAGGIORI VENDITE=====\n")
+# best-selling product
+print("\n=====PRODUCT WITH HIGHEST SALES=====\n")
 max_sell = df.groupby("Prodotto")["Quantita"].sum()
-#restituisce il valore prodotto corrispondente al valore massimo di quantita
+# returns the product value corresponding to the maximum quantity value
 max_sell_id = max_sell.idxmax()
 max_quantity = max_sell.max()
 print(max_sell_id, max_quantity)
 
-#città con maggiori vendite totali
-print("\n=====CITTA' CON MAGGIORI VENDITE TOTALI=====\n")
-max_sell_city = df.groupby("Città")["Totale vendite"].sum()
+# city with highest total sales
+print("\n=====CITY WITH HIGHEST TOTAL SALES=====\n")
+max_sell_city = df.groupby("Città")["Total Sales"].sum()
 max_sell_id_city = max_sell_city.idxmax()
 max_tot_city = max_sell_city.max()
 print(max_sell_id_city, max_tot_city)
 
-#dataframe con vendite superiori ad un valore
-print("\n=====VENDITE FILTRATE=====\n")
-df_2 = df[df["Totale vendite"]>5000]
+# dataframe with sales higher than a value
+print("\n=====FILTERED SALES=====\n")
+df_2 = df[df["Total Sales"]>5000]
 print(df_2)
 
-#ordinare colonne totale vendite in ordine decrescente
-print("\n=====COLONNE TOTALE VENDITE IN ORDINE DECRESCENTE=====\n")
-df = df.sort_values(by="Totale vendite", ascending=False)
+# sort total sales columns in descending order
+print("\n=====TOTAL SALES COLUMNS IN DESCENDING ORDER=====\n")
+df = df.sort_values(by="Total Sales", ascending=False)
 print(df)
 
-#visualizzare totali vendite per ogni città
-print("\n=====TOTALE VENDITE PER OGNI CITTA'=====\n")
-tot_city = df.groupby("Città")["Totale vendite"].sum()
-print(tot_city)
+# view total sales for each city
+print("\n=====TOTAL SALES FOR EACH CITY=====\n")
+total_city_sales = df.groupby("Città")["Total Sales"].sum()
+print(total_city_sales)
