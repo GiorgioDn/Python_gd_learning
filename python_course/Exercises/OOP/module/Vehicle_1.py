@@ -1,37 +1,37 @@
-from .TransportVehicle import VeicoloTrasporto
+from .TransportVehicle import TransportVehicle
 
-#classe figlio della classe astratta VeicoloTrasporto
-class Camion(VeicoloTrasporto):
-    def __init__(self, targa:str, peso_massimo:int, numero_assi:int, carico_attuale:int = 0):
-        super().__init__(targa, peso_massimo, carico_attuale)
-        self.numero_assi = numero_assi
+# child class of the abstract class TransportVehicle
+class Truck(TransportVehicle):
+    def __init__(self, license_plate: str, max_weight: int, axle_count: int, current_load: int = 0):
+        super().__init__(license_plate, max_weight, current_load)
+        self.axle_count = axle_count
         
-    #implementazione del metodo astratto
-    def costo_manutenzione(self):
-        costo = 100*self.numero_assi + 1*self._peso_massimo
-        return costo
+    # implementation of the abstract method
+    def maintenance_cost(self):
+        cost = 100 * self.axle_count + 1 * self._max_weight
+        return cost
 
-#classe figlio della classe astratta VeicoloTrasporto
-class Furgone(VeicoloTrasporto):
-    def __init__(self, targa:str, peso_massimo:int, alimentazione:str, carico_attuale:int = 0):
-        super().__init__(targa, peso_massimo, carico_attuale)
-        self.alimentazione = alimentazione
+# child class of the abstract class TransportVehicle
+class Van(TransportVehicle):
+    def __init__(self, license_plate: str, max_weight: int, fuel_type: str, current_load: int = 0):
+        super().__init__(license_plate, max_weight, current_load)
+        self.fuel_type = fuel_type
     
-    #implementazione del metodo astratto
-    def costo_manutenzione(self):
-        if self.alimentazione.lower() == "elettrico":
-            costo = 200
+    # implementation of the abstract method
+    def maintenance_cost(self):
+        if self.fuel_type.lower() == "electric":
+            cost = 200
         else:
-            costo = 150
-        return costo
+            cost = 150
+        return cost
 
-#classe figlio della classe astratta VeicoloTrasporto
-class Motocarro(VeicoloTrasporto):
-    def __init__(self, targa:str, peso_massimo:int, anni_servizio:int, carico_attuale:int = 0):
-        super().__init__(targa, peso_massimo, carico_attuale)
-        self.anni_servizio = anni_servizio
+# child class of the abstract class TransportVehicle
+class MotorTricycle(TransportVehicle):
+    def __init__(self, license_plate: str, max_weight: int, service_years: int, current_load: int = 0):
+        super().__init__(license_plate, max_weight, current_load)
+        self.service_years = service_years
     
-    #implementazione del metodo astratto   
-    def costo_manutenzione(self):
-        costo = 50*self.anni_servizio
-        return costo
+    # implementation of the abstract method   
+    def maintenance_cost(self):
+        cost = 50 * self.service_years
+        return cost

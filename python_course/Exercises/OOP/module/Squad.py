@@ -1,51 +1,51 @@
-from .SquadMember import MembroSquadra
+from .SquadMember import TeamMember
 
-class Giocatore(MembroSquadra):
-    #ridefinisco gli attributi iniziali
-    def __init__(self, nome:str, eta:int, ruolo:str, numero_maglia:int):
-        super().__init__(nome, eta)
-        self.ruolo = ruolo
-        self.numero_maglia = numero_maglia
+class Player(TeamMember):
+    # redefine initial attributes
+    def __init__(self, name: str, age: int, role: str, jersey_number: int):
+        super().__init__(name, age)
+        self.role = role
+        self.jersey_number = jersey_number
     
-    #sovrascrivo il metodo toString della superClasse
+    # override the toString method of the superclass
     def __str__(self):
-        return f"Il giocatore {self.nome} di {self.eta} anni, giocherà nel ruolo di {self.ruolo}, con il numero maglia {self.numero_maglia}"
+        return f"The player {self.name} of {self.age} years, will play in the role of {self.role}, with jersey number {self.jersey_number}"
 
-    def gioca_partita(self, action:str):
+    def play_match(self, action: str):
         action = action.lower()
         match action:
-            case "tiro":
-                print("Il giocatore tira in porta")
-            case "para":
-                print("Il giocatore para")
-            case "passa":
-                print("Il giocatore passa al suo compagno")
+            case "shoot":
+                print("The player shoots at the goal")
+            case "save":
+                print("The player saves")
+            case "pass":
+                print("The player passes to their teammate")
             case _:
-                print(f"Il giocatore fa {action}")
+                print(f"The player does {action}")
 
-class Allenatore(MembroSquadra):
-    #ridefinisco gli attributi iniziali
-    def __init__(self, nome:str, eta:int, anni_esperienza:int):
-        super().__init__(nome, eta)
-        self.anni_esperienza = anni_esperienza
+class Coach(TeamMember):
+    # redefine initial attributes
+    def __init__(self, name: str, age: int, years_of_experience: int):
+        super().__init__(name, age)
+        self.years_of_experience = years_of_experience
         
-    #sovrascrivo il metodo toString della superClasse
+    # override the toString method of the superclass
     def __str__(self):
-        return f"L'allenatore {self.nome} di {self.eta} anni, con alle spalle {self.anni_esperienza} anni di esperienza"
+        return f"The coach {self.name} of {self.age} years, with {self.years_of_experience} years of experience"
 
-class Assistente(MembroSquadra):
-    #ridefinisco gli attributi iniziali
-    def __init__(self, nome:str, eta:int, specializzazione:str):
-        super().__init__(nome, eta)
-        self.specializzazione = specializzazione
+class Assistant(TeamMember):
+    # redefine initial attributes
+    def __init__(self, name: str, age: int, specialization: str):
+        super().__init__(name, age)
+        self.specialization = specialization
     
-    #sovrascrivo il metodo toString della superClasse
+    # override the toString method of the superclass
     def __str__(self):
-        return f"L'assistente {self.nome} di {self.eta} anni, è un {self.specializzazione}"
+        return f"The assistant {self.name} of {self.age} years, is a {self.specialization}"
     
-    def supporta_team(self):
-        match self.specializzazione:
-            case "fisioterapista":
-                print(f"{self.nome} supporta la squadra assicurandosi che siano tutti in salute")
-            case "analista di gioco":
-                print(f"{self.nome} supporta la squadra assicurandosi che siano tutti giochino bene")
+    def support_team(self):
+        match self.specialization:
+            case "physiotherapist":
+                print(f"{self.name} supports the team by making sure everyone is healthy")
+            case "game analyst":
+                print(f"{self.name} supports the team by making sure they all play well")

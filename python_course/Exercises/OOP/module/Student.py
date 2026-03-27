@@ -1,45 +1,45 @@
 from .Person import *
 
-class Studente(Persona):
-    #prende in input i valori della superclasse e una lista di interi
-    def __init__(self, nome:str, eta:int, voti:list[int]):
-        super().__init__(nome, eta)
-        self.__voti = voti
+class Student(Person):
+    # takes superclass values and a list of integers as input
+    def __init__(self, name: str, age: int, grades: list[int]):
+        super().__init__(name, age)
+        self.__grades = grades
     
-    #con i get accedo ai corrispettivi parametri
-    def get_voti(self):
-        if len(self.__voti) > 0:
-            return self.__voti
+    # use getters to access the corresponding parameters
+    def get_grades(self):
+        if len(self.__grades) > 0:
+            return self.__grades
         else:
             return False
     
-    #con i set modifico i parametri
-    def set_voti(self, voti:list[int]):
-        if len(voti) > 0:
-            self.__voti = voti
+    # use setters to modify parameters
+    def set_grades(self, grades: list[int]):
+        if len(grades) > 0:
+            self.__grades = grades
         else:
             return False
     
-    #metodo per aggiungere un singolo voto
-    def add_voto(self, voto:int):
-        if voto > 0 and voto <= 10:
-            self.__voti.append(voto)
+    # method to add a single grade
+    def add_grade(self, grade: int):
+        if grade > 0 and grade <= 10:
+            self.__grades.append(grade)
         else:
             return False
     
-    #metodo per calcolare
-    def calcola_media(self):
-        average = 0
-        elem = len(self.__voti)
-        if elem > 0:
-            for voti in self.__voti:
-                average += voti
-            average = average/elem
+    # method to calculate average
+    def calculate_average(self):
+        total = 0
+        count = len(self.__grades)
+        if count > 0:
+            for grade in self.__grades:
+                total += grade
+            average = total / count
             return average
         else:
             return False
     
-    #metodo di presentazione sovrascritto
-    def presentazione(self):
-        base = super().presentazione()
-        return f"Lo studente {base} ed i seguenti voti: {self.__voti}"
+    # overridden introduction method
+    def introduction(self):
+        base = super().introduction()
+        return f"The student {base} and the following grades: {self.__grades}"

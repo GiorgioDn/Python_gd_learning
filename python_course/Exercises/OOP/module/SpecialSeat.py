@@ -1,38 +1,38 @@
-from .Seat import Posto
+from .Seat import Seat
 
-class PostoStandard(Posto):
-    #definisco la classe posto con parametri ereditati dalla classe Posto ed in aggiunta un float
-    def __init__(self, numero:int, fila:str, costo:float):
-        super().__init__(numero, fila)
-        self.__costo = costo
+class StandardSeat(Seat):
+    # define the seat class with parameters inherited from the Seat class and an additional float
+    def __init__(self, number: int, row: str, cost: float):
+        super().__init__(number, row)
+        self.__cost = cost
     
-    def get_costo(self):
-        return self.__costo
+    def get_cost(self):
+        return self.__cost
     
-    #sovrascrivo il metodo di prenotazione
-    def prenota(self):
-        base = super().prenota()
-        if super().get_occupato() == False:
-            return f"{base} al costo di {self.__costo}"
+    # override the reservation method
+    def reserve(self):
+        base = super().reserve()
+        if super().get_occupied() == False:
+            return f"{base} at a cost of {self.__cost}"
         else:
             return base
 
-class PostoVIP(Posto):
-    #definisco la classe posto con parametri ereditati dalla classe Posto ed in aggiunta un float ed una lista di scringhe
-    def __init__(self, numero:int, fila:str, costo:float, servizi_extra:list[str]):
-        super().__init__(numero, fila)
-        self.__costo = costo
-        self.__servizi_extra = servizi_extra
+class VIPSeat(Seat):
+    # define the seat class with parameters inherited from the Seat class plus a float and a list of strings
+    def __init__(self, number: int, row: str, cost: float, extra_services: list[str]):
+        super().__init__(number, row)
+        self.__cost = cost
+        self.__extra_services = extra_services
         
-    def get_servizi_extra(self):
-        return self.__servizi_extra
+    def get_extra_services(self):
+        return self.__extra_services
     
-    #sovrascrivo il metodo di prenotazione
-    def prenota(self):
-        base = super().prenota()
-        if super().get_occupato() == False:
-            return f"{base} al costo di {self.__costo} con la possibilità di attivare i seguenti servizi: {self.__servizi_extra}"
+    # override the reservation method
+    def reserve(self):
+        base = super().reserve()
+        if super().get_occupied() == False:
+            return f"{base} at a cost of {self.__cost} with the possibility of activating the following services: {self.__extra_services}"
         else:
             return base
-    
+
         

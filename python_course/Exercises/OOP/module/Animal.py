@@ -1,8 +1,8 @@
-#creo la superclasse animale
-class Animale:
-    def __init__(self, nome:str, eta:int):
-        self.nome = nome
-        self.eta = eta
+# creating the animal superclass
+class Animal:
+    def __init__(self, name: str, age: int):
+        self.name = name
+        self.age = age
 
-    def fai_suono(self):
-        print("Verso animale")
+    def make_sound(self):
+        print("Animal sound")

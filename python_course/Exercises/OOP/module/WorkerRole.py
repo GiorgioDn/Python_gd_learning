@@ -1,20 +1,20 @@
-from .RoleEmplyee import Impiegato as Impegato
+from .RoleEmplyee import Staff as Employee
 
-#la classe impiegato fisso prende il metodo costruttore uguale
-class ImpiegatoFisso(Impegato):
-    def __init__(self, nome:str, cognome:str, stipendio_base:float):
-        super().__init__(nome, cognome, stipendio_base)
+# the fixed employee class uses the same constructor method
+class FixedEmployee(Employee):
+    def __init__(self, first_name: str, last_name: str, base_salary: float):
+        super().__init__(first_name, last_name, base_salary)
 
-    #sovrascrive il metodo astratto        
-    def calcola_stipendio(self):
-        return f"Lo stipendio di {self.nome} {self.cognome} è di {self.stipendio_base} euro"
+    # overrides the abstract method        
+    def calculate_salary(self):
+        return f"The salary of {self.first_name} {self.last_name} is {self.base_salary} euros"
         
-#la classe impiegato a provvigione prende il metodo costruttore uguale
-class ImpiegatoAProvvigione(Impegato):
-    def __init__(self, nome:str, cognome:str, stipendio_base:float):
-        super().__init__(nome, cognome, stipendio_base)
+# the commission employee class uses the same constructor method
+class CommissionEmployee(Employee):
+    def __init__(self, first_name: str, last_name: str, base_salary: float):
+        super().__init__(first_name, last_name, base_salary)
     
-    #sovrascrive il metodo astratto aggiungedoci un attributo
-    def calcola_stipendio(self, provvigione:float):
-        stipendio = self.stipendio_base + provvigione
-        return f"Lo stipendio di {self.nome} {self.cognome} è di {stipendio} euro di cui {provvigione} sono di provvigione"
+    # overrides the abstract method by adding an attribute
+    def calculate_salary(self, commission: float):
+        salary = self.base_salary + commission
+        return f"The salary of {self.first_name} {self.last_name} is {salary} euros, of which {commission} is commission"

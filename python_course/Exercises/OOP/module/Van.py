@@ -1,30 +1,30 @@
-from .Vehicle import Veicolo
+from .Vehicle import Vehicle
 
-class Furgone(Veicolo):
-    def __init__(self, marca:str, modello:str, anno:int, accensione:bool, capacità_carico:int):
-        super().__init__(marca, modello, anno, accensione)
-        self.__capacità_carico = capacità_carico
+class Van(Vehicle):
+    def __init__(self, make: str, model: str, year: int, ignition: bool, load_capacity: int):
+        super().__init__(make, model, year, ignition)
+        self.__load_capacity = load_capacity
     
-    def get_capacità_carico(self):
-        if self.__capacità_carico > 0:
-            return self.__capacità_carico
+    def get_load_capacity(self):
+        if self.__load_capacity > 0:
+            return self.__load_capacity
         else:
             return False
         
-    def set_capacità_carico(self, capacità_carico:int):
-        if self.__capacità_carico > 0:
-            self.__capacità_carico = capacità_carico
+    def set_load_capacity(self, load_capacity: int):
+        if self.__load_capacity > 0:
+            self.__load_capacity = load_capacity
         else:
             return False
     
-    def carica(self, quantita):
-        if self.__capacità_carico >= quantita:
-            self.__capacità_carico -= quantita
+    def load(self, quantity):
+        if self.__load_capacity >= quantity:
+            self.__load_capacity -= quantity
         else:
-            return "Capacità insufficente"
+            return "Insufficient capacity"
     
-    def scarica(self, quantita):
-        if self.__capacità_carico <= quantita:
-            self.__capacità_carico += quantita
+    def unload(self, quantity):
+        if self.__load_capacity <= quantity:
+            self.__load_capacity += quantity
         else:
-            return "Quantità insufficente"
+            return "Insufficient quantity"

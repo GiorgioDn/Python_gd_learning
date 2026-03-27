@@ -1,30 +1,30 @@
 from abc import ABC, abstractmethod
 
-#classe astratta con incapsulamento
-class Dipendente(ABC):
-    #definisco la classe padre astratta dipendente che prende una lista di stringhe ed una lista di float
-    def __init__(self, badge:list[str], orari_turni:list[float]):
+# abstract class with encapsulation
+class Employee(ABC):
+    # define the abstract parent class Employee which takes a list of strings and a list of floats
+    def __init__(self, badge: list[str], shift_hours: list[float]):
         super().__init__()
         self.__badge = badge
-        self.__orari_turni = orari_turni
+        self.__shift_hours = shift_hours
     
-    #metodo astratto da implementare nelle classi filgie  
+    # abstract method to be implemented in child classes  
     @abstractmethod
-    def controllo_accesso(self):
+    def access_control(self):
         pass
     
-    #getter 
+    # getter 
     def get_badge(self):
         return self.__badge
     
-    #setter
-    def set_badge(self, badge:list[str]):
+    # setter
+    def set_badge(self, badge: list[str]):
         self.__badge = badge
      
-    #getter    
-    def get_orari_turni(self):
-        return self.__orari_turni
+    # getter    
+    def get_shift_hours(self):
+        return self.__shift_hours
     
-    #setter
-    def set_orari_turni(self, orari_turni:list[float]):
-        self.__orari_turni = orari_turni
+    # setter
+    def set_shift_hours(self, shift_hours: list[float]):
+        self.__shift_hours = shift_hours

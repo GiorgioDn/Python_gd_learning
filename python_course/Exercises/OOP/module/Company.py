@@ -1,45 +1,45 @@
-from .Emplyee import *
+from .Emplyee import Employee
 from .RoleEmplyee import *
 
-#polimorfismo
-class Azienda:
-    #prende come unico parametro obbligatorio una stringa
-    def __init__(self, nome:str, dipendenti:list[Dipendente] = [], dipatrimenti:list[str] = []):
-        self.__nome = nome
-        self.__dipendenti = dipendenti
-        self.__dipartimenti = dipatrimenti
+# polymorphism
+class Company:
+    # takes a string as the only mandatory parameter
+    def __init__(self, name: str, employees: list[Employee] = [], departments: list[str] = []):
+        self.__name = name
+        self.__employees = employees
+        self.__departments = departments
         
-    def get_nome(self):
-        return self.__nome
+    def get_name(self):
+        return self.__name
     
-    def set_nome(self, nome:str):
-        self.__nome = nome
+    def set_name(self, name: str):
+        self.__name = name
         
-    def aggiungi_dipendente(self, dipendente:Dipendente):
-        self.__dipendenti.append(dipendente)
+    def add_employee(self, employee: Employee):
+        self.__employees.append(employee)
         
-    def aggiungi_dipartimento(self, dipartimento:str):
-        self.__dipartimenti.append(dipartimento)
+    def add_department(self, department: str):
+        self.__departments.append(department)
         
-    def rimuovi_dipendente(self, badge:str):
-        for n in self.__dipendenti:
-            for info in n.get_badge():
+    def remove_employee(self, badge: str):
+        for employee in self.__employees:
+            for info in employee.get_badge():
                 if info.lower() == badge.lower():
-                    self.__dipendenti.remove(n)
+                    self.__employees.remove(employee)
     
-    def rimuovi_dipartimento(self, dipartimento:str):
-        for n in self.__dipartimenti:
-            if n.lower() == dipartimento:
-                self.__dipartimenti.remove(n)
+    def remove_department(self, department: str):
+        for dept in self.__departments:
+            if dept.lower() == department.lower():
+                self.__departments.remove(dept)
           
-    #stampa un messaggio in base al tipo di impiegati contenuti nella lista dipendenti      
-    def mostra_dipendenti(self):
-        for n in self.__dipendenti:
-            if type(n) == Impiegato:
-                print(f"L'impiegato {n.get_badge()} ha i seguenti turni: {n.get_orari_turni}")
-            elif type(n) == Amministratore:
-                print(f"L'amministratore {n.get_badge()} ha i seguenti turni: {n.get_orari_turni} e gestisce il dipartimento {n.get_dipartimento()}")
-            elif type(n) == Direttore:
-                print(f"Il direttore {n.get_badge()} ha i seguenti turni: {n.get_orari_turni} e gestisce i dipartimenti {n.get_list_dipartimenti()}")
+    # prints a message based on the type of employees contained in the employee list      
+    def show_employees(self):
+        for emp in self.__employees:
+            if type(emp) == Staff:
+                print(f"Staff member {emp.get_badge()} has the following shifts: {emp.get_shift_hours()}")
+            elif type(emp) == Administrator:
+                print(f"Administrator {emp.get_badge()} has the following shifts: {emp.get_shift_hours()} and manages the {emp.get_department()} department")
+            elif type(emp) == Director:
+                print(f"Director {emp.get_badge()} has the following shifts: {emp.get_shift_hours()} and manages the following departments: {emp.get_department_list()}")
             else:
-                print("Sconosciuto")
+                print("Unknown role")

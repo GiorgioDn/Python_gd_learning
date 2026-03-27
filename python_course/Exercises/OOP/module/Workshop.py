@@ -1,36 +1,36 @@
-from .RepairTicket import TicketRiparazione
+from .RepairTicket import RepairTicket
 
-class Officina:
-    #prende una stringa ed una lista di ticket di riparazione
-    def __init__(self, nome:str, tickets:list[TicketRiparazione] = []):
-        self.__nome = nome
+class Workshop:
+    # takes a string and a list of repair tickets
+    def __init__(self, name: str, tickets: list[RepairTicket] = []):
+        self.__name = name
         self.__tickets = tickets
         
-    def get_nome(self):
-        return self.__nome
+    def get_name(self):
+        return self.__name
     
-    def set_nome(self, value:str):
-        self.__nome = value
+    def set_name(self, value: str):
+        self.__name = value
         
-    def aggiungi_ticket(self, tickets:TicketRiparazione):
-        self.__tickets.append(tickets)
+    def add_ticket(self, ticket: RepairTicket):
+        self.__tickets.append(ticket)
         
-    #metodo che chiude il ticket dopo aver trovato quello con l'id 
-    def chiudi_ticket(self, id_ticket:str):
+    # method that closes the ticket after finding the one with the id 
+    def close_ticket(self, ticket_id: str):
         for ticket in self.__tickets:
-            if ticket.get_id_ticket() == id_ticket:
-                ticket.set_stato("chiuso")
+            if ticket.get_ticket_id() == ticket_id:
+                ticket.set_status("closed")
                 
-    #restituisce i ticket che hanno l'attributo id ad aperto
-    def stampa_ticket_aperti(self):
+    # returns the tickets that have the status attribute set to open
+    def print_open_tickets(self):
         for ticket in self.__tickets:
-            if ticket.get_id_ticket() == "aperto":
-                print(f"{ticket.get_id_ticket()} - {ticket.get_elettrodomestico} - {ticket.get_stato}")
+            if ticket.get_status() == "open":
+                print(f"{ticket.get_ticket_id()} - {ticket.get_appliance} - {ticket.get_status}")
     
-    #definisco il costo totale
-    def totale_preventivi(self):
-        prev_tot = 0
+    # define the total cost
+    def total_estimates(self):
+        total_est = 0
         for ticket in self.__tickets:
-            prev_tot += ticket.get_preventivo()
-        return prev_tot
+            total_est += ticket.get_estimate()
+        return total_est
                 

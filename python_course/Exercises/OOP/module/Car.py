@@ -1,21 +1,21 @@
-from .Vehicle import Veicolo
+from .Vehicle import Vehicle
 
-class Auto(Veicolo):
-    def __init__(self, marca:str, modello:str, anno:int, accensione:bool, numero_porte:int):
-        super().__init__(marca, modello, anno, accensione)
-        self.__numero_porte = numero_porte
+class Car(Vehicle):
+    def __init__(self, make: str, model: str, year: int, ignition: bool, door_count: int):
+        super().__init__(make, model, year, ignition)
+        self.__door_count = door_count
     
-    def get_numero_porte(self):
-        if self.__numero_porte > 0:
-            return self.__numero_porte
+    def get_door_count(self):
+        if self.__door_count > 0:
+            return self.__door_count
         else:
             return False
         
-    def set_numero_porte(self, numero_porte:int):
-        if self.__numero_porte > 0:
-            self.__numero_porte = numero_porte
+    def set_door_count(self, door_count: int):
+        if door_count > 0:
+            self.__door_count = door_count
         else:
             return False
         
-    def suona_clacson(self):
+    def honk_horn(self):
         return "BEEEEEP"

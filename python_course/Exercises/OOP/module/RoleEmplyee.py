@@ -1,52 +1,52 @@
-from .Emplyee import Dipendente
+from .Emplyee import Employee
 
-#ereditarietà e polimorfismo
-class Impiegato(Dipendente):
-    #non espande l'init della classe astratta
-    def __init__(self, badge:list[str], orari_turni:list[float]):
-        super().__init__(badge, orari_turni)
+# inheritance and polymorphism
+class Staff(Employee):
+    # does not expand the init of the abstract class
+    def __init__(self, badge: list[str], shift_hours: list[float]):
+        super().__init__(badge, shift_hours)
     
-    #sovrascrive il metodo astratto 
-    def controllo_accesso(self, ora:float):
-        if ora in self.get_orari_turni():
-            return f"Accesso consentito"
+    # overrides the abstract method 
+    def access_control(self, time: float):
+        if time in self.get_shift_hours():
+            return f"Access allowed"
         else:
-            return f"Accesso non consentito"
+            return f"Access denied"
 
-class Amministratore(Dipendente):
-    #prende i parametri della classe astratta e ci aggiunge un parametro stringa
-    def __init__(self, badge:list[str], orari_turni:list[float], dipartimento:str):
-        super().__init__(badge, orari_turni)
-        self.__dipartimento = dipartimento
+class Administrator(Employee):
+    # takes the abstract class parameters and adds a string parameter
+    def __init__(self, badge: list[str], shift_hours: list[float], department: str):
+        super().__init__(badge, shift_hours)
+        self.__department = department
     
-    def get_dipartimento(self):
-        return self.__dipartimento
+    def get_department(self):
+        return self.__department
     
-    def set_dipartimento(self, dipartimento:str):
-        self.__dipartimento = dipartimento
+    def set_department(self, department: str):
+        self.__department = department
     
-    #sovrascrive il metodo astratto 
-    def controllo_accesso(self, ora:float, dipartimento:str):
-        if ora in self.get_orari_turni() and self.__dipartimento.lower() == dipartimento.lower():
-            return f"Accesso consentito"
+    # overrides the abstract method 
+    def access_control(self, time: float, department: str):
+        if time in self.get_shift_hours() and self.__department.lower() == department.lower():
+            return f"Access allowed"
         else:
-            return f"Accesso non consentito"
+            return f"Access denied"
 
-class Direttore(Dipendente):
-    #prende i parametri della classe astratta e ci aggiunge un parametro lista di stringhe in overloading simulato
-    def __init__(self, badge:list[str], orari_turni:list[float], list_dipartimenti:list[str] = []):
-        super().__init__(badge, orari_turni)
-        self.__list_dipartimenti = list_dipartimenti
+class Director(Employee):
+    # takes the abstract class parameters and adds a list of strings parameter in simulated overloading
+    def __init__(self, badge: list[str], shift_hours: list[float], department_list: list[str] = []):
+        super().__init__(badge, shift_hours)
+        self.__department_list = department_list
         
-    def get_list_dipartimenti(self):
-        return self.__list_dipartimenti
+    def get_department_list(self):
+        return self.__department_list
     
-    def aggiungere_list_dipartimenti(self, dipartimento:str):
-        self.__list_dipartimenti.append(dipartimento.lower())
+    def add_to_department_list(self, department: str):
+        self.__department_list.append(department.lower())
     
-    #sovrascrive il metodo astratto     
-    def controllo_accesso(self, ora:float, dipartimento:str):
-        if ora in self.get_orari_turni() and dipartimento.lower() in self.__list_dipartimenti:
-            return f"Accesso consentito"
+    # overrides the abstract method     
+    def access_control(self, time: float, department: str):
+        if time in self.get_shift_hours() and department.lower() in self.__department_list:
+            return f"Access allowed"
         else:
-            return f"Accesso non consentito"
+            return f"Access denied"

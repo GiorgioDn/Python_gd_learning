@@ -1,33 +1,33 @@
-from .TransportVehicle import VeicoloTrasporto
+from .TransportVehicle import TransportVehicle
 from .Vehicle import *
+from .Vehicle_1 import Truck, Van, MotorTricycle
 
-#classe generica per manipolare una lista di tipo VeicoloTrasporto
-class GestoreFlotta:
-    def __init__(self, veicoli:list[VeicoloTrasporto]):
-        self.veicoli = veicoli
+# generic class to manipulate a list of TransportVehicle types
+class FleetManager:
+    def __init__(self, vehicles: list[TransportVehicle]):
+        self.vehicles = vehicles
     
-    def aggiungi_veicolo(self, veicolo:VeicoloTrasporto):
-        self.veicoli.append(veicolo)
+    def add_vehicle(self, vehicle: TransportVehicle):
+        self.vehicles.append(vehicle)
         
-    def rimuovi_veicolo(self, targa:str):
-        for n in self.veicoli:
-            if n.get_targa() == targa:
-                self.veicoli.remove(n)
+    def remove_vehicle(self, license_plate: str):
+        for vehicle in self.vehicles:
+            if vehicle.get_license_plate() == license_plate:
+                self.vehicles.remove(vehicle)
      
-    #somma i costi totali eseguendo il metodo costo_manutenzione presente nella classe VeicoloTrasporto           
-    def costo_totale_manutenzione(self):
-        costo_tot = 0
-        for n in self.veicoli:
-            costo_tot += n.costo_manutenzione()
+    # sums total costs by executing the maintenance_cost method present in the TransportVehicle class           
+    def total_maintenance_cost(self):
+        total_cost = 0
+        for vehicle in self.vehicles:
+            total_cost += vehicle.maintenance_cost()
             
-        return costo_tot
+        return total_cost
     
-    #stampa in base al tipo della classe figlio di VeicoloTrasporto
-    def stampa_veicoli(self):
-        for n in self.veicoli:
-            if type(n) == Camion:
-                print(f"Veicolo: {n.get_targa()} - Tipo: Camion - Carico attuale: {n.get_carico_attuale()}")
-            elif type(n) == Furgone:
-                print(f"Veicolo: {n.get_targa()} - Tipo: Furgone - Carico attuale: {n.get_carico_attuale()}")
+    # prints information based on the child class type of TransportVehicle
+    def print_vehicles(self):
+        for vehicle in self.vehicles:
+            vehicle_type = type(vehicle).__name__
+            if isinstance(vehicle, (Truck, Van, MotorTricycle)):
+                print(f"Vehicle: {vehicle.get_license_plate()} - Type: {vehicle_type} - Current load: {vehicle.get_current_load()}")
             else:
-                print(f"Veicolo: {n.get_targa()} - Tipo: Motocarro - Carico attuale: {n.get_carico_attuale()}")
+                print(f"Vehicle: {vehicle.get_license_plate()} - Type: Unknown - Current load: {vehicle.get_current_load()}")

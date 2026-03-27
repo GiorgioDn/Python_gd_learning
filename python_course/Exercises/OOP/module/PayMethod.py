@@ -1,6 +1,4 @@
-class MetodoPagamenti:
+class PaymentMethod:
     
-    def efettua_pagamento(self, importo):
-        return f"È stato pagato il seguente importo: {importo} euro"
-    
-    
+    def process_payment(self, amount):
+        return f"The following amount has been paid: {amount} euros"

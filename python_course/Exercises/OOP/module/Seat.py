@@ -1,33 +1,33 @@
-class Posto:
-    #definisco la classe posto con parametri int e stringa
-    def __init__(self, numero:int, fila:str):
-        self.__numero = numero
-        self.__fila = fila
-        #imposto inizialmente l'attributo a False
-        self.__occupato = False 
+class Seat:
+    # define the seat class with int and string parameters
+    def __init__(self, number: int, row: str):
+        self.__number = number
+        self.__row = row
+        # initially set the attribute to False
+        self.__occupied = False 
     
-    #uso solamente i get perchè i dati non sono modificabili
-    def get_numero(self):
-        return self.__numero
+    # use only getters because the data is not modifiable
+    def get_number(self):
+        return self.__number
 
-    def get_fila(self):
-        return self.__fila
+    def get_row(self):
+        return self.__row
     
-    def get_occupato(self):
-        return self.__occupato
+    def get_occupied(self):
+        return self.__occupied
     
-    #metodo prenotazione per gestire le prenotazioni
-    def prenota(self):
-        if self.__occupato == False:
-            self.__occupato = True
-            return f"Il posto numero: {self.__numero} in fila: {self.__fila} è stato prenotato"
+    # reservation method to manage bookings
+    def reserve(self):
+        if self.__occupied == False:
+            self.__occupied = True
+            return f"Seat number: {self.__number} in row: {self.__row} has been reserved"
         else:
-            return f"Il posto numero: {self.__numero} in fila: {self.__fila} è occupato"
+            return f"Seat number: {self.__number} in row: {self.__row} is occupied"
     
-    #metodo per liberare il posto e scambiare lo stato di occupato
-    def libera(self):
-        if self.__occupato == True:
-            self.__occupato = False
-            return f"Il posto numero: {self.__numero} in fila: {self.__fila} è stato liberato"
+    # method to release the seat and change the occupied status
+    def release(self):
+        if self.__occupied == True:
+            self.__occupied = False
+            return f"Seat number: {self.__number} in row: {self.__row} has been released"
         else:
-            return f"Il posto numero: {self.__numero} in fila: {self.__fila} è libero"
+            return f"Seat number: {self.__number} in row: {self.__row} is free"

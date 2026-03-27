@@ -1,54 +1,54 @@
-class Veicolo:
-    def __init__(self, marca:str, modello:str, anno:int, accensione:bool = False):
-        self.__marca = marca
-        self.__modello = modello
-        self.__anno = anno
-        self.__accensione = accensione
+class Vehicle:
+    def __init__(self, make: str, model: str, year: int, ignition: bool = False):
+        self.__make = make
+        self.__model = model
+        self.__year = year
+        self.__ignition = ignition
     
-    #metodi get per prendere i valori
-    def get_marca(self):
-        if len(self.__marca) > 0:
-            return self.__marca
+    # getter methods to retrieve values
+    def get_make(self):
+        if len(self.__make) > 0:
+            return self.__make
         else:
             return False
         
-    def get_modello(self):
-        if len(self.__modello) > 0:
-            return self.__modello
-        else:
-            return False
-    
-    def get_anno(self):
-        if self.__anno > 0:
-            return self.__anno
-        else:
-            return False
-        
-    def get_accensione(self):
-        return self.__accensione
-    
-    #metodi set per modificare i valori
-    def set_marca(self, marca:str):
-        if len(self.__marca) > 0:
-            self.__marca = marca
-        else:
-            return False
-        
-    def set_modello(self, modello:str):
-        if len(self.__modello) > 0:
-            self.__modello = modello
+    def get_model(self):
+        if len(self.__model) > 0:
+            return self.__model
         else:
             return False
     
-    def set_anno(self, anno:int):
-        if self.__anno > 0:
-            self.__anno = anno
+    def get_year(self):
+        if self.__year > 0:
+            return self.__year
         else:
             return False
         
-    #metodi per l'accensione e lo spegnimento
-    def accendi(self):
-        self.__accensione = True
+    def get_ignition(self):
+        return self.__ignition
+    
+    # setter methods to modify values
+    def set_make(self, make: str):
+        if len(self.__make) > 0:
+            self.__make = make
+        else:
+            return False
         
-    def spegni(self):
-        self.__accensione = False
+    def set_model(self, model: str):
+        if len(self.__model) > 0:
+            self.__model = model
+        else:
+            return False
+    
+    def set_year(self, year: int):
+        if self.__year > 0:
+            self.__year = year
+        else:
+            return False
+        
+    # methods for ignition on and off
+    def turn_on(self):
+        self.__ignition = True
+        
+    def turn_off(self):
+        self.__ignition = False

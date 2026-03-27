@@ -1,46 +1,46 @@
-from abc import ABC,abstractmethod
+from abc import ABC, abstractmethod
 
-#classe astratta che prende in input una stringa e due interi
-class VeicoloTrasporto(ABC):
-    #carico_attuale ha un valore di default di 0
-    def __init__(self, targa:str, peso_massimo:int, carico_attuale:int = 0):
-        self._targa = targa
-        self._peso_massimo = peso_massimo
-        self._carico_attuale = carico_attuale
+# abstract class that takes a string and two integers as input
+class TransportVehicle(ABC):
+    # current_load has a default value of 0
+    def __init__(self, license_plate: str, max_weight: int, current_load: int = 0):
+        self._license_plate = license_plate
+        self._max_weight = max_weight
+        self._current_load = current_load
     
-    #da implementare nelle classi filgie
+    # to be implemented in child classes
     @abstractmethod
-    def costo_manutenzione(self):
+    def maintenance_cost(self):
         pass
     
-    #getter
-    def get_targa(self):
-        return self._targa
+    # getter
+    def get_license_plate(self):
+        return self._license_plate
     
-    #getter
-    def get_peso_massimo(self):
-        return self._peso_massimo
+    # getter
+    def get_max_weight(self):
+        return self._max_weight
     
-    #getter
-    def get_carico_attuale(self):
-        return self._carico_attuale
+    # getter
+    def get_current_load(self):
+        return self._current_load
     
-    #getter
-    def set_targa(self, targa:str):
-        self._targa = targa
+    # getter
+    def set_license_plate(self, license_plate: str):
+        self._license_plate = license_plate
     
-    #setter
-    def set_peso_massimo(self, peso_massimo:int):
-        self._peso_massimo = peso_massimo
+    # setter
+    def set_max_weight(self, max_weight: int):
+        self._max_weight = max_weight
 
-    #controlla se è possibile aggiungere il valore int per poi aggiornare l'attributo carico_atttuale
-    def carica(self, peso:int):
-        if self._carico_attuale + peso <= self._peso_massimo:
-            self._carico_attuale += peso
-            return f"È stato caricato, il carico attuale è: {self._carico_attuale} kg su {self._peso_massimo} kg massimi"
+    # checks if it is possible to add the int value and then updates the current_load attribute
+    def load(self, weight: int):
+        if self._current_load + weight <= self._max_weight:
+            self._current_load += weight
+            return f"It has been loaded, the current load is: {self._current_load} kg out of {self._max_weight} kg maximum"
         else:
-            return f"Non può essere inserito perchè supera il carico massimo di {self._peso_massimo} kg"
+            return f"It cannot be inserted because it exceeds the maximum load of {self._max_weight} kg"
     
-    #imposta a 0 il carico_attuale    
-    def scarica(self):
-        self._carico_attuale = 0
+    # sets current_load to 0    
+    def unload(self):
+        self._current_load = 0

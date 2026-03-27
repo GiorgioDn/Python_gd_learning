@@ -1,38 +1,38 @@
-class ContoBancario:
+class BankAccount:
     
-    #la classe prende in input una stringa ed un float e li assegna come valori privati
-    def __init__(self, titolare:str, saldo:float):
-        self.__titolare = titolare
-        self.__saldo = saldo
+    # the class takes a string and a float as input and assigns them as private values
+    def __init__(self, account_holder: str, balance: float):
+        self.__account_holder = account_holder
+        self.__balance = balance
     
-    #visualizza la variabile privata titolare
-    def get_titolare(self):
-        if len(self.__titolare) > 0:
-            return self.__titolare
+    # displays the private variable account_holder
+    def get_account_holder(self):
+        if len(self.__account_holder) > 0:
+            return self.__account_holder
         else:
             return False
     
-    #modifica il valore della variabile privata titolare
-    def set_titolare(self, titolare:str):
-        if len(titolare) > 0:
-            self.__titolare = titolare
+    # modifies the value of the private variable account_holder
+    def set_account_holder(self, account_holder: str):
+        if len(account_holder) > 0:
+            self.__account_holder = account_holder
         else:
             return False
     
-    #aumenta il saldo in base al valore float inserito
-    def deposita(self, importo:float):
-        if importo > 0:
-            self.__saldo += importo
+    # increases the balance based on the float value entered
+    def deposit(self, amount: float):
+        if amount > 0:
+            self.__balance += amount
         else:
             return False
 
-    #diminuisce il saldo in base al valore float inserito
-    def preleva(self, importo:float):
-        if importo > 0 and self.__saldo >= importo:   
-            self.__saldo -= importo
+    # decreases the balance based on the float value entered
+    def withdraw(self, amount: float):
+        if amount > 0 and self.__balance >= amount:   
+            self.__balance -= amount
         else:
             return False
     
-    #visualizza la variabile privata saldo
-    def visualizza_saldo(self):
-        return self.__saldo
+    # displays the private variable balance
+    def display_balance(self):
+        return self.__balance

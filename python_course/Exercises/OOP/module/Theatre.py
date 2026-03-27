@@ -1,16 +1,16 @@
-class Teatro:
-    def __init__(self, posti:list[Posto]): # type: ignore
-        self.__posti = posti
+class Theater:
+    def __init__(self, seats: list[Seat]): # type: ignore
+        self.__seats = seats
         
-    def aggiungi_posto(self, posto:Posto): # type: ignore
-        return self.__posti.append(posto)
+    def add_seat(self, seat: Seat): # type: ignore
+        return self.__seats.append(seat)
         
-    def stampa_posti_occupati(self):
-        for posti_occupati in self.__posti:
-            if posti_occupati.get_occupato() == True:
-                print(posti_occupati.prenota())
+    def print_occupied_seats(self):
+        for seat in self.__seats:
+            if seat.get_occupied() == True:
+                print(seat.reserve())
     
-    def prenota_posto(self, numero:int, fila:str):
-        for posti_occupati in self.__posti:
-            if posti_occupati.get_numero() == numero and posti_occupati.get_fila() == fila:
-                print(posti_occupati.prenota())
+    def reserve_seat(self, number: int, row: str):
+        for seat in self.__seats:
+            if seat.get_number() == number and seat.get_row() == row:
+                print(seat.reserve())

@@ -1,25 +1,25 @@
-from .Vehicle import Veicolo
+from .Vehicle import Vehicle
 
-class Motocicletta(Veicolo):
-    def __init__(self, marca:str, modello:str, anno:int, accensione:bool, tipo:str):
-        super().__init__(marca, modello, anno, accensione)
-        self.__tipo = tipo
+class Motorcycle(Vehicle):
+    def __init__(self, make: str, model: str, year: int, ignition: bool, vehicle_type: str):
+        super().__init__(make, model, year, ignition)
+        self.__vehicle_type = vehicle_type
     
-    def get_tipo(self):
-        if len(self.__tipo) > 0:
-            return self.__tipo
+    def get_vehicle_type(self):
+        if len(self.__vehicle_type) > 0:
+            return self.__vehicle_type
         else:
             return False
         
-    def set_tipo(self, tipo:int):
-        if len(self.__tipo)  > 0:
-            self.__tipo = tipo
+    def set_vehicle_type(self, vehicle_type: str):
+        if len(vehicle_type) > 0:
+            self.__vehicle_type = vehicle_type
         else:
             return False
     
-    def esegui_wheelie(self):
-        if self.__tipo == "sportivo":
-            return "Esegue un wheelie"
+    def perform_wheelie(self):
+        if self.__vehicle_type == "sport":
+            return "Performing a wheelie"
         else:
-            return "Non esegue il wheelie"
+            return "Cannot perform a wheelie"
         

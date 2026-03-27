@@ -1,103 +1,103 @@
-from .Appliance import Elettrodomestico
+from .Appliance import Appliance
 
-class Lavatrice(Elettrodomestico):
-    #prende in input due stringhe un int una stringa e due int
-    def __init__(self, marca:str, modello:str, anno_acquisto:int, guasto:str, capacità_kg:int, giri_centrifuga:int):
-        super().__init__(marca, modello, anno_acquisto, guasto)
-        self.__capacità_kg = capacità_kg
-        self.__giri_centrifuga = giri_centrifuga
+class WashingMachine(Appliance):
+    # takes two strings, an int, a string, and two ints as input
+    def __init__(self, make: str, model: str, purchase_year: int, fault: str, capacity_kg: int, spin_speed: int):
+        super().__init__(make, model, purchase_year, fault)
+        self.__capacity_kg = capacity_kg
+        self.__spin_speed = spin_speed
 
-    #getter
-    def get_capacità_kg(self):
-        return self.__capacità_kg
+    # getter
+    def get_capacity_kg(self):
+        return self.__capacity_kg
 
-    def set_capacità_kg(self, value:int):
-        self.__capacità_kg = value
+    def set_capacity_kg(self, value: int):
+        self.__capacity_kg = value
 
-    #getter
-    def get_giri_centrifuga(self):
-        return self.__giri_centrifuga
+    # getter
+    def get_spin_speed(self):
+        return self.__spin_speed
 
-    def set_giri_centrifuga(self, value:int):
-        self.__giri_centrifuga = value
+    def set_spin_speed(self, value: int):
+        self.__spin_speed = value
     
-    #override del metodo stima costo 
-    def stima_costo_base(self):
-        stima_costo = super().stima_costo_base
-        if self.__capacità_kg >= 20:
-            stima_costo += 5.0
-            return stima_costo
+    # override of the base cost estimation method 
+    def estimate_base_cost(self):
+        est_cost = super().estimate_base_cost
+        if self.__capacity_kg >= 20:
+            est_cost += 5.0
+            return est_cost
         else:
-            return stima_costo
+            return est_cost
 
 
-class Frigorifero(Elettrodomestico):
-    #prende in input due stringhe un int una stringa e un int ed un booleano
-    def __init__(self, marca:str, modello:str, anno_acquisto:int, guasto:str, litri:int, ha_freezer:bool):
-        super().__init__(marca, modello, anno_acquisto, guasto)
-        self.__litri = litri
-        self.__ha_freezer = ha_freezer
+class Refrigerator(Appliance):
+    # takes two strings, an int, a string, an int, and a boolean as input
+    def __init__(self, make: str, model: str, purchase_year: int, fault: str, liters: int, has_freezer: bool):
+        super().__init__(make, model, purchase_year, fault)
+        self.__liters = liters
+        self.__has_freezer = has_freezer
 
-    #getter
-    def get_litri(self):
-        return self.__litri
+    # getter
+    def get_liters(self):
+        return self.__liters
 
-    def set_litri(self, value:int):
-        self.__litri = value
+    def set_liters(self, value: int):
+        self.__liters = value
 
-    #getter
-    def get_ha_freezer(self):
-        return self.__ha_freezer
+    # getter
+    def get_has_freezer(self):
+        return self.__has_freezer
 
-    def set_ha_freezer(self, value:bool):
-        self.__ha_freezer = value
+    def set_has_freezer(self, value: bool):
+        self.__has_freezer = value
        
-    #override del metodo stima costo  
-    def stima_costo_base(self):
-        stima_costo = super().stima_costo_base
-        if self.__ha_freezer == True or self.__litri>5:
-            stima_costo += 2.0
-            return stima_costo
+    # override of the base cost estimation method  
+    def estimate_base_cost(self):
+        est_cost = super().estimate_base_cost
+        if self.__has_freezer == True or self.__liters > 5:
+            est_cost += 2.0
+            return est_cost
         
-        elif self.__ha_freezer == True and self.__litri>5:
-            stima_costo += 6.5
-            return stima_costo
+        elif self.__has_freezer == True and self.__liters > 5:
+            est_cost += 6.5
+            return est_cost
             
         else:
-            return stima_costo
+            return est_cost
 
 
-class Forno(Elettrodomestico):
-    #prende in input due stringhe un int due stringhe ed un bool
-    def __init__(self, marca:str, modello:str, anno_acquisto:int, guasto:str, tipo_alimentazione:str, ha_ventilato:bool):
-        super().__init__(marca, modello, anno_acquisto, guasto)
-        self.__tipo_alimentazione = tipo_alimentazione
-        self.__ha_ventilato = ha_ventilato
+class Oven(Appliance):
+    # takes two strings, an int, two strings, and a boolean as input
+    def __init__(self, make: str, model: str, purchase_year: int, fault: str, fuel_type: str, has_fan: bool):
+        super().__init__(make, model, purchase_year, fault)
+        self.__fuel_type = fuel_type
+        self.__has_fan = has_fan
 
-    #getter
-    def get_tipo_alimentazione(self):
-        return self.__tipo_alimentazione
+    # getter
+    def get_fuel_type(self):
+        return self.__fuel_type
 
-    def set_tipo_alimentazione(self, value:str):
-        self.__tipo_alimentazione = value
+    def set_fuel_type(self, value: str):
+        self.__fuel_type = value
 
-    #getter
-    def get_ha_ventilato(self):
-        return self.__ha_ventilato
+    # getter
+    def get_has_fan(self):
+        return self.__has_fan
 
-    def set_ha_ventilato(self, value:bool):
-        self.__ha_ventilato = value
+    def set_has_fan(self, value: bool):
+        self.__has_fan = value
 
-    #override del metodo stima costo  
-    def stima_costo_base(self):
-        stima_costo = super().stima_costo_base
-        if self.__ha_vetilato == True or self.__tipo_alimentazione.lower() == "elettrico" or self.__tipo_alimentazione.lower() == "gas":
-            stima_costo += 2.5
-            return stima_costo
+    # override of the base cost estimation method  
+    def estimate_base_cost(self):
+        est_cost = super().estimate_base_cost
+        if self.__has_fan == True or self.__fuel_type.lower() == "electric" or self.__fuel_type.lower() == "gas":
+            est_cost += 2.5
+            return est_cost
         
-        elif self.__ha_vetilato == True and self.__tipo_alimentazione.lower() == "elettrico" or self.__tipo_alimentazione.lower() == "gas":
-            stima_costo += 5.5
-            return stima_costo
+        elif self.__has_fan == True and self.__fuel_type.lower() == "electric" or self.__fuel_type.lower() == "gas":
+            est_cost += 5.5
+            return est_cost
             
         else:
-            return stima_costo
+            return est_cost

@@ -1,57 +1,57 @@
-from .MilitaryUnit import UnitaMilitare
+from .MilitaryUnit import MilitaryUnit
 
-class Fanteria(UnitaMilitare):
-    #aggiunge nuovi attributi non ereditati
-    def __init__(self, nome, numero_soldati, armi:str):
-        super().__init__(nome, numero_soldati)
-        self.armi = armi
+class Infantry(MilitaryUnit):
+    # adds new non-inherited attributes
+    def __init__(self, name, soldier_count, weapons: str):
+        super().__init__(name, soldier_count)
+        self.weapons = weapons
     
-    #metodo di classe
-    def costruisci_trincea(self, materiali):
-        print(f"Costruita una trincea con {materiali}")
+    # class method
+    def build_trench(self, materials):
+        print(f"Built a trench with {materials}")
 
-class Artiglieria(UnitaMilitare):
-    #aggiunge nuovi attributi non ereditati
-    def __init__(self, nome, numero_soldati, gittata:int):
-        super().__init__(nome, numero_soldati)
-        self.gittata = gittata
+class Artillery(MilitaryUnit):
+    # adds new non-inherited attributes
+    def __init__(self, name, soldier_count, range_dist: int):
+        super().__init__(name, soldier_count)
+        self.range_dist = range_dist
     
-    #metodo di classe
-    def calibra_artiglieria(self, calibra:int):
-        if calibra<self.gittata:
-            print("Calibrazione completata per colpire il bersaglio")
+    # class method
+    def calibrate_artillery(self, calibrate: int):
+        if calibrate < self.range_dist:
+            print("Calibration completed to hit the target")
         else:
-            print("Bersaglio troppo distante")
+            print("Target too distant")
 
-class Cavalleria(UnitaMilitare):
-    #aggiunge nuovi attributi non ereditati
-    def __init__(self, nome, numero_soldati, velocita:int):
-        super().__init__(nome, numero_soldati)
-        self.velocita = velocita
+class Cavalry(MilitaryUnit):
+    # adds new non-inherited attributes
+    def __init__(self, name, soldier_count, speed: int):
+        super().__init__(name, soldier_count)
+        self.speed = speed
     
-    #metodo di classe
-    def esplora_terreno(self, area):
-        print(f"Le unità hanno esplorato {area} trovando informazioni")
+    # class method
+    def explore_terrain(self, area):
+        print(f"The units explored {area} finding information")
 
-class SupportoLogistico(UnitaMilitare):
-    #aggiunge nuovi attributi non ereditati
-    def __init__(self, nome, numero_soldati, quantita_materiali:int):
-        super().__init__(nome, numero_soldati)
-        self.quantita_materiali = quantita_materiali
+class LogisticSupport(MilitaryUnit):
+    # adds new non-inherited attributes
+    def __init__(self, name, soldier_count, material_quantity: int):
+        super().__init__(name, soldier_count)
+        self.material_quantity = material_quantity
     
-    #metodo di classe
-    def supporto_logistico(self, materiali_usati:int):
-        if self.quantita_materiali>materiali_usati:
-            print("L'unità ha rifornito ed eseguito la manutenzione")
+    # class method
+    def logistic_support(self, materials_used: int):
+        if self.material_quantity > materials_used:
+            print("The unit supplied and performed maintenance")
         else:
-            print("Materiali insufficienti")
+            print("Insufficient materials")
 
-class Ricognizione(UnitaMilitare):
-    #aggiunge nuovi attributi non ereditati
-    def __init__(self, nome, numero_soldati, durata_missione:int):
-        super().__init__(nome, numero_soldati)
-        self.durata_missione = durata_missione
+class Reconnaissance(MilitaryUnit):
+    # adds new non-inherited attributes
+    def __init__(self, name, soldier_count, mission_duration: int):
+        super().__init__(name, soldier_count)
+        self.mission_duration = mission_duration
     
-    #metodo di classe
-    def conduci_ricognizione(self, area):
-        print(f"L'unità ha effettuato la ricognizione in {area} per {self.durata_missione}")
+    # class method
+    def conduct_reconnaissance(self, area):
+        print(f"The unit conducted reconnaissance in {area} for {self.mission_duration}")

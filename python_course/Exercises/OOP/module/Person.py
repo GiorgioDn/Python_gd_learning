@@ -1,35 +1,35 @@
-class Persona:
-    #prende in input una stringa ed un intero
-    def __init__(self, nome:str, eta:int):
-        self.__nome = nome
-        self.__eta = eta
+class Person:
+    # takes a string and an integer as input
+    def __init__(self, name: str, age: int):
+        self.__name = name
+        self.__age = age
     
-    #con i get accedo ai corrispettivi parametri
-    def get_nome(self):
-        if len(self.__nome) > 0:
-            return self.__nome
+    # use getters to access the corresponding parameters
+    def get_name(self):
+        if len(self.__name) > 0:
+            return self.__name
         else:
             return False
     
-    def get_eta(self):
-        if self.__eta > 0:
-            return self.__eta
+    def get_age(self):
+        if self.__age > 0:
+            return self.__age
         else:
             return False
     
-    #con i set modifico i parametri
-    def set_nome(self, nome:str):
-        if len(nome) > 0:
-            self.__nome = nome
+    # use setters to modify the parameters
+    def set_name(self, name: str):
+        if len(name) > 0:
+            self.__name = name
         else:
             return False
     
-    def set_eta(self, eta:int):
-        if eta > 0:
-            self.__eta = eta
+    def set_age(self, age: int):
+        if age > 0:
+            self.__age = age
         else:
             return False
     
-    #metodo di presentazione
-    def presentazione(self):
-        return f"{self.__nome}, ha {self.__eta} anni"
+    # introduction method
+    def introduction(self):
+        return f"{self.__name} is {self.__age} years old"

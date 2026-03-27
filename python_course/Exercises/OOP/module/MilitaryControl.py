@@ -1,24 +1,24 @@
 from .Unit import *
 
-class ControlloMilitare(Fanteria, Artiglieria, Cavalleria, SupportoLogistico, Ricognizione):
-    #prende tutti i parametri delle classi padre più una nuova
-    def __init__(self, nome, numero_soldati, armi, gittata, velocita, quantita_materiali, durata_missione, unita_registrate):
-        super().__init__(nome, numero_soldati, armi)
-        Artiglieria.__init__(nome, numero_soldati, gittata)
-        Cavalleria.__init__(nome, numero_soldati, velocita)
-        SupportoLogistico.__init__(nome, numero_soldati, quantita_materiali)
-        Ricognizione.__init__(nome, numero_soldati, durata_missione)
-        self.unita_registrate = unita_registrate
+class MilitaryControl(Infantry, Artillery, Cavalry, LogisticSupport, Reconnaissance):
+    # takes all parameters from parent classes plus a new one
+    def __init__(self, name, soldier_count, weapons, range_dist, speed, material_quantity, mission_duration, registered_units):
+        super().__init__(name, soldier_count, weapons)
+        Artillery.__init__(self, name, soldier_count, range_dist)
+        Cavalry.__init__(self, name, soldier_count, speed)
+        LogisticSupport.__init__(self, name, soldier_count, material_quantity)
+        Reconnaissance.__init__(self, name, soldier_count, mission_duration)
+        self.registered_units = registered_units
         
-    #splitta l'unita creando una lista di liste
-    def registra_unita(self, unita):
-        return self.unita_registrate.append(*unita)
+    # registers the unit by appending it to the list
+    def register_unit(self, unit):
+        return self.registered_units.append(unit)
     
-    def mostra_unita(self):
-        return self.unita_registrate
+    def show_units(self):
+        return self.registered_units
     
-    #itera la lista per trovare il nome
-    def dettagli_unita(self, nome):
-        for specific_unit in self.unita_registrate:
-            if specific_unit[0] == nome:
+    # iterates the list to find the unit by name
+    def unit_details(self, name):
+        for specific_unit in self.registered_units:
+            if specific_unit.name == name:
                 return specific_unit

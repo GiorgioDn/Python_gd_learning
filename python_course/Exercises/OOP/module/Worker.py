@@ -1,15 +1,15 @@
 from abc import ABC, abstractmethod
 
-#classe astratta impegrato con un costruttore
-class Impegato(ABC):
-    #il costruttore prende in input due stringhe e lo stipendio base
-    def __init__(self, nome:str, cognome:str, stipendio_base:float):
+# abstract class employee with a constructor
+class Employee(ABC):
+    # the constructor takes two strings and the base salary as input
+    def __init__(self, first_name: str, last_name: str, base_salary: float):
         super().__init__()
-        self.nome = nome
-        self.cognome = cognome
-        self.stipendio_base = stipendio_base
+        self.first_name = first_name
+        self.last_name = last_name
+        self.base_salary = base_salary
         
-    #metodo da implementare nelle classi figlie
+    # method to be implemented in child classes
     @abstractmethod
-    def calcola_stipendio(self):
+    def calculate_salary(self):
         pass

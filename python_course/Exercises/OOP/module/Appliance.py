@@ -1,51 +1,51 @@
-class Elettrodomestico:
-    #prende in input due stringhe un int ed un'altra stringa
-    def __init__(self, marca:str, modello:str, anno_acquisto:int, guasto:str):
-        self.__marca = marca
-        self.__modello = modello
-        self.__anno_acquisto = anno_acquisto
-        self.__guasto = guasto
+class Appliance:
+    # takes two strings, an int, and another string as input
+    def __init__(self, make: str, model: str, purchase_year: int, fault: str):
+        self.__make = make
+        self.__model = model
+        self.__purchase_year = purchase_year
+        self.__fault = fault
 
-    #gettter
-    def get_marca(self):
-        return self.__marca
+    # getter
+    def get_make(self):
+        return self.__make
 
-    #setter
-    def set_marca(self, value:str):
-        self.__marca = value
+    # setter
+    def set_make(self, value: str):
+        self.__make = value
 
-    #gettter
-    def get_modello(self):
-        return self.__modello
+    # getter
+    def get_model(self):
+        return self.__model
 
-    #setter
-    def set_modello(self, value:str):
-        self.__modello = value
+    # setter
+    def set_model(self, value: str):
+        self.__model = value
 
-    #gettter
-    def get_anno_acquisto(self):
-        if self.__anno_acquisto <= 2025:
-            return self.__anno_acquisto
+    # getter
+    def get_purchase_year(self):
+        if self.__purchase_year <= 2025:
+            return self.__purchase_year
         else:
             return False
 
-    #setter
-    def set_anno_acquisto(self, value:int):
-        self.__anno_acquisto = value
+    # setter
+    def set_purchase_year(self, value: int):
+        self.__purchase_year = value
 
-    #gettter
-    def get_guasto(self):
-        return self.__guasto
+    # getter
+    def get_fault(self):
+        return self.__fault
 
-    #setter
-    def set_guasto(self, value:str):
-        self.__guasto = value
+    # setter
+    def set_fault(self, value: str):
+        self.__fault = value
     
-    #ritorna una stringa descrittiva della classe
+    # returns a descriptive string of the class
     def description(self):
-        return f"{self.__marca}, {self.__modello} prodotta nell'anno {self.__anno_acquisto} con il seguente problema: {self.__guasto}"
+        return f"{self.__make}, {self.__model} produced in the year {self.__purchase_year} with the following problem: {self.__fault}"
 
-    #restituisce un valore float
-    def stima_costo_base(self):
-        costo_base = 10.0
-        return costo_base
+    # returns a float value
+    def estimate_base_cost(self):
+        base_cost = 10.0
+        return base_cost
