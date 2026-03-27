@@ -3,51 +3,51 @@ from .module.SpecialSeat import *
 
 def main():
     
-    teatro = Teatro([])   
+    theatre = Theater([])   
     
     while True:
         
-        print("\n Selezionare l'operazione da effettuare")
-        print("1. Aggiungere un posto standard")
-        print("2. Aggiungere un posto vip")
-        print("3. Visualizzare i posti occupati")
-        print("4. Prenotare il posto")
-        print("5. Esci")
-        chooice = int(input("Scegli una opzione: "))
+        print("\n Select the operation to perform")
+        print("1. Add a standard seat")
+        print("2. Add a VIP seat")
+        print("3. View occupied seats")
+        print("4. Book a seat")
+        print("5. Exit")
+        choice = int(input("Choose an option: "))
         
-        match chooice:
+        match choice:
             case 1:
-                numero = int(input("Numero: "))
-                fila = input("Fila: ")
-                costo = input("Costo: ")
+                number = int(input("Number: "))
+                row = input("Row: ")
+                cost = input("Cost: ")
                 
-                posto_standard = PostoStandard(numero, fila, costo)
-                teatro.aggiungi_posto(posto_standard)
+                standard_seat = standard_seat(number, row, cost)
+                theatre.add_seat(standard_seat)
                 
             case 2:
-                servizi = []
-                numero = int(input("Numero: "))
-                fila = input("Fila: ")
-                costo = input("Costo: ")
-                print("Aggiungere 2 servizi speciali")
+                services = []
+                number = int(input("Number: "))
+                row = input("Row: ")
+                cost = input("Cost: ")
+                print("Add 2 special services")
                 for n in range(2):
-                    servizio = input("Servizio: ")
-                    servizi.append(servizio)
+                    service = input("Service: ")
+                    services.append(service)
                 
-                posto_standard = PostoVIP(numero, fila, costo, servizi)
-                teatro.aggiungi_posto(posto_standard)
+                vip_seat = vip_seat(number, row, cost, services)
+                theatre.add_seat(vip_seat)
             case 3:
-                teatro.stampa_posti_occupati()
+                theatre.print_occupied_seats()
             case 4:
-                numero = int(input("Numero Posto: "))
-                fila = input("Fila Posto: ")
-                teatro.prenota_posto(numero, fila)
+                number = int(input("Seat Number: "))
+                row = input("Seat Row: ")
+                theatre.reserve_seat(number, row)
             case 5:
                 break
             case _:
-                print("Scelta non valida")
+                print("Invalid choice")
                 
 if __name__ == "__main__":
     main()
 else: 
-    print("È stato importato")
+    print("Module imported")

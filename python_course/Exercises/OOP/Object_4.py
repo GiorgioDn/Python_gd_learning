@@ -1,156 +1,117 @@
-#istanzio una classe ristorante
-class Ristorante:
+# instantiate a restaurant class
+class Restaurant:
     
-    #attributi della classe
-    #indica lo stato di apertura
+    # class attributes
+    # indicates opening status
     open = False
-    #dizionario contenente il menu
-    '''
-    #DATI DI PROVA
-    menu = {
-        "margherita": "3€", 
-        "ortolana": "4€", 
-        "funghi": "4€", 
-        "diavola": "4,50€",  
-    }
-    '''
+    # dictionary containing the menu
     
     menu = {}
     
-    def __init__(self, nome, tipo_cucina):
-        self.nome = nome
-        self.tipo_cucina = tipo_cucina
+    def __init__(self, name, cuisine_type):
+        self.name = name
+        self.cuisine_type = cuisine_type
 
-    #metodo descrive il ristorante
-    def descrivi_ristorante(self):
-        print(f"Il ristorante {self.nome} è specializzato in {self.tipo_cucina}")
+    # method describes the restaurant
+    def describe_restaurant(self):
+        print(f"The restaurant {self.name} specializes in {self.cuisine_type}")
         
-    #metodo che mostra lo stato di apertura in base all'attributo open
-    def stato_apertura(self):
+    # method that shows opening status based on open attribute
+    def opening_status(self):
         if self.open == True:
-            print("Il ristorante è ancora aperto")
+            print("The restaurant is open")
         else:
-            print("Il ristorante è ancora chiuso")
+            print("The restaurant is closed")
         
-    #metodo per aprire il ristorante ed impostarer open su true
-    def apri_ristorante(self):
+    # method to open the restaurant and set open to true
+    def open_restaurant(self):
         if self.open == True:
-            self.stato_apertura()
+            self.opening_status()
         else: 
             self.open = True
-            print("Il ristorante è ora aperto")
+            print("The restaurant is now open")
          
-    #metodo per aprire il ristorante ed impostarer open su false   
-    def chiudi_ristorante(self):
+    # method to close the restaurant and set open to false   
+    def close_restaurant(self):
         if self.open == False:
-            self.stato_apertura()
+            self.opening_status()
         else: 
             self.open = False
-            print("Il ristorante è ora chiuso")
+            print("The restaurant is now closed")
             
-    #metodo per aggiungere al menu
-    def aggiungi_al_menu(self, nome_piatto, price):
-        self.menu[nome_piatto] = price
+    # method to add to menu
+    def add_to_menu(self, dish_name, price):
+        self.menu[dish_name] = price
     
-    #metodo per togliere al menu
-    def togli_dal_menu(self, nome_piatto):
-        self.menu.pop(nome_piatto)
+    # method to remove from menu
+    def remove_from_menu(self, dish_name):
+        self.menu.pop(dish_name)
         
-    #metodo per stampare il menu singolarmente
-    def stampa_menu(self):
-        print("Il menù è il seguente: ")
+    # method to print the menu items
+    def print_menu(self):
+        print("The menu is as follows: ")
         for k, v in self.menu.items():
             print(f"{k} : {v}")
 
-'''
-#TEST METODI      
-ristorante = Ristorante("Ristoro", "pizza")
-
-ristorante.descrivi_ristorante()
-
-ristorante.stato_apertura()
-
-ristorante.apri_ristorante()
-
-ristorante.stato_apertura()
-
-ristorante.chiudi_ristorante()
-
-ristorante.stato_apertura()
-
-ristorante.stampa_menu()
-
-ristorante.aggiungi_al_menu("marinara", "3€")
-
-ristorante.aggiungi_al_menu("bufala", "3€")
-
-ristorante.stampa_menu()
-
-ristorante.togli_dal_menu("marinara")
-
-ristorante.stampa_menu()
-
-'''
-
 while True:
     
-    #dichiaro il ristorante
-    print("Digitare il nome del ristorante ed il tipo di cucina che si vuole aggiungere")
-    nome = input("Nome del ristorante: ")
-    tipo_cucina = input("Tipo di cucina: ")
+    # declare the restaurant
+    print("Type the name of the restaurant and the type of cuisine you want to add")
+    name = input("Restaurant name: ")
+    cuisine_type = input("Cuisine type: ")
     
-    ristorante = Ristorante(nome, tipo_cucina)
+    restaurant = Restaurant(name, cuisine_type)
     
-    ristorante.descrivi_ristorante()
+    restaurant.describe_restaurant()
     
-    ristorante.stato_apertura()
+    restaurant.opening_status()
     
-    #creo i piatti da aggiungere al menu
-    print("Aggiungere nel menu i tipi di piatto con i relativi prezzi")
+    # create dishes to add to the menu
+    print("Add types of dishes with their relative prices to the menu")
     while True:
-        nome_piatto = input("Nome piatto: ")
-        price = float(input("Prezzo: "))
+        dish_name = input("Dish name: ")
+        price = float(input("Price: "))
         
-        ristorante.aggiungi_al_menu(nome_piatto, price)
+        restaurant.add_to_menu(dish_name, price)
         
-        chooice = input("Si vuole aggiungere altri piatti? ")
-        #si esce dal ciclo while
-        if chooice.lower() == "no":
+        choice = input("Do you want to add more dishes? ")
+        # exit the while loop
+        if choice.lower() == "no":
             break
     
-    ristorante.stampa_menu()
+    restaurant.print_menu()
     
-    #scelgo uno dei metodi da usare
-    chooice = int(input("Selezionare l'operazione da fare: \n1. Aggiungere al menu \n2.Rimuovere dal menu \n3. Modificare apertura \n4. Stamapre il menu\n"))
+    # choose one of the methods to use
+    choice = int(input("Select the operation to perform: \n1. Add to menu \n2. Remove from menu \n3. Modify opening \n4. Print menu\n"))
     
-    match chooice:
+    match choice:
         case 1:
-            print("Aggiungere nel menu i tipi di piatto con i relativi prezzi")
-            nome_piatto = input("Nome piatto: ")
-            price = float(input("Prezzo: "))
+            print("Add dish types with their prices to the menu")
+            dish_name = input("Dish name: ")
+            price = float(input("Price: "))
         
-            ristorante.aggiungi_al_menu(nome_piatto, price)
+            restaurant.add_to_menu(dish_name, price)
             
-            ristorante.stampa_menu()
+            restaurant.print_menu()
         case 2:
-            print("Rimuovere il piatto")
-            nome_piatto = input("Nome piatto: ")
+            print("Remove the dish")
+            dish_name = input("Dish name: ")
             
-            ristorante.togli_dal_menu(nome_piatto)
+            restaurant.remove_from_menu(dish_name)
             
-            ristorante.stampa_menu()
+            restaurant.print_menu()
         case 3:
-            chooice = input("Selezionare se il ristorante è aperto o chiuso")
-            if chooice.lower() == "aperto":
-                ristorante.apri_ristorante()
+            choice = input("Select if the restaurant is open or closed: ")
+            if choice.lower() == "open":
+                restaurant.open_restaurant()
             else: 
-                ristorante.chiudi_ristorante()
+                restaurant.close_restaurant()
         case 4:
-            ristorante.stampa_menu()
+            restaurant.print_menu()
         case _:
-            print("Operazione non disponibile")
+            print("Operation not available")
     
-    chooice = input("Si vuole ripetere la scelta? ")
-    #si esce dal ciclo while
-    if chooice.lower() == "no":
+    choice = input("Do you want to repeat the choice? ")
+    # exit the while loop
+    if choice.lower() == "no":
         break

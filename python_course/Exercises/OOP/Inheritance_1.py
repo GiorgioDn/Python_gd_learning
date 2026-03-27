@@ -1,85 +1,84 @@
 from .module.Animal import *
 
-#classe Leone figlio della classe Animale
-class Leone(Animale):
-    #creo gli attributi iniziali con delle aggiunte
-    def __init__(self, nome, eta:int, sesso):
-        super().__init__(nome, eta)
-        self.sesso = sesso
+# Lion class child of Animal class
+class Lion(Animal):
+    # create initial attributes with additions
+    def __init__(self, name, age:int, gender):
+        super().__init__(name, age)
+        self.gender = gender
         
-    #definisco il mnetodo toString personalizzato
+    # define custom string representation
     def __str__(self):
-        return f"Il leone {self.nome}, ha {self.eta} anni ed è {self.sesso}"
+        return f"The lion {self.name}, is {self.age} years old and is {self.gender}"
         
-    #sovrascrizione del metodo della classe Animale fai_suono
-    def fai_suono(self):
+    # override Animal class method make_sound
+    def make_sound(self):
         print("ROAR!")
     
-    #metodo di classe
-    def caccia(self, preda):
-        print(f"Il leone sta cacciando un {preda}")
+    # class method
+    def hunt(self, prey):
+        print(f"The lion is hunting a {prey}")
 
-#classe Giraffa figlio della classe Animale
-class Giraffa(Animale):
-    #creo gli attributi iniziali con delle aggiunte
-    def __init__(self, nome, eta:int, sesso, altezza:int):
-        super().__init__(nome, eta)
-        self.sesso = sesso
-        self.altezza = altezza
+# Giraffe class child of Animal class
+class Giraffe(Animal):
+    # create initial attributes with additions
+    def __init__(self, name, age:int, gender, height:int):
+        super().__init__(name, age)
+        self.gender = gender
+        self.height = height
         
-    #definisco il mnetodo toString personalizzato
+    # define custom string representation
     def __str__(self):
-        return f"La giraffa {self.nome}, ha {self.eta} anni, è {self.sesso} e raggiunge l'altezza di {self.altezza} metri"
+        return f"The giraffe {self.name}, is {self.age} years old, is {self.gender} and reaches a height of {self.height} meters"
     
-    #sovrascrizione del metodo della classe Animale fai_suono
-    def fai_suono(self):
-        print("Landito")
+    # override Animal class method make_sound
+    def make_sound(self):
+        print("Bleat")
         
-    #metodo di classe   
-    def cibo(self, albero):
-        print(f"La giraffa sta mangiando le foglie da un {albero}")
+    # class method   
+    def eat(self, tree):
+        print(f"The giraffe is eating leaves from a {tree}")
 
-#classe Pinguino figlio della classe Animale
-class Pinguino(Animale):
-    #creo gli attributi iniziali con delle aggiunte
-    def __init__(self, nome, eta:int, sesso):
-        super().__init__(nome, eta)
-        self.sesso = sesso
+# Penguin class child of Animal class
+class Penguin(Animal):
+    # create initial attributes with additions
+    def __init__(self, name, age:int, gender):
+        super().__init__(name, age)
+        self.gender = gender
         
-    #definisco il mnetodo toString personalizzato
+    # define custom string representation
     def __str__(self):
-        return f"Il pinguino {self.nome}, ha {self.eta} anni ed è {self.sesso}"
+        return f"The penguin {self.name}, is {self.age} years old and is {self.gender}"
     
-    #sovrascrizione del metodo della classe Animale fai_suono
-    def fai_suono(self):
-        print("Raglio")
+    # override Animal class method make_sound
+    def make_sound(self):
+        print("Honk")
     
-    #metodo di classe   
-    def nuoto(self):
-        print("Il pinguino sta nuotando")
+    # class method   
+    def swim(self):
+        print("The penguin is swimming")
  
 #TEST       
-leone = Leone("Leon", 4, "maschio")
+lion = Lion("Leon", 4, "male")
 
-print(leone)
+print(lion)
 
-leone.fai_suono()
+lion.make_sound()
 
-leone.caccia("cervo")
+lion.hunt("deer")
 
-giraffa = Giraffa("Gir", 7, "femmina", 5)
+giraffe = Giraffe("Gir", 7, "female", 5)
 
-print(giraffa)
+print(giraffe)
 
-giraffa.fai_suono()
+giraffe.make_sound()
 
-giraffa.cibo("acacia")
+giraffe.eat("acacia")
 
-pinguino = Pinguino("Pingu", 2, "maschio")
+penguin = Penguin("Pingu", 2, "male")
 
-print(pinguino)
+print(penguin)
 
-pinguino.fai_suono()
+penguin.make_sound()
 
-pinguino.nuoto()
-
+penguin.swim()

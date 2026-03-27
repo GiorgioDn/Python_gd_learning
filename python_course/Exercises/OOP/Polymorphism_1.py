@@ -1,51 +1,51 @@
-from .module.ManagePay import GestorePagamenti
+from .module.ManagePay import PaymentManager
 from .module.Pay import *
 from .module.PayMethod import *
 
 def main():
     while True:
         
-        print("\n Selezionare il metodo di pagamento")
-        print("1. Carta di Credito")
+        print("\n Select payment method")
+        print("1. Credit Card")
         print("2. Paypal")
         print("3. Iban")
-        print("4. Esci")
-        chooice = int(input("Scegli una opzione: "))
+        print("4. Exit")
+        choice = int(input("Choose an option: "))
         
-        match chooice:
+        match choice:
             case 1:
-                numero_carta = input("Numero della carta: ")
-                data = input("Data di scadenza: ")
+                card_number = input("Card number: ")
+                expiry_date = input("Expiration date: ")
                 cvv = int(input("cvv: "))
                 
-                carta = CartaDiCredito(numero_carta, data, cvv)
+                card = CreditCard(card_number, expiry_date, cvv)
                 
-                importo = float(input("selezionare l'importo: "))
-                pay = GestorePagamenti()
-                print(pay.pagamento(carta, importo))
+                amount = float(input("Select the amount: "))
+                manager = PaymentManager()
+                print(manager.process_payment(card, amount))
             case 2:
                 account = input("Email account: ")
                 
                 paypal = PayPal(account)
                 
-                importo = float(input("selezionare l'importo: "))
-                pay = GestorePagamenti()
-                print(pay.pagamento(paypal, importo))
+                amount = float(input("Select the amount: "))
+                manager = PaymentManager()
+                print(manager.process_payment(paypal, amount))
             case 3:
                 iban = input("Iban: ")
                 swift = input("Swift: ")
                 
-                conto = BonificoBancario(iban, swift)
+                account = BankTransfer(iban, swift)
                 
-                importo = float(input("selezionare l'importo: "))
-                pay = GestorePagamenti()
-                print(pay.pagamento(conto, importo))
+                amount = float(input("Select the amount: "))
+                manager = PaymentManager()
+                print(manager.process_payment(account, amount))
             case 4:
                 break
             case _:
-                print("Scelta non valida")
+                print("Invalid choice")
 
 if __name__ == "__main__":
     main()
 else: 
-    print("È stato importato")
+    print("Module imported")

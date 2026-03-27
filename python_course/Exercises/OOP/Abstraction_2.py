@@ -3,65 +3,65 @@ from .module.ManageFleet import *
 
 def main():
     
-    list_veicoli = []
+    vehicle_list = []
     
-    gestore = GestoreFlotta(list_veicoli)
+    manager = FleetManager(vehicle_list)
     
-    camion = Camion("Df433k", 100, 4)
+    truck = Truck("Df433k", 100, 4)
     
-    print(camion.carica(150))
+    print(truck.load(150))
     
-    print(camion.get_carico_attuale())
+    print(truck.get_current_load())
     
-    camion.scarica()
+    truck.unload()
     
-    print(camion.get_carico_attuale())
+    print(truck.get_current_load())
     
-    gestore.aggiungi_veicolo(camion)
+    manager.add_vehicle(truck)
     
        
-    furgone = Furgone("Se230po", 150, "diesel")
+    van = Van("Se230po", 150, "diesel")
     
-    print(furgone.carica(50))
+    print(van.load(50))
     
-    print(furgone.get_carico_attuale())
+    print(van.get_current_load())
     
-    furgone.scarica()
+    van.unload()
     
-    print(furgone.get_carico_attuale())
+    print(van.get_current_load())
     
-    gestore.aggiungi_veicolo(furgone)
+    manager.add_vehicle(van)
     
     
-    motocarro = Motocarro("As700kk", 150, 10)
+    motor_tricycle = MotorTricycle("As700kk", 150, 10)
     
-    print(motocarro.carica(50))
+    print(motor_tricycle.load(50))
     
-    print(motocarro.get_carico_attuale())
+    print(motor_tricycle.get_current_load())
     
-    motocarro.scarica()
+    motor_tricycle.unload()
     
-    print(motocarro.get_carico_attuale())
+    print(motor_tricycle.get_current_load())
     
-    gestore.aggiungi_veicolo(motocarro)
+    manager.add_vehicle(motor_tricycle)
     
-    costo = gestore.costo_totale_manutenzione()
+    cost = manager.total_maintenance_cost()
     
-    print(f"Il costo di manutenzione totale è: {costo}")
-    
-    print()
-    
-    gestore.stampa_veicoli()
+    print(f"The total maintenance cost is: {cost}")
     
     print()
     
-    gestore.rimuovi_veicolo("Se230po")
+    manager.print_vehicles()
     
-    gestore.stampa_veicoli()
+    print()
+    
+    manager.remove_vehicle("Se230po")
+    
+    manager.print_vehicles()
     
     
                 
 if __name__ == "__main__":
     main()
 else: 
-    print("È stato importato")
+    print("Module imported")

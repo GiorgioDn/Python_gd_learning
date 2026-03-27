@@ -1,12 +1,12 @@
 from .module.Unit import *
 from .module.MilitaryControl import *
 
-fanteria = Fanteria("fanteria", 10, "fucili")
+infantry = Infantry("infantry", 10, "rifles")
 
-artiglieria = Artiglieria("artiglieria", 2, 120)
+artillery = Artillery("artillery", 2, 120)
 
-cavalleria = Cavalleria("cavalleria", 6, 9)
+cavalry = Cavalry("cavalry", 6, 9)
 
-supporto_logistico = SupportoLogistico("supporto", 5, 14)
+logistic_support = LogisticSupport("support", 5, 14)
 
-ricognizione = Ricognizione("ricognizione", 10, 3)
+reconnaissance = Reconnaissance("reconnaissance", 10, 3)

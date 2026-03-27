@@ -1,57 +1,57 @@
-from .module.Car import Auto
-from .module.Van import Furgone
-from .module.Motorcycle import Motocicletta
-from .module.ManageVehicle import GestoreParcoVeicoli
+from .module.Car import Car
+from .module.Van import Van
+from .module.Motorcycle import Motorcycle
+from .module.ManageVehicle import VehicleParkManager
 
 while True:
     
-    list_veicoli = []
+    vehicle_list = []
     
-    print("Creare la propria auto inserendo marca, modello, anno, numero porte")
-    marca = input("Marca: ")
-    modello = input("Modello: ")
-    anno = int(input("Anno: "))
-    numero_porte = int(input("numero porte: "))
+    print("Create your car by entering brand, model, year, number of doors")
+    brand = input("Brand: ")
+    model = input("Model: ")
+    year = int(input("Year: "))
+    num_doors = int(input("number of doors: "))
     
-    auto = Auto(marca, modello, anno, numero_porte)
+    auto = Car(brand, model, year, num_doors)
     
-    list_veicoli.append([auto])
+    vehicle_list.append([auto])
     
-    print("Creare il proprio furgone inserendo marca, modello, anno, capacità di carico")
-    marca = input("Marca: ")
-    modello = input("Modello: ")
-    anno = int(input("Anno: "))
-    capacita_carico = int(input("capacità carico: "))
+    print("Create your van by entering brand, model, year, load capacity")
+    brand = input("Brand: ")
+    model = input("Model: ")
+    year = int(input("Year: "))
+    load_capacity = int(input("load capacity: "))
     
-    furgone = Furgone(marca, modello, anno, capacita_carico)
+    van = Van(brand, model, year, load_capacity)
     
-    list_veicoli.append([furgone])
+    vehicle_list.append([van])
     
-    print("Creare il proprio motocicletta inserendo marca, modello, anno, tipo")
-    marca = input("Marca: ")
-    modello = input("Modello: ")
-    anno = int(input("Anno: "))
-    tipo = (input("Tipo: "))
+    print("Create your motorcycle by entering brand, model, year, type")
+    brand = input("Brand: ")
+    model = input("Model: ")
+    year = int(input("Year: "))
+    type = (input("Type: "))
     
-    motocicletta = Motocicletta(marca, modello, anno, tipo)
+    motorcycle = Motorcycle(brand, model, year, type)
     
-    list_veicoli.append([motocicletta])
+    vehicle_list.append([motorcycle])
     
-    gestore_parco = GestoreParcoVeicoli(list_veicoli)
+    park_manager = VehicleParkManager(vehicle_list)
     
-    print(gestore_parco.lista_veicoli())
+    print(park_manager.vehicle_list())
     
-    chooice = int(input("Selezionare: \n1. Aggiungere un veicolo\n2. Rimuovere un veicolo\n"))
+    choice = int(input("Select: \n1. Add a vehicle\n2. Remove a vehicle\n"))
     
-    match chooice:
+    match choice:
         case 1:
             pass
         case 2:
             pass
         case _:
-            print("Scelta non valida")
+            print("Invalid choice")
     
-    chooice = input("Si vuole effettuare una nuova prova?")
+    choice = input("Do you want to perform a new test? ")
     
-    if chooice.lower() == "no":
+    if choice.lower() == "no":
         break

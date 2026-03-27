@@ -1,42 +1,42 @@
-#definisco la classe Libro
-class Libro: 
-    #metodo costruttore con titolo, autore, pagine
-    def __init__(self, titolo, autore, pagine):
-        self.titolo = titolo
-        self.autore = autore
-        self.pagine = pagine
-    #metodo per modificare il risultato del print con la classe
+# define the Book class
+class Book: 
+    # constructor with title, author, pages
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
+    # method to customize string representation
     def __str__(self):
-        return f"Il libro {self.titolo} è stato scritto da: {self.autore} ed ha {self.pagine} pagine"
+        return f"The book {self.title} was written by {self.author} and has {self.pages} pages"
 
-#definisco la classe Biblioteca
-class Biblioteca: 
+# define the Library class
+class Library: 
 
     def __init__(self):
-        self.list_libri = []
+        self.book_list = []
         
-    def aggiungi_libro(self, titolo, autore, pagine):
-        libro = Libro(titolo, autore, pagine)
-        self.list_libri.append([titolo, autore, pagine])
-        print(libro)
+    def add_book(self, title, author, pages):
+        book = Book(title, author, pages)
+        self.book_list.append([title, author, pages])
+        print(book)
     def __str__(self):
-        return f"La biblioteca ha i seguenti libri: {self.list_libri}"
+        return f"The library has the following books: {self.book_list}"
     
-biblioteca = Biblioteca()
+library = Library()
 
 while True: 
-    #inserisco i dati per istanziare la classe
-    print("Dire l'autore del libro, il titolo e le pagine del libro da aggiungere in biblioteca")
-    titolo = input("Titolo ")
-    autore = input("Autore ")
-    pagine = int(input("Pagine "))
+    # input data to instantiate the class
+    print("Enter the author, title, and pages of the book to add to the library")
+    title = input("Title: ")
+    author = input("Author: ")
+    pages = int(input("Pages: "))
      
-    biblioteca = biblioteca.aggiungi_libro(titolo, autore, pagine)
+    library.add_book(title, author, pages)
     
-    print(biblioteca)
+    print(library)
 
-    chooice = input("Si vuole ripetere la scelta? ")
+    choice = input("Do you want to repeat the choice? ")
     
-    #si esce dal ciclo while
-    if chooice.lower() == "no":
+    # exit while loop
+    if choice.lower() == "no":
         break

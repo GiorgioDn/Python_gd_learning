@@ -1,44 +1,43 @@
-#non riesce ad esportare (?)
 from .module.Squad import *
 
 while True:
     
-    print("Digitare il nome del giocatore, l'età, il ruolo ed il numero della maglia")
-    nome = input("Nome: ")
-    eta = int(input("Età: "))
-    ruolo = input("Ruolo: ")
-    numero_maglia = int(input("Numero maglia: "))
+    print("Enter the player's name, age, role, and jersey number")
+    name = input("Name: ")
+    age = int(input("Age: "))
+    role = input("Role: ")
+    jersey_number = int(input("Jersey number: "))
     
-    giocatore = Giocatore(nome, eta, ruolo, numero_maglia)
+    player = Player(name, age, role, jersey_number)
     
-    print(giocatore)
+    print(player)
     
-    action = input("Scrivere l'azione tra: tira, para o passa  ")
+    action = input("Enter the action: shoot, save, or pass: ")
     
-    giocatore.gioca_partita(action)
+    player.play_match(action)
     
-    print("Digitare il nome dell'allenatore, l'età e gli anni esperienza")
-    nome = input("Nome: ")
-    eta = int(input("Età: "))
-    anni = input("Anni esperienza: ")
+    print("Enter the coach's name, age, and years of experience")
+    name = input("Name: ")
+    age = int(input("Age: "))
+    years = input("Years of experience: ")
     
-    allenatore = Allenatore(nome, eta, anni)
+    coach = Coach(name, age, years)
     
-    print(allenatore)
+    print(coach)
     
-    print("Digitare il nome dell'assistente, l'età e la specializzazione tra: fisioterapista ed analista di gioco")
-    nome = input("Nome: ")
-    eta = int(input("Età: "))
-    specializzazione = input("fisioterapista o analista di gioco: ")
+    print("Enter the assistant's name, age, and specialization (physiotherapist or game analyst)")
+    name = input("Name: ")
+    age = int(input("Age: "))
+    specialization = input("physiotherapist or game analyst: ")
     
-    assistente = Assistente(nome, eta, specializzazione)
+    assistant = Assistant(name, age, specialization)
     
-    print(assistente)
+    print(assistant)
     
-    assistente.supporta_team()
+    assistant.support_team()
     
-    chooice = input("Si vuole ripetere la scelta? ")
+    choice = input("Do you want to repeat the choice? ")
     
-    #si esce dal ciclo while
-    if chooice.lower() == "no":
+    # exit the while loop
+    if choice.lower() == "no":
         break

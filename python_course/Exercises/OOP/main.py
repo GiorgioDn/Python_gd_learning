@@ -3,102 +3,102 @@ from .module.Company import *
 
 def main():
     
-    azienda = Azienda("Classe Academy python")
+    company = Company("Python Academy Class")
     
     while True:
         
-        print("\n Selezionare l'opzione da fare in azienda")
-        print("1. Aggiungere un impiegato")
-        print("2. Aggiungere un amministratore")
-        print("3. Aggiungere un direttore")
-        print("4. Aggiungere i dipartimenti")
-        print("5. Vedere i dipendenti")
-        print("6. Vedere i diaprtimenti")
-        print("7. Verificare gli ingressi")
-        print("8. Esci")
-        chooice = int(input("Scegli una opzione: "))
+        print("\n Select company option")
+        print("1. Add an employee")
+        print("2. Add an administrator")
+        print("3. Add a director")
+        print("4. Add departments")
+        print("5. View employees")
+        print("6. View departments")
+        print("7. Verify entries")
+        print("8. Exit")
+        choice = int(input("Choose an option: "))
         
-        match chooice:
+        match choice:
             case 1:
                 badge = []
-                turni = []
-                info = input("Inserire il nome per il badge: ")
+                shifts = []
+                info = input("Enter first name for the badge: ")
                 badge.append(info)
                 
-                info = input("Inserire il cognome per il badge: ")
+                info = input("Enter last name for the badge: ")
                 badge.append(info)
                 
-                info = input("Inserire il ruolo per il badge: ")
+                info = input("Enter role for the badge: ")
                 badge.append(info)
                 
-                info = input("Inserire il nome azienda per il badge: ")
+                info = input("Enter company name for the badge: ")
                 badge.append(info)
                 
-                info = float(input("Inserire l'orario di entrata: "))
-                turni.append(info)
+                info = float(input("Enter entry time: "))
+                shifts.append(info)
                 
-                info = float(input("Inserire l'orario di uscita: "))
-                turni.append(info)
+                info = float(input("Enter exit time: "))
+                shifts.append(info)
                 
-                impiegato = Impiegato(badge, turni)
+                employee = Employee(badge, shifts)
                 
-                azienda.aggiungi_dipendente(impiegato)
+                company.add_employee(employee)
                 
             case 2:
                 badge = []
-                turni = []
-                info = input("Inserire il nome per il badge: ")
+                shifts = []
+                info = input("Enter first name for the badge: ")
                 badge.append(info)
                 
-                info = input("Inserire il cognome per il badge: ")
+                info = input("Enter last name for the badge: ")
                 badge.append(info)
                 
-                info = input("Inserire il ruolo per il badge: ")
+                info = input("Enter role for the badge: ")
                 badge.append(info)
                 
-                info = input("Inserire il nome azienda per il badge: ")
+                info = input("Enter company name for the badge: ")
                 badge.append(info)
                 
-                info = float(input("Inserire l'orario di entrata: "))
-                turni.append(info)
+                info = float(input("Enter entry time: "))
+                shifts.append(info)
                 
-                info = float(input("Inserire l'orario di uscita: "))
-                turni.append(info)
+                info = float(input("Enter exit time: "))
+                shifts.append(info)
                 
-                info = input("Inserire il dipartimento di competenza: ")
+                info = input("Enter responsible department: ")
                 
-                amministratore = Amministratore(badge, turni, info)
+                administrator = Administrator(badge, shifts, info)
                 
-                azienda.aggiungi_dipendente(amministratore)
+                company.add_employee(administrator)
             case 3:
                 badge = []
-                turni = []
-                dipartimenti = []
-                info = input("Inserire il nome per il badge: ")
+                shifts = []
+                departments = []
+                info = input("Enter first name for the badge: ")
                 badge.append(info)
                 
-                info = input("Inserire il cognome per il badge: ")
+                info = input("Enter last name for the badge: ")
                 badge.append(info)
                 
-                info = input("Inserire il ruolo per il badge: ")
+                info = input("Enter role for the badge: ")
                 badge.append(info)
                 
-                info = input("Inserire il nome azienda per il badge: ")
+                info = input("Enter company name for the badge: ")
                 badge.append(info)
                 
-                info = float(input("Inserire l'orario di entrata: "))
-                turni.append(info)
+                info = float(input("Enter entry time: "))
+                shifts.append(info)
                 
-                info = float(input("Inserire l'orario di uscita: "))
-                turni.append(info)
+                info = float(input("Enter exit time: "))
+                shifts.append(info)
                 
                 for n in range(3):
-                    info = input("Inserire il dipartimento di competenza: ")
-                    dipartimenti.append(info)
+                    info = input("Enter department of competence: ")
+                    departments.append(info)
                 
-                direttore = Direttore(badge, turni, dipartimenti)
+                director = Director(badge, shifts, departments)
                 
-                azienda.aggiungi_dipendente(direttore)
+                company.add_employee(director)
             case 4:
                 pass
             case 5:
@@ -106,9 +106,9 @@ def main():
             case 6:
                 break
             case _:
-                print("Scelta non valida")
+                print("Invalid choice")
                 
 if __name__ == "__main__":
     main()
 else: 
-    print("È stato importato")
+    print("Module imported")

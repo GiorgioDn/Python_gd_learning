@@ -1,59 +1,59 @@
-#classe prodotto
-class Prodotto:
-    def __init__(self, nome, costo_produzione, prezzo_vendita):
-        self.nome = nome
-        self.costo_produzione= costo_produzione
-        self.prezzo_vendita = prezzo_vendita
+# Product class
+class Product:
+    def __init__(self, name, production_cost, sale_price):
+        self.name = name
+        self.production_cost = production_cost
+        self.sale_price = sale_price
     
-    #metodo che usa i parametri del prodotto  
-    def calcola_profitto(self):
-        profitto = self.prezzo_vendita - self.costo_produzione
-        return profitto
+    # method to calculate profit
+    def calculate_profit(self):
+        profit = self.sale_price - self.production_cost
+        return profit
     
-class Abbigliamento:
+class Clothing:
     
-    def __init__(self, nome, costo_produzione, prezzo_vendita, materiale):
-        self.prodotto = Prodotto(nome, costo_produzione, prezzo_vendita)
-        self.nome = self.prodotto.nome
-        self.costo_produzione= self.prodotto.costo_produzione
-        self.prezzo_vendita = self.prodotto.prezzo_vendita
-        self.materiale = materiale
-    #metodo che usa la classe prodotto  
-    def calcola_profitto(self):
-        return self.prodotto.calcola_profitto()
+    def __init__(self, name, production_cost, sale_price, material):
+        self.product = Product(name, production_cost, sale_price)
+        self.name = self.product.name
+        self.production_cost = self.product.production_cost
+        self.sale_price = self.product.sale_price
+        self.material = material
+    # uses Product class method
+    def calculate_profit(self):
+        return self.product.calculate_profit()
     
-class Abbigliamento:
+class GuaranteedClothing:
     
-    def __init__(self, nome, costo_produzione, prezzo_vendita, garanzia):
-        self.prodotto = Prodotto(nome, costo_produzione, prezzo_vendita)
-        self.nome = self.prodotto.nome
-        self.costo_produzione= self.prodotto.costo_produzione
-        self.prezzo_vendita = self.prodotto.prezzo_vendita
-        self.garanzia = garanzia
-    #metodo che usa la classe prodotto  
-    def calcola_profitto(self):
-        return self.prodotto.calcola_profitto()
+    def __init__(self, name, production_cost, sale_price, warranty):
+        self.product = Product(name, production_cost, sale_price)
+        self.name = self.product.name
+        self.production_cost = self.product.production_cost
+        self.sale_price = self.product.sale_price
+        self.warranty = warranty
+    # uses Product class method
+    def calculate_profit(self):
+        return self.product.calculate_profit()
    
-class Fabbrica:
+class Factory:
     
-    def __init__(self, inventario, prod):
-        self.inventario = inventario
+    def __init__(self, inventory, prod):
+        self.inventory = inventory
         self.prod = prod
         
-    def aggiungi_prodotto(self, prod, quantity):
-        self.inventario[prod.nome] = quantity
+    def add_product(self, prod, quantity):
+        self.inventory[prod.name] = quantity
 
-    def vendi_prodotto(self, prod, quant):
-        if prod.name in self.inventario and self.inventario[prod] >= quant:
-            old_quant = self.inventario[prod]
-            self.inventario[prod] -= quant
-            gain = old_quant - self.inventario[prod]
-            return self.prod.calcola_profitto() * gain
+    def sell_product(self, prod, quant):
+        if prod.name in self.inventory and self.inventory[prod.name] >= quant:
+            old_quant = self.inventory[prod.name]
+            self.inventory[prod.name] -= quant
+            gain = old_quant - self.inventory[prod.name]
+            return self.prod.calculate_profit() * gain
         else:
-            print("Quantità o tipo del prodotto non disponibile")
+            print("Quantity or product type not available")
     
-    def resi_prodotto(self, prod, quant):
-        if self.inventario[prod] == prod:
-            self.inventario[prod] += quant
+    def return_product(self, prod, quant):
+        if prod.name in self.inventory:
+            self.inventory[prod.name] += quant
         else:
-            print("Prodotto non disponibile")
+            print("Product not found in inventory")

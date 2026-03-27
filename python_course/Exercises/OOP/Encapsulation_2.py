@@ -1,72 +1,71 @@
-from .module.Student import Studente
-from .module.Professor import Professore
+from .module.Student import Student
+from .module.Professor import Professor
 
 while True:
     
-    voti = []
+    grades = []
     
-    print("Digitare il nome dello studente e l'età")
-    nome = input("Nome: ")
-    eta = int(input("Eta: "))
+    print("Type the student's name and age")
+    name = input("Name: ")
+    age = int(input("Age: "))
     
     while True:
-        print("Inserire il voto dello studente: ")
-        voto = int(input("Voto: "))
+        print("Enter the student's grade: ")
+        grade = int(input("Grade: "))
         
-        voti.append(voto)
+        grades.append(grade)
         
-        chooice = input("Si vuole inserire un altro voto?")
+        choice = input("Do you want to enter another grade? ")
     
-        if chooice.lower() == "no":
+        if choice.lower() == "no":
             break
         
-    studente = Studente(nome, eta, voti)
+    student = Student(name, age, grades)
     
-    if studente.get_nome() == False or studente.get_eta() == False:
-        if studente.get_nome() == False:
-            nome = input("nome non valido digitare un nuovo nome: ")
-            studente.set_nome(nome)
+    if student.get_name() == False or student.get_age() == False:
+        if student.get_name() == False:
+            name = input("invalid name, type a new name: ")
+            student.set_name(name)
         else:
-            eta = int(input("eta non valido digitare un nuovo eta: "))
-            studente.set_eta(eta)
+            age = int(input("invalid age, type a new age: "))
+            student.set_age(age)
     
-    #vedere perchè mi setta a non i parametri        
-    print(studente.presentazione())
+    print(student.presentation())
         
-    print("Digitare il nome, l'età, la materia del professore")
-    nome = input("Nome: ")
-    eta = int(input("Eta: "))
-    materia = input("Materia: ")
+    print("Type the name, age, and subject of the professor")
+    name = input("Name: ")
+    age = int(input("Age: "))
+    subject = input("Subject: ")
     
-    professore = Professore(nome, eta, materia)
+    professor = Professor(name, age, subject)
     
-    if professore.get_nome() == False or professore.get_eta() == False or professore.get_materia == False:
-        if professore.get_nome() == False:
-            nome = input("nome non valido digitare un nuovo nome: ")
-            professore.set_nome(nome)
-        elif professore.get_materia() == False:
-            materia = input("materia non valido digitare un nuovo materia: ")
-            professore.set_materia(materia)
+    if professor.get_name() == False or professor.get_age() == False or professor.get_subject() == False:
+        if professor.get_name() == False:
+            name = input("invalid name, type a new name: ")
+            professor.set_name(name)
+        elif professor.get_subject() == False:
+            subject = input("invalid subject, type a new subject: ")
+            professor.set_subject(subject)
         else:
-            eta = int(input("eta non valido digitare un nuovo eta: "))
-            professore.set_eta(eta)
+            age = int(input("invalid age, type a new age: "))
+            professor.set_age(age)
     
-    print(professore.presentazione())
+    print(professor.presentation())
     
-    chooice = int(input("Selezionare cosa fare con lo studente: \n1. Aggiungere voto\n2. Calcolo media"))
+    choice = int(input("Select what to do with the student: \n1. Add grade\n2. Calculate average\n"))
     
-    match chooice:
+    match choice:
         case 1:
-            voto = int(input("Aggiungere il voto: "))
-            studente.add_voto(voto)
-            print(f"I voti dello studente sono: {studente.get_voti()}")
+            grade = int(input("Add the grade: "))
+            student.add_grade(grade)
+            print(f"The student's grades are: {student.get_grades()}")
         case 2: 
-            average = studente.calcola_media()
-            print(f"La media dello studente è {average}")
+            average = student.calculate_average()
+            print(f"The student's average is {average}")
         case _:
-            print("Scelta non valida")
+            print("Invalid choice")
     
-    chooice = input("Si vuole effettuare una nuova prova?")
+    choice = input("Do you want to perform a new test? ")
     
-    if chooice.lower() == "no":
+    if choice.lower() == "no":
         break

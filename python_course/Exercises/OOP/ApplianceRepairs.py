@@ -1,134 +1,134 @@
-from .module.Workshop import Officina
-from .module.RepairTicket import TicketRiparazione
+from .module.Workshop import Workshop
+from .module.RepairTicket import RepairTicket
 from .module.SpecificAppliance import *
 from random import randint
 
 def main():
     
-    officina = Officina("Ripara", [])
+    workshop = Workshop("Repair", [])
     
     while True:
         
-        print("\n Inserire gli oggetti da riparare")
-        print("1. Lavatrice ")
-        print("2. Frigorifero")
-        print("3. Forno")
-        print("4. Ticket aperti")
-        print("5. Chiudi un ticket")
-        print("6. Totale preventivo")
-        print("7. Statistiche preventivi")
-        print("8. Esci")
-        chooice = int(input("Scegli una opzione: "))
+        print("\n Enter items to be repaired")
+        print("1. Washing Machine")
+        print("2. Refrigerator")
+        print("3. Oven")
+        print("4. Open tickets")
+        print("5. Close a ticket")
+        print("6. Total estimate")
+        print("7. Estimate statistics")
+        print("8. Exit")
+        choice = int(input("Choose an option: "))
         
-        match chooice:
+        match choice:
             case 1:
                 extra = []
-                marca = input("Inserire la marca della lavatrice: ")
-                modello = input("Inserire il modello della lavatrice: ")
-                anno_acquisto = int(input("Inserire l'anno di acquisto della lavatrice: "))
-                guasto = input("Descrivere il guasto: ")
-                capacita = int(input("Capacità della lavatrice: ")) 
-                giri = int(input("Giri centrifuga della lavatrice: "))
+                brand = input("Enter the brand of the washing machine: ")
+                model = input("Enter the model of the washing machine: ")
+                purchase_year = int(input("Enter the purchase year of the washing machine: "))
+                fault = input("Describe the fault: ")
+                capacity = int(input("Washing machine capacity: ")) 
+                rpm = int(input("Spin speed of the washing machine: "))
                 
-                lavatrice = Lavatrice(marca, modello, anno_acquisto, guasto, capacita, giri)
+                washing_machine = WashingMachine(brand, model, purchase_year, fault, capacity, rpm)
                 
-                chooice = input("Ci sono altri costi? si/no")
-                if chooice.lower() == "si":
+                choice = input("Are there other costs? yes/no: ")
+                if choice.lower() == "yes":
                     while True:
-                        extra_costo = float(input("Aggiungere il valore del costo extra: "))
-                        extra.append(extra_costo)
-                        chooice = input("Ci sono altri costi? si/no")
-                        if chooice.lower() == "no":
+                        extra_cost = float(input("Add the extra cost value: "))
+                        extra.append(extra_cost)
+                        choice = input("Are there other costs? yes/no: ")
+                        if choice.lower() == "no":
                             break
                 
                 id = str(randint(0, 999999999999))
                 
-                tickets = TicketRiparazione(id, lavatrice)
+                tickets = RepairTicket(id, washing_machine)
                 
-                tickets.calcola_preventivo(extra)
+                tickets.calculate_estimate(extra)
                 
-                officina.aggiungi_ticket(tickets)
+                workshop.add_ticket(tickets)
 
             case 2:
                 extra = []
-                marca = input("Inserire la marca della frigorifero: ")
-                modello = input("Inserire il modello della frigorifero: ")
-                anno_acquisto = int(input("Inserire l'anno di acquisto della frigorifero: "))
-                guasto = input("Descrivere il guasto: ")
-                litri = int(input("Litri che può avere: "))
-                freezer = input("Ha freezer? si/no ")
+                brand = input("Enter the brand of the refrigerator: ")
+                model = input("Enter the model of the refrigerator: ")
+                purchase_year = int(input("Enter the purchase year of the refrigerator: "))
+                fault = input("Describe the fault: ")
+                liters = int(input("Liters it can hold: "))
+                freezer = input("Does it have a freezer? yes/no: ")
                 
-                if freezer.lower() == "si":
+                if freezer.lower() == "yes":
                     freezer = True
                 else:
                     freezer = False
                 
-                frigorifero = Frigorifero(marca, modello, anno_acquisto, guasto, litri, freezer)
+                refrigerator = Refrigerator(brand, model, purchase_year, fault, liters, freezer)
                 
-                chooice = input("Ci sono altri costi? si/no")
-                if chooice.lower() == "si":
+                choice = input("Are there other costs? yes/no: ")
+                if choice.lower() == "yes":
                     while True:
-                        extra_costo = float(input("Aggiungere il valore del costo extra: "))
-                        extra.append(extra_costo)
-                        chooice = input("Ci sono altri costi? si/no")
-                        if chooice.lower() == "no":
+                        extra_cost = float(input("Add the extra cost value: "))
+                        extra.append(extra_cost)
+                        choice = input("Are there other costs? yes/no: ")
+                        if choice.lower() == "no":
                             break
                 
                 id = str(randint(0, 999999999999))
                 
-                tickets = TicketRiparazione(id, frigorifero)
+                tickets = RepairTicket(id, refrigerator)
                 
-                tickets.calcola_preventivo(extra)
+                tickets.calculate_estimate(extra)
                 
-                officina.aggiungi_ticket(tickets)
+                workshop.add_ticket(tickets)
                 
             case 3:
                 extra = []
-                marca = input("Inserire la marca della forno: ")
-                modello = input("Inserire il modello della forno: ")
-                anno_acquisto = int(input("Inserire l'anno di acquisto della forno: "))
-                guasto = input("Descrivere il guasto: ")
-                alimentazione = input("Dire se è elettrico o a gas: ")
-                ventilato = input("È ventilato? si/no")
+                brand = input("Enter the brand of the oven: ")
+                model = input("Enter the model of the oven: ")
+                purchase_year = int(input("Enter the purchase year of the oven: "))
+                fault = input("Describe the fault: ")
+                power_supply = input("State if it is electric or gas: ")
+                fan_assisted = input("Is it fan-assisted? yes/no: ")
                 
-                if ventilato.lower() == "si":
-                    ventilato = True
+                if fan_assisted.lower() == "yes":
+                    fan_assisted = True
                 else:
-                    ventilato = False
+                    fan_assisted = False
                 
-                forno = Forno(marca, modello, anno_acquisto, guasto, alimentazione, ventilato)
+                oven = Oven(brand, model, purchase_year, fault, power_supply, fan_assisted)
                 
-                chooice = input("Ci sono altri costi? si/no")
-                if chooice.lower() == "si":
+                choice = input("Are there other costs? yes/no: ")
+                if choice.lower() == "yes":
                     while True:
-                        extra_costo = float(input("Aggiungere il valore del costo extra: "))
-                        extra.append(extra_costo)
-                        chooice = input("Ci sono altri costi? si/no")
-                        if chooice.lower() == "no":
+                        extra_cost = float(input("Add the extra cost value: "))
+                        extra.append(extra_cost)
+                        choice = input("Are there other costs? yes/no: ")
+                        if choice.lower() == "no":
                             break
                 
                 id = str(randint(0, 999999999999))
                 
-                tickets = TicketRiparazione(id, forno)
+                tickets = RepairTicket(id, oven)
                 
-                tickets.calcola_preventivo(extra)
+                tickets.calculate_estimate(extra)
                 
-                officina.aggiungi_ticket(tickets)
+                workshop.add_ticket(tickets)
                 
             case 4:
-                officina.stampa_ticket_aperti()
+                workshop.print_open_tickets()
             case 5:
                 pass
             case 6:
-                print(officina.totale_preventivi())
+                print(workshop.total_estimates())
             case 7:
                 pass
             case 8:
                 break
             case _:
-                print("Scelta non valida")
+                print("Invalid choice")
                 
 if __name__ == "__main__":
     main()
 else: 
-    print("È stato importato")
+    print("Module imported")

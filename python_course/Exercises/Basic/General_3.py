@@ -10,10 +10,10 @@ while True:
         data = input("Amount: ")
         sell_data.append(data)
         
-        chooice = input("Do you want to select another amount? ")
+        choice = input("Do you want to select another amount? ")
     
         #exit the while loop
-        if chooice.lower() == "no":
+        if choice.lower() == "no":
             break
         
     sell = Sell(sell_data)
@@ -22,8 +22,8 @@ while True:
     
     print(x)
     
-    chooice = input("Do you want to repeat the choice? ")
+    choice = input("Do you want to repeat the choice? ")
     
     #exit the while loop
-    if chooice.lower() == "no":
+    if choice.lower() == "no":
         break

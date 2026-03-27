@@ -1,46 +1,46 @@
-#definisco la classe punto
-class Punto:
-    #definisco il metodo costruttore che prenderà le coordinate del punto
+# define the Point class
+class Point:
+    # define the constructor method that takes the point's coordinates
     def __init__(self, x, y):
         self.x = x
         self.y = y
-    #metodo muovi: cambia le coordinate
-    def muovi(self, dx, dy):
+    # move method: changes the coordinates
+    def move(self, dx, dy):
         self.x = dx 
         self.y = dy
-    #metodo distanza da origine: calcola la distanza tra il punto e l'origine
-    def distanza_da_origine(self):
+    # distance from origin method: calculates the distance between the point and the origin
+    def distance_from_origin(self):
         distance = (self.x**2 + self.y**2)**0.5
         return distance
 
 while True:
-    #inserisco i dati per istanziare la classe
-    print("Selezionare le coordinate del punto")
-    x = int(input("Punto x: "))
-    y = int(input("Punto y: "))
+    # input data to instantiate the class
+    print("Select the coordinates of the point")
+    x = int(input("Point x: "))
+    y = int(input("Point y: "))
     
-    point = Punto(x, y)
+    point = Point(x, y)
     
-    chooice = int(input("Quale operazione si vuole effettuare tra: \n1. Stampa le coordinate \n2. Muovere le coordinate \n3. Distanza dall'origine\n"))
+    choice = int(input("Which operation do you want to perform: \n1. Print coordinates \n2. Move coordinates \n3. Distance from origin\n"))
     
-    #scelta dei metodi dichiariati nella classe
-    match chooice:
+    # choice of methods declared in the class
+    match choice:
         case 1:
-            print(f"Coordinata x = {point.x} \nCoordinata y = {point.y}")
+            print(f"Coordinate x = {point.x} \nCoordinate y = {point.y}")
         case 2:
-            print("Selezionare le nuove coordinate del punto")
-            x = int(input("Punto x: "))
-            y = int(input("Punto y: "))
-            point.muovi(x, y)
-            print(f"Nuova coordinata x = {point.x} \n Nuova coordinata y = {point.y}")
+            print("Select the new coordinates of the point")
+            x = int(input("Point x: "))
+            y = int(input("Point y: "))
+            point.move(x, y)
+            print(f"New coordinate x = {point.x} \nNew coordinate y = {point.y}")
         case 3:
-            distance = point.distanza_da_origine()
-            print(f"La distanza dall'origine è: {distance}")
+            distance = point.distance_from_origin()
+            print(f"The distance from the origin is: {distance}")
         case _:
-            print("Scelta non valida")
+            print("Invalid choice")
     
-    chooice = input("Si vuole ripetere la scelta? ")
+    choice = input("Do you want to repeat the choice? ")
     
-    #si esce dal ciclo while
-    if chooice.lower() == "no":
+    # exit the while loop
+    if choice.lower() == "no":
         break

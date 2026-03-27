@@ -1,63 +1,63 @@
-from .module.BankAccount import ContoBancario
+from .module.BankAccount import BankAccount
 
 while True:
     
-    print("Registrarsi con il nome del titolare e quanto è il saldo iniziale")
-    titolare = input("Titolare: ")
-    saldo = float(input("Saldo: "))     
+    print("Register with the holder's name and the initial balance")
+    holder = input("Holder: ")
+    balance = float(input("Balance: "))     
     
-    conto = ContoBancario(titolare, saldo)
+    account = BankAccount(holder, balance)
     
-    titolare = conto.get_titolare()
+    holder = account.get_holder()
     
     while True:
-        if titolare == False:
-            titolare = input("Nome non presente, bisogna selezionare un nome per il titolare: ")
-            conto.set_titolare(titolare)
-            titolare = conto.get_titolare()
+        if holder == False:
+            holder = input("Name not present, you must select a name for the holder: ")
+            account.set_holder(holder)
+            holder = account.get_holder()
         else:
             break
         
-    print(f"Il titolare del conto è: {titolare}")
+    print(f"The account holder is: {holder}")
     
-    saldo = conto.visualizza_saldo()
+    balance = account.view_balance()
     
-    print(f"Il saldo attuale ammonta a {saldo} euro")
+    print(f"The current balance is {balance} euro")
     
-    chooice = int(input("Selezionare 1 per depositare 2 per prelevare: "))
+    choice = int(input("Select 1 to deposit, 2 to withdraw: "))
     
-    match chooice:
+    match choice:
         case 1:
-            chooice = float(input("Selezionare la cifra da depositare: "))
-            deposit = conto.deposita(chooice)
+            choice = float(input("Select the amount to deposit: "))
+            deposit = account.deposit(choice)
             while True:
                 if deposit == False:
-                    chooice = float(input("Cifra non valida selezionare la nuova cifra da depositare: "))
-                    deposit = conto.deposita(chooice)
+                    choice = float(input("Invalid amount, select a new amount to deposit: "))
+                    deposit = account.deposit(choice)
                 else: 
                     break
-            saldo = conto.visualizza_saldo()
-            print(f"Il saldo attuale ammonta a {saldo} euro")
+            balance = account.view_balance()
+            print(f"The current balance is {balance} euro")
             
         case 2:
-            chooice = float(input("Selezionare la cifra da prelevare: "))
-            withdraw = conto.preleva(chooice)
+            choice = float(input("Select the amount to withdraw: "))
+            withdraw = account.withdraw(choice)
             while True:
                 if withdraw == False:
-                    if chooice > conto.visualizza_saldo():
-                        chooice = float(input("Saldo non sufficiente selezionare la nuova cifra da prelevare: "))
-                        withdraw = conto.preleva(chooice)
+                    if choice > account.view_balance():
+                        choice = float(input("Insufficient balance, select a new amount to withdraw: "))
+                        withdraw = account.withdraw(choice)
                     else:
-                        chooice = float(input("Cifra non valida selezionare la nuova cifra da prelevare: "))
-                        withdraw = conto.preleva(chooice)
+                        choice = float(input("Invalid amount, select a new amount to withdraw: "))
+                        withdraw = account.withdraw(choice)
                 else: 
                     break
-            saldo = conto.visualizza_saldo()
-            print(f"Il saldo attuale ammonta a {saldo} euro")
+            balance = account.view_balance()
+            print(f"The current balance is {balance} euro")
         case _:
-            print("Scelta non valida")
+            print("Invalid choice")
     
-    chooice = input("Si vuole effettuare un accesso con una persona diversa?")
+    choice = input("Do you want to log in as a different person? ")
     
-    if chooice.lower() == "no":
+    if choice.lower() == "no":
         break

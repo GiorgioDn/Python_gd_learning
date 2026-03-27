@@ -1,16 +1,16 @@
-from .module.Book import Libro
-from .module.Library import Libreria
+from .module.Book import Book
+from .module.Library import Library
 
-catalogo ={}
+catalog = {}
 
-libro_1 = Libro("me", "dfjssf", 12334423232)
+book_1 = Book("Me", "Author Name", 12334423232)
 
-print(libro_1)
+print(book_1)
 
-libro_2 = Libro("me22121", "dfjsdasdsf", 12333423232)
+book_2 = Book("Me 2.0", "Another Author", 12333423232)
 
-catalogo[libro_1.isbn] = [libro_1.titolo, libro_1.autore]
+catalog[book_1.isbn] = [book_1.title, book_1.author]
 
-libreria = Libreria(catalogo)
+library = Library(catalog)
 
-print(libreria)
+print(library)

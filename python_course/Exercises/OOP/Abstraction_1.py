@@ -3,48 +3,48 @@ from .module.WorkerRole import *
 
 def main():
     
-    impiegati = []
+    employees = []
     
     while True:
         
-        print("\n Impiegati azienda")
-        print("1. Aggiungere impiegati fissi")
-        print("2. Aggiungere impiegati a provvigione")
-        print("3. Vedere stipendio degli impiegati")
-        print("4. Esci")
-        chooice = int(input("Scegli una opzione: "))
+        print("\n Company employees")
+        print("1. Add salaried employees")
+        print("2. Add commissioned employees")
+        print("3. View employee salaries")
+        print("4. Exit")
+        choice = int(input("Choose an option: "))
         
-        match chooice:
+        match choice:
             case 1:
-                nome = input("Inserire il nome del dipendente: ")
-                cognome = input("Inserire il cognome: ")
-                stipendio = float(input("Inserire lo stipendio: "))
+                first_name = input("Enter employee's first name: ")
+                last_name = input("Enter last name: ")
+                salary = float(input("Enter salary: "))
 
-                impiegato_fisso = ImpiegatoFisso(nome, cognome, stipendio)
-                impiegati.append(impiegato_fisso)
+                salaried_employee = FixedEmployee(first_name, last_name, salary)
+                employees.append(salaried_employee)
 
             case 2:
-                nome = input("Inserire il nome del dipendente: ")
-                cognome = input("Inserire il cognome: ")
-                stipendio = float(input("Inserire lo stipendio: "))
+                first_name = input("Enter employee's first name: ")
+                last_name = input("Enter last name: ")
+                salary = float(input("Enter salary: "))
 
-                impiegato_a_provvigione = ImpiegatoAProvvigione(nome, cognome, stipendio)
-                impiegati.append(impiegato_a_provvigione)
+                commissioned_employee = CommissionEmployee(first_name, last_name, salary)
+                employees.append(commissioned_employee)
 
             case 3:
-                for n in impiegati:
-                    if type(n) == ImpiegatoAProvvigione:
-                        provvigione = float(input("Il dipendente è a provvigione, inserire lo provvigione: "))
-                        print(impiegato_a_provvigione.calcola_stipendio(provvigione))
+                for emp in employees:
+                    if isinstance(emp, CommissionEmployee):
+                        commission = float(input("The employee is commissioned, enter the commission: "))
+                        print(emp.calculate_salary(commission))
                     else:
-                        print(impiegato_fisso.calcola_stipendio())
+                        print(emp.calculate_salary())
 
             case 4:
                 break
             case _:
-                print("Scelta non valida")
+                print("Invalid choice")
                 
 if __name__ == "__main__":
     main()
 else: 
-    print("È stato importato")
+    print("Module imported")
