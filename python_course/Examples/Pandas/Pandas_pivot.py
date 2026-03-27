@@ -1,18 +1,18 @@
 import pandas as pd
 
-#dati di esempio
+#example data
 data = {
-    'Data': ['2021-01-01', '2021-01-01', '2021-01-01', '2021-01-02', '2021-01-02'],
-    'Città': ['Roma', 'Milano', 'Napoli', 'Roma', 'Milano'],
-    'Prodotto': ['Mouse', 'Tastiera', 'Mouse', 'Tastiera', 'Mouse'],
-    'Vendite': [100, 200, 150, 300, 250]
+    'Date': ['2021-01-01', '2021-01-01', '2021-01-01', '2021-01-02', '2021-01-02'],
+    'City': ['Roma', 'Milano', 'Napoli', 'Roma', 'Milano'],
+    'Product': ['Mouse', 'Keyboard', 'Mouse', 'Keyboard', 'Mouse'],
+    'Sale': [100, 200, 150, 300, 250]
 }
 
 df = pd.DataFrame(data)
 
 #pivot
-#creazione della tabella pivot
-#applica la funzione al values organizzando i dati in modo tale che ogni riga rappresenti l'index ed ogni colonna riporti il dato corrispondente a columns
-pivot_df = df.pivot_table(values='Vendite', index='Prodotto', columns='Città', aggfunc='mean')
+#creating the pivot table
+#applies the function to values, organizing data so each row represents the index and each column reports the data corresponding to columns
+pivot_df = df.pivot_table(values='Sale', index='Product', columns='City', aggfunc='mean')
 
 print(pivot_df)

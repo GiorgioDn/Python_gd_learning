@@ -2,33 +2,32 @@ import pandas as pd
 
 df = pd.DataFrame()
 
-#esempio: colonna “date” in stringhe → datetime
+#example: "date" column in strings → datetime
 df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d')
 
-#generazione di una serie di date
+#generating a series of dates
 date_range = pd.date_range(start='2021-01-01', periods=10, freq='M')
 
-#oppure per creare un indice
+#or to create an index
 df.index = pd.to_datetime(df['date'])
 
-#gesampling dei dati di una serie temporale
+#resampling time series data
 df_resampled = df.resample('M').mean()
 print(df_resampled)
 
-#partendo da un DataFrame con indice DatetimeIndex:
-#media giornaliera
+#starting from a DataFrame with DatetimeIndex:
+#daily average
 df_daily = df.resample('D').mean()      
-#somma mensile
+#monthly sum
 df_monthly = df.resample('M').sum()
 
-#aggiunge una colonna con il valore del giorno precedente
+#adds a column with the previous day's value
 df['prev_day'] = df['value'].shift(1)
 
-#tasso di variazione giornaliero
-#equivalente a shift + calcolo %
+#daily rate of change
+#equivalent to shift + % calculation
 df['daily_return'] = df['value'].pct_change()  
 
-#finestra mobile di 7 giorni: media e deviazione standard
+#7-day rolling window: mean and standard deviation
 df['rolling_mean7'] = df['value'].rolling(window=7).mean()
 df['rolling_std7']  = df['value'].rolling(window=7).std()
-

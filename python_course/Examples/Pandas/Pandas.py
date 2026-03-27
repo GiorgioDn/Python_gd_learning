@@ -1,16 +1,16 @@
 import pandas as pd
 import numpy as np
 
-#percorso del file csv
-file_path = "corso python/11_27_Giovedi/Esempi/Prova pandas/vendite.csv"
+#csv file path
+file_path = "Sales.csv"
 
-#caricamento dei dati nel dataframe
+#loading data into dataframe
 df = pd.read_csv(file_path)
 
-#le prime righe del dataframe per confermare
+#first rows of the dataframe to confirm
 print(df.head())
 
-#dataFrame esempio, inclusi valori mancanti e duplicati
+#example DataFrame, including missing values and duplicates
 data = {
     'Nome': ['Alice', 'Bob', 'Carla', 'Bob', 'Carla', 'Alice', None],
     'Età': [25, 30, 22, 30, np.nan, 25, 29],
@@ -19,51 +19,51 @@ data = {
 
 df = pd.DataFrame(data)
 
-#stampa del DataFrame originale
-print("DataFrame Originale:")
+#printing original DataFrame
+print("Original DataFrame:")
 print(df)
 
-#selezione delle righe dove l'età è superiore a 23, creando una copia del dataframe
+#selecting rows where age is over 23, creating a copy of the dataframe
 df_older = df[df['Età'] > 23]
 
-#stampa delle righe selezionate
-print("\nPersone con età superiore a 23 anni:")
+#printing selected rows
+print("\nPeople older than 23 years:")
 print(df_older)
 
-#aggiungiamo una nuova colonna  la persona maggiorenne
+#adding a new column for adult (over 18)
 df['Maggiorenne'] = df['Età'] >= 18
 
-#stampa del DataFrame con la nuova colonna
-print("\nDataFrame con colonna 'Maggiorenne':")
+#printing DataFrame with 'Maggiorenne' column
+print("\nDataFrame with 'Maggiorenne' column:")
 print(df)
 
-#rimozione dei duplicati
+#removing duplicates
 df = df.drop_duplicates()
 
-#gestione dei dati mancanti
-#rimozione delle righe dove almeno un elemento è mancante
+#handling missing data
+#removing rows where at least one element is missing
 df_cleaned = df.dropna()
 
-#possiamo sostituire dati mancanti con valore di default
-#inplace modifica il dataset se impostato su True, conviene metterlo a False prima di modificare per vedere i dati come sono stati modificati
+#we can replace missing data with a default value
+#inplace modifies the dataset if set to True, it's better to set it to False first to see how data is modified
 df['Età'].fillna(df['Età'].mean(), inplace=True)
 
-#stampa del DataFrame pulito
+#printing cleaned DataFrame
 
-print("\nDataFrame dopo la pulizia:")
+print("\nDataFrame after cleaning:")
 print(df_cleaned)
 
-#stampa del DataFrame con dati mancanti sostituiti
-print("\nDataFrame con dati mancanti sostituiti:")
+#printing DataFrame with replaced missing data
+print("\nDataFrame with replaced missing data:")
 print(df)
 
-#aggiungiamo una nuova colonna  la persona maggiorenne
+#adding a new column for adult (over 18)
 df['Maggiorenne'] = df['Età'] >= 18
 
-#stampa del DataFrame con la nuova colonna
-print("\nDataFrame con colonna 'Maggiorenne' dopo la sostituizione:")
+#printing DataFrame with 'Maggiorenne' column after replacement
+print("\nDataFrame with 'Maggiorenne' column after replacement:")
 print(df)
 
-#stampa del DataFrame originale
-print("DataFrame Originale:")
+#printing original DataFrame
+print("Original DataFrame:")
 print(df)

@@ -6,39 +6,39 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-#caricamento del dataset di prova
+#loading the test dataset
 data = load_iris()
-X = data.data  #caratteristiche
-y = data.target  #etichette
+X = data.data  #features
+y = data.target  #labels
 
-#divisione dei dati in set di addestramento e di test
+#splitting data into training and test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=41)
 
-#creazione del modello di classificazione
+#creating the classification model
 model = RandomForestClassifier(n_estimators=100, random_state=41)
 
-#addestramento del modello
+#model training
 model.fit(X_train, y_train)
 
-#predizione delle etichette per il set di test
+#predicting labels for the test set
 predictions = model.predict(X_test)
 
-#calcolo dell'accuratezza del modello
+#calculating model accuracy
 accuracy = accuracy_score(y_test, predictions)
 
 print(f'Accuracy: {accuracy:.2f}')
 
-#analisi dati file iris
+#iris file data analysis
 df = pd.DataFrame(data.data, columns=data.feature_names)
 df["target"] = data.target
 
-#non si hanno valori nulli
+#no null values
 df.info()
 
-#colonne da mettere come grafico
+#columns to plot
 cols_to_plot = ["sepal length (cm)", "sepal width (cm)", "petal length (cm)", "petal width (cm)", "target"]
 
-#grafico pairplot per visualizzare le caratteristiche generali in realzione tra ogni colonna
+#pairplot to visualize general characteristics in relation between each column
 g = sns.pairplot(df[cols_to_plot], diag_kind='kde', plot_kws={'alpha': 0.5, 's': 15}, diag_kws={'fill': True}, height=2)
 
 g.figure.set_size_inches(12, 8)
@@ -57,5 +57,5 @@ sns.heatmap(
     fmt=".2f"
 )
 
-plt.title('Matrice di Correlazione', fontsize=5)
+plt.title('Correlation Matrix', fontsize=5)
 plt.show()

@@ -4,32 +4,32 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 
-#caricamento del dataset di prova
+#loading the test dataset
 data = load_iris()
-X = data.data  #caratteristiche
-y = data.target  #etichette
+X = data.data  #features
+y = data.target  #labels
 
-#normalizzazione dati
+#data normalization
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
-#divisione dei dati in set di addestramento e di test
+#splitting data into training and test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=41)
 
-#creazione del modello di classificazione
+#creating the classification model
 model = KNeighborsClassifier(leaf_size=60, n_jobs=2)
 
-#addestramento del modello
+#model training
 model.fit(X_train, y_train)
 
-#predizione delle etichette per il set di test
+#predicting labels for the test set
 predictions = model.predict(X_test)
 
-#calcolo dell'accuratezza del modello
+#calculating model accuracy
 accuracy = accuracy_score(y_test, predictions)
 
 print(f'Accuracy: {accuracy:.10f}')
 
-#stampa una metrica confrontando i valori di test con quelli predetti
+#printing a metric comparing test values with predicted ones
 score = classification_report(y_test, predictions)
 print(score)
